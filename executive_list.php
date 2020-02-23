@@ -4,33 +4,27 @@ session_start();
 require('pulilan_db_connect.php');
 ?>
 <?php include('../pulilan/adminnav.php'); ?>
-            <div class="row">
-                 <!--  page header -->
-                <div class="col-lg-12">
-                    <h1 class="page-header">Barangay Account Table</h1>
-                </div>
-                 <!-- end  page header -->
-            </div>
+  <h1 class="page-header">Executive List</h1>
 
-                            <script>
-function showResult(str) {
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
-  } else {  // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("livesearch").innerHTML=this.responseText;
+  <script>
+    function showResult(str) {
+      if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+      } else {  // code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange=function() {
+        if (this.readyState==4 && this.status==200) {
+          document.getElementById("livesearch").innerHTML=this.responseText;
+        }
+      }
+      xmlhttp.open("GET","livesearch/livesearch.php?r="+str,true);
+      xmlhttp.send();
     }
-  }
-  xmlhttp.open("GET","livesearch/livesearch.php?r="+str,true);
-  xmlhttp.send();
-}
-</script>
-           
-                    <div class="form-group">
+  </script>
+
+  <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                             <input type="text" class="form-control" placeholder="Search..." onkeyup="showResult(this.value)" name="search" id="search">
@@ -61,9 +55,7 @@ function showResult(str) {
                                 });
                         });
                         </script>
-                        
-
-            <div class="row">
+  <div class="row">
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
@@ -76,7 +68,6 @@ function showResult(str) {
                             <th>Gender</th>
                             <th>Username</th>
                             <th>Password</th>
-                            <th>Brgy id no.</th>
                             <th>accounttype</th>
                             <th>Edit</th>
                             <th class="danger">Delete</th>
@@ -90,8 +81,7 @@ function showResult(str) {
                     $sql = mysqli_query($con, "SELECT * from mainuser_acc where type = 'dilg' OR type = 'executive'  && visibility = '0' ");
 
                 while($result = mysqli_fetch_array($sql))
-
-         { 
+  { 
 
              ?>
               <tr>
@@ -108,15 +98,12 @@ function showResult(str) {
               <td>
                <a type="button" href="delete_acc.php?user_id=<?php echo $result['user_id']; ?>" class="btn btn-outline btn-danger fa fa-times"></a>
              </td>
-            <tr>
-        <?php
-}
-?>
-
-
-            <!--start of query-->
-   
-</tbody>
+    <tr>
+  <?php
+    }
+  ?>
+  <!--start of query-->
+  </tbody>
     </table><!-- end wrapper -->
 
     <!-- Core Scripts - Include with every page -->

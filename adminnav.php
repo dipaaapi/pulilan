@@ -71,6 +71,81 @@ global $view_memo;
         input[type=submit]:hover {
             background-color: #45a049;
         }
+        #navigation {
+            height: 10vh;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            right: 0;
+        }
+        #navbar {
+            background-color: #008e00;
+            height: 10vh;
+            padding: 0;
+            margin: 0;
+        }
+        #navigation li a {
+            padding: 10px;
+            height: 10vh;
+        }
+        .navbar-toggle {
+            position: absolute;
+            top: 11vh;
+            left: 2vw;
+            padding: 0;
+            border: 0;
+            color: black;
+            margin: 0;
+        }
+        .navbar-toggle i {
+            font-size: 4rem;
+            color: #008e00;
+        }
+        .brand {
+            height: 10vh;
+            width: 20vw;
+            padding: 0;
+            margin: 0;
+        }
+        .brand img {
+            width: auto;
+            height: 10vh;
+            padding: 0;
+            margin: 0;
+            background-color: rgb(0,0,0,0.5);
+            box-shadow: 0 0 10px black;
+        }
+        .user-tag {
+            margin: 0;
+            text-transform: uppercase;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            display: block;
+            background-color: rgb(0,0,0,.4);
+            border-radius: 5px;
+        }
+        .collapse.in {
+            display: inline;
+            width: 50vw;
+            right: 0;
+            top: 10vh;
+            background-color: #008e00;
+            padding: 0;
+            margin: 0;
+        }
+        .collapse.in .user-section {
+            display: none;
+        }
+        .collapse.in #nav-back {
+            height: 90vh;
+            width: 50vw;
+            z-index: 3;
+            position: absolute;
+            top: 10vh;
+            background-color: #008e00;
+            right: -7px;
+        }
     </style>
 </head>
 <body>
@@ -78,22 +153,19 @@ global $view_memo;
     <!--  wrapper -->
     <div id="wrapper">
         <!-- navbar top -->
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+        <nav id="navbar" class="navbar navbar-fixed-top" role="navigation" id="navbar">
             <!-- navbar-header -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="adminprofile.php">
-                    <img src="../pulilan/img/logo.png" alt="pulilan logo" style="width: auto; height: 300%;" class="img-responsive" />
+                <a class="brand" href="adminprofile.php">
+                    <img src="../pulilan/img/logo.png" alt="pulilan logo" class="img-responsive" />
                 </a>
             </div>
             <!-- end navbar-header -->
             <!-- navbar-top-links -->
-            <ul class="nav navbar-top-links navbar-right">
+            <ul id="navigation" class="nav navbar-top-links navbar-right">
                 <!-- main dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -210,29 +282,21 @@ global $view_memo;
                 <!-- end main dropdown -->
             </ul>
             <!-- end navbar-top-links -->
-
         </nav>
         <!-- end navbar top -->
 
         <!-- navbar side -->
-       <nav class="navbar-default navbar-static-side" role="navigation">
-            <!-- sidebar-collapse -->
             <div class="sidebar-collapse">
+       <nav id="nav-back" class="navbar-static-side" role="navigation">
+            <!-- sidebar-collapse -->
                 <!-- side-menu -->
+                <!-- user image section-->
+                <div class="user-section">
+                    <img src="../pulilan/img/plogo.png" alt="admin logo" class="img img-responsive">
+                    <h3 class="user-tag">admin</h3>
+                </div>
+                <!--end user image section-->
                 <ul class="nav" id="side-menu">
-                    <li>
-                        <!-- user image section-->
-                        <div class="user-section">
-                            <div class="user-section-inner">
-                                <img src="../pulilan/img/plogo.png" alt="admin logo" class="img img-responsive">
-                            </div>
-                            <br>
-                            <div class="text-center">
-                                <div style="text-transform: uppercase; padding: 5px"><strong>Admin</strong></div>
-                            </div>
-                        </div>
-                        <!--end user image section-->
-                    </li>
                     <!-- second-level-items -->
                     <li>
                         <a href="adminindex.php"><i class="fa fa-user fa-fw"></i>Profile</a>

@@ -3,15 +3,10 @@ error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 require('pulilan_db_connect.php');
 ?>
-<?php include('../pulilan/adminnav.php'); ?>
-
-            
-        <!--  page header -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Barangay Account Table</h1>
-            </div><!-- end  page header -->
-        </div>
+<?php include('../pulilan/adminnav.php'); ?>          
+  <!--  page header -->
+  <h1 class="page-header">Barangay Account Table</h1>
+  <!-- end  page header -->
 
 <script>
 function showResult(str) {

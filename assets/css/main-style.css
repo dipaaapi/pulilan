@@ -1,26 +1,4 @@
-﻿/* user image section */
-.user-section {
-    margin-top:20px;
-    font-size:22px;
-}
-.user-section-inner {
-    height: 100%;
-    width: 100%;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    overflow: hidden;
-    display: inline-block;
-    float: top;
-    margin-right: 15px;
-    margin-top: 30px;
-}
-.user-section-inner img {
-    margin-left:70px;
-    width:100px;
-    height:100px;
-}
-.user-info {
+﻿.user-info {
     display: block;
     color:#000!important;
     display: inline-block;
@@ -51,16 +29,15 @@
 .navbar-top-links > li > a {
     color: #FFFFFF;
 }
-.nav > li > a {
-    padding: 20px 15px;
-}
 #side-menu {
-    background-image: -webkit-linear-gradient(top, #ffffff 10%, #008e00 60%, #004600 90%);
+    background-color: #008e00;
+}
+#side-menu li {
+    cursor: pointer;
 }
 #side-menu a {
     color:#fff;
     padding-bottom: 5px;
-    min-height: 100%;
 }
 .selected {
     background-color:rgb(83, 163, 163);
@@ -82,12 +59,18 @@
 .no-boder {
     border:0px solid #5bc0de !important;
 }
-/* tap nvbar Section */
-#navbar {
-    background-color: #008e00;
-}
 .navbar-header {
-    position: inherit;
+    position: absolute;
+    height: 10vh;
+    padding: 0;
+    margin: 0;
+}
+@media (min-width: 768px;) {
+    nav {
+        position: absolute;
+        top: 10vh;
+        width: 20vw;
+    }   
 }
 @media (max-width: 664px;) {
     .navbar-header {
@@ -116,12 +99,4 @@
 }
 .margin-tips {
     margin:5px;
-}
-.navbar-default {
-    border-color: rgba(76, 174, 76, 1);
-}
-@media(max-width:768px) {
-    #wrapper {
-        margin-top:140px!important;
-    }
 }

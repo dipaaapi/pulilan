@@ -18,12 +18,6 @@ tr th, tr td {
     text-align: center;
 }
 
-#wrapper {
-    width: 100%;
-    margin-top: 55px!important; 
-    background-color:#04B173; 
-}
-
 #page-wrapper {
     position: absolute;
     top: 10vh;
@@ -34,18 +28,6 @@ tr th, tr td {
     width: 80vw;
 }
 
-h1{
-    color: white;
-    text-shadow: 1px 1px 2px black, 0 0 10px gray, 0 0 25px green;
-    font-family: cooper;
-}
-
- 
-
-.navbar-static-side ul li {
-    border-bottom:1px solid #84B899 !important;
-}
-
 /* Navigation */
 
 /* ------------------------------- */
@@ -54,10 +36,6 @@ h1{
 
  .navbar-top-links li {
     display: inline-block;
-}
-
-.navbar-top-links li:last-child {
-    margin-right: 15px;
 }
 
 .navbar-top-links li a {
@@ -137,11 +115,61 @@ h1{
     padding-left: 52px;
 }
 
+@media(min-width:375px) {
+    #page-wrapper {
+        width: 100%;
+    }
+}
+/* --------------------------- 425 width -------------------------------------------- */
+@media(min-width:425px) {
+    .page-header {
+        padding: 10px 0;
+        margin: 0;
+        padding-top: 10vh;
+    }
+    #page-wrapper {
+        width: 100%;
+    }
+    .dropdown {
+        height: 10vh;
+    }
+    .dropdown a {
+        padding: 0;
+    }
+    .dropdown a i {
+        font-size: 2em;
+    }
+}
 @media(min-width:768px) {
+    #page-wrapper {
+        width: 80vw;
+    }
     .navbar-static-side {
         z-index: 1;
         position: absolute;
-        width: 250px;
+        width: 20vw;
+        top: 10vh;
+        height: 90vh;
+        background-color: #008e00;
+    }
+    .user-section {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .user-section img {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        text-align: center;
+        padding: 3vw;
+        display: block;
+    }
+    .nav li a {
+        overflow: hidden;
+        height: auto;
+        padding: 10px;
+        margin: 0;
     }
 
     .navbar-top-links .dropdown-messages,
