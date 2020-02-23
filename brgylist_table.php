@@ -33,10 +33,10 @@ function showResult(str) {
            
                     <div class="form-group">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <span class="bloat input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                             <input type="text" class="form-control" placeholder="Search..." onkeyup="showResult(this.value)" name="search" id="search">
                             <span class="input-group-btn">
-                                <input class="btn btn-default" type="submit" value="Go" name="_submit">
+                                <input class="btn btn-default" type="submit" value="Go" name="_submit" style="background-color: #008e00;">
                             </span>
                         </div>
                         <div id="here"></div>

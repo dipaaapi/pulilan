@@ -39,41 +39,40 @@ global $view_memo;
     <!-- Page-Level CSS -->
     <link href="assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <style>
-input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-}
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+        input[type=text] {
+            position: relative;
+            z-index: -1;
+            float: left;
+            width: 100%;
+            margin: 0;
+            border: 0;
+            height: auto;
+        }
 
-input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
-.container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-
-#navbar {
-    background-image: -webkit-linear-gradient(left, #ffffff 10%, #008e00 60%, #004600 90%);
-}
-</style>
-   </head>
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
 <body>
 
     <!--  wrapper -->
@@ -89,7 +88,7 @@ input[type=submit]:hover {
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="adminprofile.php">
-                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-responsive" />
+                    <img src="../pulilan/img/logo.png" alt="pulilan logo" style="width: auto; height: 300%;" class="img-responsive" />
                 </a>
             </div>
             <!-- end navbar-header -->
@@ -225,7 +224,7 @@ input[type=submit]:hover {
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img src="../pulilan/img/logo.png" alt="admin logo" class="img img-responsive">
+                                <img src="../pulilan/img/plogo.png" alt="admin logo" class="img img-responsive">
                             </div>
                             <br>
                             <div class="text-center">
@@ -320,4 +319,4 @@ input[type=submit]:hover {
         </nav>
         <!-- end navbar side -->
         <!--  page-wrapper -->
-        <div id="page-wrapper">
+        <div id="page-wrapper" class="page-wrapper">

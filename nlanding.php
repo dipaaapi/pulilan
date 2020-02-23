@@ -19,6 +19,9 @@
     <!-- CSS Animations -->
     <link href="css/animate.css" rel="stylesheet">
 
+    <!-- modif -->
+    <link rel="stylesheet" href="css/modif.css">
+
     <!-- Mordernizr -->
     <script src="js/modernizr-2.6.2.min.js"></script>
 </head>
@@ -30,7 +33,7 @@
         <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="img img-responsive" href="nlanding.php"><img src="img\plogo.png" alt="logo"></a>
+                    <a class="img img-responsive" href="nlanding.php"><img id="sm-logo" src="img\plogo.png" alt="logo"></a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -453,7 +456,7 @@
 
                         <ul class="list-unstyled text-large text-thin" data-animate="fadeInUp">
                             <li><strong>E-mail:</strong> dipaaapi8@gmail.com</li>
-                            <li><strong>Phone:</strong> 09056606675</li>
+                            <li><strong>Phone:</strong> 09663679205</li>
                         </ul>
 
                     </div>

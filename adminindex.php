@@ -44,7 +44,6 @@ input[type=text], select, textarea {
     margin-bottom: 16px;
     resize: vertical;
 }
-
 input[type=submit] {
     background-color: #4CAF50;
     color: white;
@@ -65,7 +64,7 @@ input[type=submit]:hover {
 }
 
 #navbar {
-    background-image: -webkit-linear-gradient(left, #ffffff 10%, #008e00 60%, #004600 90%);
+    background-color: #008e00;
 }
 </style>
    </head>
@@ -83,7 +82,7 @@ input[type=submit]:hover {
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="adminindex.php">
-                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-responsive" />
+                    <img src="../pulilan/img/logo.png" alt="pulilan logo" style="width: auto; height: 300%;" class="img-responsive" />
                 </a>
             </div>
             <!-- end navbar-header -->
@@ -219,7 +218,7 @@ input[type=submit]:hover {
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img src="../pulilan/img/logo.png" alt="admin logo" class="img img-responsive">
+                                <img src="../pulilan/img/plogo.png" alt="admin logo" class="img img-responsive">
                             </div>
                             <br>
                             <div class="text-center">

@@ -7,6 +7,23 @@ $result = mysqli_query($connection, $query);
 
 
 ?>
+<style>
+  .container {
+    width: auto;
+    padding: 0;
+    margin: 0;
+  }
+  .prnt {
+    background-color: #008e00;
+    color: white;
+    position: absolute;
+    right: 0;
+  }
+  .page-wrapper {
+    top: 25vh;
+  }
+</style>
+<?php include('../pulilan/adminnav.php'); ?>
 <script> // Print
 function printpage() {
 
@@ -28,39 +45,23 @@ function printpage() {
 }
 
 </script>
-        <script src="../js/jquery-ui.js"></script>  
-           <link rel="stylesheet" href="../css/jquery-ui.css">  
-      
-           <div class="container">  
-           <div class="jumbotron" style="background: white;">
-
-
-<img class="imagelogo_" src="img/sample.png"  />
-<br />
-                <form class="form-inline">
+<script src="../js/jquery-ui.js"></script>  
+<link rel="stylesheet" href="../css/jquery-ui.css">
+   <div class="col-md-12">  
+     <h1 class="page-header">Barangay Monitoring List Report</h1>
+</div> 
+  <form class="form-inline">
   <label>FROM</label>
-     <input type="date" name="from_date" id="from_date" class="form-control" placeholder="From Date" />  
-
+     <input type="date" name="from_date" id="from_date" class="form-control" placeholder="From Date" />
   <label>TO</label>
    <input type="date" name="to_date" id="to_date" class="form-control" placeholder="To Date" />
-
-
-
     <label class="form-check-label">
         <input type="button" name="filter" id="filter" value="Filter" class="btn btn-default" />  
     </label>
-
-
+   <div class="col-md-1 pull-right">  
+     <a class="btn prnt" id="printpagebutton" onclick="printpage()">Print this page</a>
+  </div> 
 </form>
-                
-                 <div class="col-md-1 pull-right">  
-                   <a class="btn btn-default" id="printpagebutton" onclick="printpage()">Print this page</a>
-                </div> 
-
-<br />
-   <div class="col-md-9">  
-     <legend>Barangay Monitoring List Report</legend>
-</div> 
    
                 <div id="brgy_table">  
                
@@ -120,3 +121,21 @@ function printpage() {
            });  
       });  
  </script>
+ <!-- Core Scripts - Include with every page -->
+    <script src="assets/plugins/jquery-1.10.2.js"></script>
+    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="assets/plugins/pace/pace.js"></script>
+    <script src="assets/scripts/siminta.js"></script>
+    <!-- Page-Level Plugin Scripts-->
+    <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+        });
+    </script>
+
+</body>
+
+</html>

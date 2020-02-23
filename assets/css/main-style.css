@@ -84,8 +84,7 @@
 }
 /* tap nvbar Section */
 #navbar {
-        background-image: -webkit-linear-gradient(left, #ffffff 10%, #008e00 60%, #004600 90%);
-    border-bottom: 2px solid black;
+    background-color: #008e00;
 }
 .navbar-header {
     position: inherit;
@@ -120,15 +119,6 @@
 }
 .navbar-default {
     border-color: rgba(76, 174, 76, 1);
-}
-/*media queries*/
-@media(min-width:768px) {
-    #page-wrapper {
-        position: inherit;
-        margin: 0 0 0 250px;
-        padding: 0 30px;
-        min-height: 1000px;
-    }
 }
 @media(max-width:768px) {
     #wrapper {

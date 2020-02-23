@@ -1,27 +1,37 @@
 /* ------------------------------- */
 
  body {
-    background-color: #f8f8f8;
     min-height: 100%;
-    height: 100%;
+    height: max-content;
 }
 
 /* Wrappers */
 
 /* ------------------------------- */
 
- #wrapper {
+.bloat {
+    border: 0;
+    background-color: #cccccc;
+    color: black;
+}
+tr th, tr td {
+    text-align: center;
+}
+
+#wrapper {
     width: 100%;
     margin-top: 55px!important; 
     background-color:#04B173; 
 }
 
 #page-wrapper {
-    padding: 0 15px;
-    min-height: 568px;
-    background-color: blue;
-    background: linear-gradient(to bottom, white, lightblue, blue, darkblue, black);
-    color: black;
+    position: absolute;
+    top: 10vh;
+    margin: 0;
+    padding: 2vw;
+    height: auto;
+    right: 0;
+    width: 80vw;
 }
 
 h1{
