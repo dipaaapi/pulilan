@@ -25,13 +25,7 @@ require('pulilan_db_connect.php');
 	}
 </style>
 <?php include('../pulilan/adminnav.php'); ?>
-
-<!--******************************Content*********************************-->
-
-	<div class="p-header">
-	    <h1 class="page-header">Log History</h1>
-	</div>
-
+    <h1>Log History</h1>
 	<div id="panel" class="panel panel-default col col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="panel-body" id="panel-body">
 			<table class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">

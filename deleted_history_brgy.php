@@ -4,13 +4,7 @@ session_start();
 require('pulilan_db_connect.php');
 ?>
 <?php include('../pulilan/adminnav.php'); ?>
-            <div class="row">
-                 <!--  page header -->
-                <div class="col-lg-12">
-                    <h1 class="page-header">Barangay Account Table</h1>
-                </div>
-                 <!-- end  page header -->
-            </div>
+  <h1>Barangay Account Table</h1>
            
                     <div class="form-group">
                         <div class="input-group">

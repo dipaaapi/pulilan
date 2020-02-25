@@ -38,6 +38,7 @@ global $view_memo;
     <link href="assets/css/main-style.css" rel="stylesheet" />
     <!-- Page-Level CSS -->
     <link href="assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="js/vue.min.js">
     <style>
         input[type=text], select, textarea {
             width: 100%;
@@ -49,23 +50,31 @@ global $view_memo;
             margin-bottom: 16px;
             resize: vertical;
         }
+        .table {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            border-radius: 5px;
+            text-align: center;
+            height: auto;
+        }
+        .table:hover {
+            box-shadow: 0 0 7px black;
+        }
         input[type=text] {
-            position: relative;
-            z-index: -1;
             float: left;
             width: 100%;
-            margin: 0;
-            border: 0;
             height: auto;
+            margin: 0;
         }
 
         input[type=submit] {
-            background-color: #4CAF50;
             color: white;
             padding: 12px 20px;
-            border: none;
+            border: 1px solid #008e00;
             border-radius: 4px;
             cursor: pointer;
+            background-color: #008e00;
         }
 
         input[type=submit]:hover {
@@ -108,7 +117,7 @@ global $view_memo;
             margin: 0;
         }
         .brand img {
-            width: auto;
+            width: 20vw;
             height: 10vh;
             padding: 0;
             margin: 0;

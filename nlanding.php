@@ -18,9 +18,7 @@
 
     <!-- CSS Animations -->
     <link href="css/animate.css" rel="stylesheet">
-
-    <!-- modif -->
-    <link rel="stylesheet" href="css/modif.css">
+    <link rel="stylesheet" href="css/nlanding.css">
 
     <!-- Mordernizr -->
     <script src="js/modernizr-2.6.2.min.js"></script>
@@ -30,10 +28,12 @@
 
         <!-- ****************************** NAVBAR ********************************** -->
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="img img-responsive" href="nlanding.php"><img id="sm-logo" src="img\plogo.png" alt="logo"></a>
+        <div class="navigation" role="navigation">
+            <div class="navigation-container">
+                <div class="navigation-img">
+                    <a href="nlanding.php">
+                        <img id="sm-logo" src="img\logo.png" alt="logo">
+                    </a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -44,7 +44,7 @@
 
                 <div class="navbar-collapse collapse">
 
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="navigation-list nav navbar-nav">
                         <li class="active"><a href="#intro">Home</a>
                         </li>
                         <li><a href="#section1">Info</a>
@@ -57,10 +57,10 @@
 
                 </div>
                 <!--/.nav-collapse -->
-
             </div>
         </div>
         </div><!-- /#navbar -->
+        <a class="menu" href="#">menu</a>
 
         <!-- *** NAVBAR END *** -->
 
@@ -73,14 +73,12 @@
                     <div class="container">
                         <div class="row">
 
-                            <h1 data-animate="fadeInDown">Pulilenyo ka ba?</h1>
+                            <h1 data-animate="fadeInDown">Are you proud Pulilenyo?</h1>
                             <p class="message" data-animate="fadeInUp">Ito na marahil ang pagkakataon mo upang makatulong sa paligid mo, at maaari din matulungan ka depende sa inyong pangangailangan.</p>
 
 
                             <div class="col-md-6 col-md-offset-3">
-                                <form action="#" method="post" id="frm-landingPage1" class="form">
-                                    <a class="btn btn-round btn-success" data-animate="fadeInDown" href="login.php">Login</a>
-                                </form>
+                                    <a class="login-button" data-animate="fadeInDown" href="login.php">Login</a>
                             </div>
 
                         </div>
@@ -97,7 +95,7 @@
             <div class="section" id="section1">
                 <div class="container">
                     <div class="col-md-12">
-                        <h2 class="title" data-animate="fadeInDown">Bakit ako sasali?</h2>
+                        <h2 class="title" data-animate="fadeInDown">Why joining us?</h2>
 
                         <p class="lead">There are three Major reason why you need to join, some problem cannot solved in the certain area this may addressed by the local Government in simply answer the forms annualy.</p>
 
@@ -470,23 +468,13 @@
 
             <!-- ****************************** FOOTER ************************************* -->
 
-            <div class="section" id="footer" style="background: black; padding: 5px; min-height: 100px; display: block;">
-                <div class="container">
-
-                    <div class="row">
-                        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <ul style="background: black; padding: 5px; min-height: 100px; display: inline-block;" class="breadcrumb" align="center">
-
-                            <center>
-                                <li data-animate="fadeInRight"><a href="https://facebook.com/CBMSPhilippines"><i class="fa fa-facebook"></i> Facebook</a></li>
-                                <li data-animate="fadeInLeft"><a href="#"><i class="fa fa-google-plus"></i> Google Plus</a></li>
-                                <li data-animate="fadeInRight"><a href="#"><i class="fa fa-pinterest"></i> Pinterest</a></li>
-                                <li data-animate="fadeInLeft"><a href="#"><i class="fa fa-youtube"></i> Youtube</a></li>
-                            </center>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="footer-main">
+                <ul class="footer-ul">
+                    <li data-animate="fadeInRight"><a href="https://facebook.com/CBMSPhilippines"><i class="fa fa-facebook"></i> Facebook</a></li>
+                    <li data-animate="fadeInLeft"><a href="#"><i class="fa fa-google-plus"></i> Google Plus</a></li>
+                    <li data-animate="fadeInRight"><a href="#"><i class="fa fa-pinterest"></i> Pinterest</a></li>
+                    <li data-animate="fadeInLeft"><a href="#"><i class="fa fa-youtube"></i> Youtube</a></li>
+                </ul>
             </div>
 
             <!-- ************** END *********** FOOTER ************************************* -->

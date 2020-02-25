@@ -22,15 +22,47 @@ global $view_memo;
 <style>
     table {
         width: 100%;
-        padding: 0;
         margin: 0;
         margin-top: 5vh;
-        box-shadow: 0 0 4px;
         border-radius: 5px;
+    }
+    #memo {
+        border-radius: 5px;
+        padding: 5px;
+        margin: 0;
+        box-shadow: 0 0 7px;
+    }
+    h3 {
+        margin: 0;
+        padding: 10px;
+    }
+    form {
+        padding: 10px 0;
+    }
+    form:hover, table:hover {
+        box-shadow: 0 0 7px;
+        padding: 10px;
+        transition: .5s;
+    }
+    form input[name=receiver], form input[name=subject] {
+        margin-bottom: 10px;
+    }
+    button[name=send_message], button[name=send_memo] {
+        background-color: green;
+        border: 1px solid green;
+        text-align: center;
+        text-transform: uppercase;
+        color: white;
+    }
+    .submit_btn {
+        text-align: center;
+    }
+    form input[name=picture], form textarea[name=memo_body] {
+        margin-bottom: 10px;
     }
 </style>
 <?php include('../pulilan/adminnav.php'); ?> 
-    <h1 class="page-header">Message</h1>
+    <h1>Message</h1>
     <?php
         if($done =="memo"){
     ?>
@@ -115,17 +147,12 @@ elseif($type =="" && $memo == ""){
             </div><!--end  Welcome -->
 
             <form method="POST" action="notification_process/official_message_process.php">
-
-            <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <input type="text" name="receiver" data-placement="right" placeholder="Receiver" required>
-            </div>
-            <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <input type="text" id="subject" name="subject" placeholder="Subject" required>
-            </div>
-         
-            <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
-
-            <button type="submit" name="send_message" class="btn btn-primary" style="background-color: green;">Send Message</button>
+                <input class="form-control" type="text" name="receiver" data-placement="right" placeholder="Receiver" required>
+                <input class="form-control" type="text" id="subject" name="subject" placeholder="Subject" required>
+                <textarea id="message" name="message" placeholder="Write something.." rows="5" cols="100%"></textarea>
+                <div class="submit_btn">
+                    <button type="submit" name="send_message" class="btn">Send Message</button>
+                </div>
         </div><!-- end wrapper -->
         </form>
        
@@ -136,27 +163,18 @@ elseif($type =="" && $memo == ""){
 elseif($type =="" && $memo == "true"){
     ?>
 
-<form method="POST" action="achievment/create_memo.php" enctype="multipart/form-data">
-    <h3>Add Memo</h3>
-
-<input type="text" name="memo" placeholder="Memo Name / Memo No" required>
-
-             <div class="item" name="receiver" required>
-                    <input type="text" name="receiver" data-placement="right">
-                      
-                    </select>
-                </div>
-
-<textarea name="memo_body" required>Memo Body</textarea>
-<input type="file" name="picture" id="picture"> <br><br/>
-
-
-
-<button type="submit" name="send_memo" class="btn btn-primary">Create Memo</button>
-
-</form>
-
-
+    <form method="POST" action="achievment/create_memo.php" enctype="multipart/form-data">
+        <p>Add Memo</p>
+        <input type="text" name="memo" placeholder="Memo Name / Memo No" required>
+        <!-- <div class="item" name="receiver" required>
+            <input type="text" name="receiver" data-placement="right">
+        </div> -->
+        <textarea name="memo_body" placeholder="Memo Body" rows="5" cols="100%" required></textarea>
+        <input type="file" name="picture" id="picture" class="form-control">
+        <div class="submit_btn">
+            <button type="submit" name="send_memo" class="btn">Create Memo</button>
+        </div>
+    </form>
 
     <?php
 }
@@ -165,13 +183,28 @@ elseif($type =="" && $memo == "view"){
     $view_memo = mysqli_query($con, "SELECT * from memo");
     ?>
 
-    <table class="table-hover">
-        <tr><th style="background-color: white; padding: 1em;">Memo</th><th style="background-color: white; padding: 1em;">Memo Status</th><th style="background-color: white; padding: 1em;">View Memo</th></tr>
-
+    <table class="table">
+        <tr class="label-info">
+            <th>Memo Status</th>
+            <th>View Memo</th>
+            <th>Action</th>
+        </tr>
         <?php
         while($view_m = mysqli_fetch_array($view_memo)){
         ?>
-        <tr><td style="background-color: green; padding: 1em; color: white;"><?php echo $view_m['project_name']; ?></td><td style="background-color: green; padding: 1em; color: white;"><?php echo $view_m['memo_status']; ?></td><td style="background-color: green; padding: 1em; color: white;"><a href="memo.php?view=<?php echo $view_m['memo_id']; ?>" class="btn btn-primary">View Memo</a></td></tr>
+        <tr>
+            <td>
+                <?php echo $view_m['project_name']; ?>
+            </td>
+            <td>
+                <?php echo $view_m['memo_status']; ?>
+            </td>
+            <td>
+                <a href="memo.php?view=<?php echo $view_m['memo_id']; ?>" class="btn btn-primary">
+                    View Memo
+                </a>
+            </td>
+        </tr>
         <?php
 }
 

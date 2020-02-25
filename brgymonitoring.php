@@ -4,8 +4,6 @@ session_start();
 $connection = mysqli_connect("localhost", "root", "", "pulilan");
 $query = "SELECT * FROM mainuser_acc where type IN ('brgy_official','executive','dilg') ORDER BY user_id ASC";
 $result = mysqli_query($connection, $query);
-
-
 ?>
 <style>
   .container {
@@ -47,16 +45,14 @@ function printpage() {
 </script>
 <script src="../js/jquery-ui.js"></script>  
 <link rel="stylesheet" href="../css/jquery-ui.css">
-   <div class="col-md-12">  
-     <h1 class="page-header">Barangay Monitoring List Report</h1>
-</div> 
+     <h1>Barangay Monitoring List Report</h1>
   <form class="form-inline">
   <label>FROM</label>
      <input type="date" name="from_date" id="from_date" class="form-control" placeholder="From Date" />
   <label>TO</label>
    <input type="date" name="to_date" id="to_date" class="form-control" placeholder="To Date" />
     <label class="form-check-label">
-        <input type="button" name="filter" id="filter" value="Filter" class="btn btn-default" />  
+        <input type="button" name="filter" id="filter" value="Filter" class="btn btn-success" />  
     </label>
    <div class="col-md-1 pull-right">  
      <a class="btn prnt" id="printpagebutton" onclick="printpage()">Print this page</a>

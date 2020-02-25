@@ -18,21 +18,30 @@
       color: #fff;
       background-color: #008e00;
       text-align: center;
-      width: 50%;
       border: none;
       border-radius: 5px;
       text-transform: uppercase;
+      padding: 1vh 3vw;
     }
     .button:hover {
-      box-shadow: 0 0 7px black;
+      box-shadow: 0 0 20px;
+      text-shadow: 0 0 10px;
+      font-weight: bold;
+      transition: .4s;
     }
     .submit-btn {
       width: 100%;
       text-align: center;
     }
-    @media(min-width:425px) {
-      .button {
-        width: 100%;
+    @media(min-width:426px) {
+      h1 {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 36px;
+        text-align: left;
+        text-transform: inherit;
+        border-bottom: 0;
+        padding-bottom: 0;
       }
       form {
         padding: 10px 20%;
@@ -43,10 +52,10 @@
       }
     }
   </style>
-  <h1 class="page-header">Barangay Official's Information</h1>
   <link rel="stylesheet" href="css/jquery-ui.css">
   <script src="js/jquery-1.10.2.js"></script>
   <script src="js/jquery-ui.js"></script>
+  <h1>Barangay Official's Form</h1>
     <form method="POST">
       <input id="fullname" type="input" name="fullname"  placeholder="Enter Full Name" value="" required>
       <input  id="" type="input" name="position"  placeholder="Enter Position" value="" required>   
