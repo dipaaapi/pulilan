@@ -1,9 +1,11 @@
 .login-button {
+    margin: 0;
+    width: fit-content;
     padding: 1vh 3vw;
-    color: white;
     background-color: #008a0d;
     border-radius: 5px;
     text-transform: uppercase;
+    color: white;
 }
 .login-button:hover {
     color: white;
@@ -13,6 +15,48 @@
     box-shadow: 0 0 10px white;
     border: 1px solid;
     transition: .5s;
+}
+.p1 {
+    padding-top: 10%;
+    width: 100%;
+    height: auto;
+    background-image: url(../img/home-1.jpg);
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-position: unset;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+.p-content {
+    padding-top: 25%;
+}
+.p1-content h1 {
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 4em;
+    padding: 5vh 10vw;
+    margin-bottom: 5vh;
+    margin-top: 0;
+    background-color: #ffffff50;
+    color: black;
+}
+.p1-content h1:hover {
+    color: white;
+    text-shadow: 0 0 20px white;
+    background-color: transparent;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    box-shadow: 0 0 20px white;
+    padding: 10vh 10vw;
+    transition: .5s;
+}
+.msg {
+    padding: 0 10vw;
+    font-style: italic;
+    font-family: auto;
+    font-size: initial;
+    color: white;
+    margin-bottom: 5vh;
 }
 .footer-ul {
     background: transparent;

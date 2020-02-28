@@ -4,8 +4,8 @@
 <html>
 <head>
 	<!-- tab-icon -->
-    <link rel="shortcut icon" href="img/logo.png">
-	<title>CBMS 2017 | Landing Page</title>
+    <link rel="shortcut icon" href="img/plogo.png">
+	<title>PULILAN | CBMS 2020</title>
 	<!-- Bootstrap and Font Awesome css -->
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,13 +45,15 @@
                 <div class="navbar-collapse collapse">
 
                     <ul class="navigation-list nav navbar-nav">
-                        <li class="active"><a href="#intro">Home</a>
+                        <li class="active"><a href="#p1">Home</a>
                         </li>
                         <li><a href="#section1">Info</a>
                         </li>
                         <li><a href="#about_us">About us</a>
                         </li>
                         <li><a href="#section4">Contact</a>
+                        </li>
+                        <li><a href="login.php">Login</a>
                         </li>
                     </ul>
 
@@ -60,37 +62,20 @@
             </div>
         </div>
         </div><!-- /#navbar -->
-        <a class="menu" href="#">menu</a>
-
-        <!-- *** NAVBAR END *** -->
+        <a class="menu" href="login.php">LOGIN</a>
 
         <div id="all">
 
-
-            <!-- *** HOME PAGE *** -->
-            <div id="intro">
-                <div class="item parallax">
-                    <div class="container">
-                        <div class="row">
-
-                            <h1 data-animate="fadeInDown">Are you proud Pulilenyo?</h1>
-                            <p class="message" data-animate="fadeInUp">Ito na marahil ang pagkakataon mo upang makatulong sa paligid mo, at maaari din matulungan ka depende sa inyong pangangailangan.</p>
-
-
-                            <div class="col-md-6 col-md-offset-3">
-                                    <a class="login-button" data-animate="fadeInDown" href="login.php">Login</a>
-                            </div>
-
-                        </div>
-                    </div>
+            <!-- INTRO -->
+            <div id="p1" class="p1">
+                <div class="p1-content">
+                    <h1 data-animate="fadeInDown">Are you proud Pulilenyo?</h1>
+                    <p class="msg" data-animate="fadeInUp">Ito na marahil ang pagkakataon mo upang makatulong sa paligid mo, at maaari din matulungan ka depende sa inyong pangangailangan.</p>
+                    <center>
+                        <h2 class="login-button" id="date"></h2>
+                    </center>
                 </div>
             </div>
-
-            <!-- ************** END *********** HOME PAGE ********************************** -->
-
-
-
-            <!-- ****************************** SERVICES *********************************** -->
 
             <div class="section" id="section1">
                 <div class="container">
@@ -498,6 +483,11 @@
         <!-- main js file -->
 
         <script src="js/front.js"></script>
+        <script>
+            var n = new Date();
+            var y = n.getFullYear();
+            document.getElementById("date").innerHTML = y;
+        </script>
 
 </body>
 </html>
