@@ -36,126 +36,10 @@ global $view_memo;
     <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/main-style.css" rel="stylesheet" />
+    <link href="css/admin.css" rel="stylesheet" />
     <!-- Page-Level CSS -->
     <link href="assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="js/vue.min.js">
-    <style>
-        input[type=text], select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            margin-top: 6px;
-            margin-bottom: 16px;
-            resize: vertical;
-        }
-        .table {
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            border-radius: 5px;
-            text-align: center;
-            height: auto;
-        }
-        .table:hover {
-            box-shadow: 0 0 7px black;
-        }
-        input[type=text] {
-            float: left;
-            width: 100%;
-            height: auto;
-            margin: 0;
-        }
-
-        input[type=submit] {
-            color: white;
-            padding: 12px 20px;
-            border: 1px solid #008e00;
-            border-radius: 4px;
-            cursor: pointer;
-            background-color: #008e00;
-        }
-
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
-        #navigation {
-            height: 10vh;
-            margin: 0;
-            padding: 0;
-            position: absolute;
-            right: 0;
-        }
-        #navbar {
-            background-color: #008e00;
-            height: 10vh;
-            padding: 0;
-            margin: 0;
-        }
-        #navigation li a {
-            padding: 10px;
-            height: 10vh;
-        }
-        .navbar-toggle {
-            position: absolute;
-            top: 11vh;
-            left: 2vw;
-            padding: 0;
-            border: 0;
-            color: black;
-            margin: 0;
-        }
-        .navbar-toggle i {
-            font-size: 4rem;
-            color: #008e00;
-        }
-        .brand {
-            height: 10vh;
-            width: 20vw;
-            padding: 0;
-            margin: 0;
-        }
-        .brand img {
-            width: 20vw;
-            height: 10vh;
-            padding: 0;
-            margin: 0;
-            background-color: rgb(0,0,0,0.5);
-            box-shadow: 0 0 10px black;
-        }
-        .user-tag {
-            margin: 0;
-            text-transform: uppercase;
-            color: white;
-            text-align: center;
-            padding: 5px;
-            display: block;
-            background-color: rgb(0,0,0,.4);
-            border-radius: 5px;
-        }
-        .collapse.in {
-            display: inline;
-            width: 50vw;
-            right: 0;
-            top: 10vh;
-            background-color: #008e00;
-            padding: 0;
-            margin: 0;
-        }
-        .collapse.in .user-section {
-            display: none;
-        }
-        .collapse.in #nav-back {
-            height: 90vh;
-            width: 50vw;
-            z-index: 3;
-            position: absolute;
-            top: 10vh;
-            background-color: #008e00;
-            right: -7px;
-        }
-    </style>
 </head>
 <body>
 
@@ -165,13 +49,13 @@ global $view_memo;
         <nav id="navbar" class="navbar navbar-fixed-top" role="navigation" id="navbar">
             <!-- navbar-header -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
                 <a class="brand" href="adminprofile.php">
                     <img src="../pulilan/img/logo.png" alt="pulilan logo" class="img-responsive" />
                 </a>
             </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
             <!-- end navbar-header -->
             <!-- navbar-top-links -->
             <ul id="navigation" class="nav navbar-top-links navbar-right">
@@ -208,8 +92,7 @@ global $view_memo;
                                 $get_sender = mysqli_query($con, "SELECT * from mainuser_acc where user_id = '$sender'");
                                 while($g = mysqli_fetch_array($get_sender)){
                                     $name = $g['name'];
-
-                    ?>
+                        ?>
                         <li>
                             <a href="adminprofile.php?type=<?php echo $d['message_id']; ?>">
                                 <div>
@@ -221,9 +104,8 @@ global $view_memo;
                                 <div><?php echo $d['subject']; ?></div>
                             </a>
                         </li>
-                        <li class="divider"></li>
                         <?php
-                                 }
+                                }
                             }
 
 
@@ -382,6 +264,21 @@ global $view_memo;
                             </li>
                             <li>
                                 <a href="history_final_report.php">Total Final Reports</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <li class="last_menu">
+                        <a href="#"><i class="fa fa-cogs fa-fw"></i> Actions<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="admin_messages.php">Messages</a>
+                            </li>
+                            <li>
+                                <a href="reports/reports/educationalreport.php">Notifications</a>
+                            </li>
+                            <li>
+                                <a href="logout.php">Logout</a>
                             </li>
                             
                         </ul>

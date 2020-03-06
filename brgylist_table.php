@@ -57,45 +57,47 @@ require('pulilan_db_connect.php');
           });
   });
   </script>
-  <table class="table">
-    <thead class="label-info">
-      <tr>
-          <th>Id</th>
-          <th>Brgy location</th>
-          <th>Name</th>
-          <th>Username</th>
-          <th>Password</th>
-          <th>accounttype</th>
-          <th>Edit</th>
-          <th class="danger">Delete</th>
-      </tr>
-    </thead>
-    <tbody id="livesearch">
-      <?php
-        $con = mysqli_connect("localhost", "root", "", "pulilan");
-        $sql = mysqli_query($con, "SELECT * from mainuser_acc where type = 'official'  && visibility = '0' ORDER BY user_id ");
-        while($result = mysqli_fetch_array($sql))
-        { 
-        ?>
+  <div class="panel panel-heading">
+    <table class="table">
+      <thead class="label-info">
         <tr>
-          <td style="color: red;"><?php echo $result['user_id'];?></td>
-          <td><?php echo $result['brgy_location'];?></td>
-          <td><?php echo $result['name'];?></td>
-          <td><?php echo $result['username'];?></td>
-          <td><?php echo $result['password'];?></td>
-          <td><?php echo $result['type'];?></td>
-          <td>
-            <a class="btn btn-outline btn-info fa fa-pencil-square-o" href="updateresidentregistration.php?user_id=<?php echo $result['user_id'];?>"></a>
-          </td>
-          <td>
-            <a type="button" href="delete_acc.php?user_id=<?php echo $result['user_id']; ?>" class="btn btn-outline btn-danger fa fa-times"></a>
-         </td>
-        <tr>
-      <?php
-        }
-      ?><!--start of query-->
-    </tbody>
-  </table><!-- end wrapper -->
+            <th>Id</th>
+            <th>Brgy location</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>accounttype</th>
+            <th>Edit</th>
+            <th class="danger">Delete</th>
+        </tr>
+      </thead>
+      <tbody id="livesearch">
+        <?php
+          $con = mysqli_connect("localhost", "root", "", "pulilan");
+          $sql = mysqli_query($con, "SELECT * from mainuser_acc where type = 'official'  && visibility = '0' ORDER BY user_id ");
+          while($result = mysqli_fetch_array($sql))
+          { 
+          ?>
+          <tr>
+            <td style="color: red;"><?php echo $result['user_id'];?></td>
+            <td><?php echo $result['brgy_location'];?></td>
+            <td><?php echo $result['name'];?></td>
+            <td><?php echo $result['username'];?></td>
+            <td><?php echo $result['password'];?></td>
+            <td><?php echo $result['type'];?></td>
+            <td>
+              <a class="btn btn-outline btn-info fa fa-pencil-square-o" href="updateresidentregistration.php?user_id=<?php echo $result['user_id'];?>"></a>
+            </td>
+            <td>
+              <a type="button" href="delete_acc.php?user_id=<?php echo $result['user_id']; ?>" class="btn btn-outline btn-danger fa fa-times"></a>
+           </td>
+          <tr>
+        <?php
+          }
+        ?><!--start of query-->
+      </tbody>
+    </table><!-- end wrapper -->
+  </div>
 
     <!-- Core Scripts - Include with every page -->
     <script src="assets/plugins/jquery-1.10.2.js"></script>

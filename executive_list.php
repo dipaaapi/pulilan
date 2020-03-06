@@ -4,7 +4,7 @@ session_start();
 require('pulilan_db_connect.php');
 ?>
 <?php include('../pulilan/adminnav.php'); ?>
-  <h1 class="page-header">Executive List</h1>
+  <h1>Executive List</h1>
 
   <script>
     function showResult(str) {

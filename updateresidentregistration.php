@@ -1,4 +1,4 @@
-<?php include('../pulilan/brgynav.php'); 
+<?php include('../pulilan/adminnav.php'); 
 
 
 
@@ -51,17 +51,11 @@ if(isset($_POST['submit'])){
 
 ?>
 
-  <!-- Page Header -->
-  <div class="row">
-      <div class="col-lg-12">
-          <h1 class="page-header">Update Resident Details</h1>
-      </div>
-  </div><!--End Page Header -->
-
 
 <link rel="stylesheet" href="css/jquery-ui.css">
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery-ui.js"></script>
+  <h1>Update Resident Details</h1>
 
   <div class="col col-lg-12 col-md-12 panel panel-default">
 

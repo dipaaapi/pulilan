@@ -5,16 +5,9 @@ require('pulilan_db_connect.php');
 
 
 ?>
-<?php include('../pulilan/brgynav.php');?>
+<?php include('../pulilan/adminnav.php');?>
 
-            
-            <div class="row">
-                 <!--  page header -->
-                <div class="col-lg-12">
-                    <h1 class="page-header">Resident Account Table</h1>
-                </div>
-                 <!-- end  page header -->
-            </div>
+            <h1>Resident Account Table</h1>
             
             <script>
             function showResult(str) {
