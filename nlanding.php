@@ -4,8 +4,7 @@
 <html>
 <head>
 	<!-- tab-icon -->
-    <link rel="shortcut icon" href="img/plogo.png">
-	<title>PULILAN | CBMS 2020</title>
+    <?php include('tab-name.php') ?>
 	<!-- Bootstrap and Font Awesome css -->
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet">

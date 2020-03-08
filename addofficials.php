@@ -8,12 +8,11 @@ require('pulilan_db_connect.php');
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery-ui.js"></script>
 <?php include('brgynav.php'); ?>
-  <h1>Add Official's Information</h1>
+  <h1>Add Barangay Official's Information</h1>
 
   <div class="col col-lg-12 col-md-12 panel panel-default">
     <form method="POST">        
       <fieldset>
-        <legend><b>Barangay Official's Information</b></legend>
 
           <div class="form-group col-md-12">
             <label>Enter Full Name</label>
