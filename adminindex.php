@@ -95,9 +95,9 @@ if($type !="" && $memo == ""){
             elseif($type =="" && $memo == ""){
 
         ?>
-        <div class="alert alert-success alert-dismissible fade in" style="text-transform: uppercase;">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <i class="fa fa-folder-open"></i>Welcome to<b> <?php echo $_SESSION['username'];?></b> dashboard
+        <div id="alert" class="alert alert-success alert-dismissible fade in" style="text-transform: uppercase;">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+          <p class="alert-msg"><i class="fa fa-folder-open"></i>Welcome to<b> <?php echo $_SESSION['username'];?></b> dashboard</p>
         </div>
 
         <form method="POST" action="notification_process/admin_message_process.php">
@@ -105,7 +105,7 @@ if($type !="" && $memo == ""){
             <input class="form-control" type="text" id="subject" name="subject" placeholder="Subject" required>
             <textarea id="message" name="message" placeholder="Write something.." rows="5" cols="100%"></textarea>
             <div class="submit_btn">
-                <button type="submit" name="send_message" class="btn">Send Message</button>
+                <button id="submit" type="submit" name="send_message" class="btn">Send Message</button>
             </div>
         </form>
         <?php
@@ -166,6 +166,11 @@ if($type !="" && $memo == ""){
         }
         ?>
     <!-- end wrapper -->
+
+    <!-- alert -->
+    <script src="js/alert.js"></script>
+    <script src="js/clicknav.js"></script>
+    <!-- / alert -->
 
     <!-- Core Scripts - Include with every page -->
     <script src="assets/plugins/jquery-1.10.2.js"></script>

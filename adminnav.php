@@ -72,7 +72,15 @@ global $view_memo;
 
                             ?>
 
-
+                    <script>
+                        const Libelo = document.querySelectorAll(".label");
+                        if(Labelo => 1) {
+                            Labelo.style.padding = "2rem";
+                            Labelo.style.transition = ".5s";
+                        }else {
+                            console.log("no message");
+                        }
+                    </script>
 
                         <span class="top-label label label-danger"><?php 
                     if($get_notif > 0){
