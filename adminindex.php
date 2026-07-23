@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-include('../pulilan/adminnav.php');
+include('adminnav.php');
 ?>
 
 <!-- Main Content Container -->

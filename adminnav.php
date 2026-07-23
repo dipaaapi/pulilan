@@ -619,7 +619,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     </a>
                     <div class="collapse <?php echo $tables_show; ?> collapse-menu" id="tablesMenu">
                         <ul class="nav flex-column">
-                            <li class="nav-item"><a class="nav-link <?php echo ($current_page=='brgygrid.php')?'active':''; ?>" href="brgygrid.php"><i class="fa fa-grid fa-fw me-2"></i>Brgy &amp; Exec Grid Table</a></li>
+                            <li class="nav-item"><a class="nav-link <?php echo ($current_page=='updatebrgygrid.php')?'active':''; ?>" href="updatebrgygrid.php"><i class="fa fa-grid fa-fw me-2"></i>Brgy &amp; Exec Grid Table</a></li>
                             <li class="nav-item"><a class="nav-link <?php echo ($current_page=='viewbrgyanswer.php')?'active':''; ?>" href="viewbrgyanswer.php"><i class="fa fa-bar-chart fa-fw me-2"></i>Barangay Answer Report</a></li>
                         </ul>
                     </div>

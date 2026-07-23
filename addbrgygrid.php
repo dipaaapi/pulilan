@@ -200,15 +200,10 @@ session_start();
             $male_utility_worker = $_POST['male_utility_worker'];
             $female_utility_worker = $_POST['female_utility_worker'];
             $type = 'official';
-
-
-
-
-
-
+            
             $connection = mysqli_connect("localhost", "root", "", "pulilan");
 
-            $query = mysqli_query($connection, "INSERT INTO mainuser_acc(name, email, username, password, contact, brgy_location, no_purok, major_sources, brgy_classification, char_brgy, gender, position, male_tanod, female_tanod, male_health_worker, female_health_worker, male_nutrition_scholar, female_nutrition_scholar, male_purok_leaders, female_purok_leaders, male_librarian, female_librarian, male_day_care_worker, female_day_care_worker, male_utility_worker, female_utility_worker, type) VALUES('$name', '$email', '$username', '$password', '$contact', '$brgy_location','$no_purok', '$major_sources', '$brgy_classification', '$char_brgy', '$gender', '$position', '$male_tanod', '$female_tanod', '$male_health_worker', '$female_health_worker', '$male_nutrition_scholar', '$female_nutrition_scholar', '$male_purok_leaders', '$female_purok_leaders', '$male_librarian', '$female_librarian', '$male_day_care_worker', '$female_day_care_worker', '$male_utility_worker', '$female_utility_worker', '$type')");
+            $query = mysqli_query($connection, "INSERT INTO brgydetails_tbl(name, email, username, password, contact, brgy_location, no_purok, major_sources, brgy_classification, char_brgy, gender, position, male_tanod, female_tanod, male_health_worker, female_health_worker, male_nutrition_scholar, female_nutrition_scholar, male_purok_leaders, female_purok_leaders, male_librarian, female_librarian, male_day_care_worker, female_day_care_worker, male_utility_worker, female_utility_worker, type) VALUES('$name', '$email', '$username', '$password', '$contact', '$brgy_location','$no_purok', '$major_sources', '$brgy_classification', '$char_brgy', '$gender', '$position', '$male_tanod', '$female_tanod', '$male_health_worker', '$female_health_worker', '$male_nutrition_scholar', '$female_nutrition_scholar', '$male_purok_leaders', '$female_purok_leaders', '$male_librarian', '$female_librarian', '$male_day_care_worker', '$female_day_care_worker', '$male_utility_worker', '$female_utility_worker', '$type')");
 
             if($query)
             {

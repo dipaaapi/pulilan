@@ -1,582 +1,332 @@
--- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Jan 31, 2018 at 03:24 AM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- --------------------------------------------------------
+-- Host:                      127.0.0.1
+-- Server version:            8.0.30 - MySQL Community Server - GPL
+-- Server OS:                 Win64
+-- HeidiSQL Version:          12.1.0.6537
+-- Export Date:               2026-07-23 16:18:22
+-- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Database: `pulilan`
---
+-- Dumping database structure for pulilan
+CREATE DATABASE IF NOT EXISTS `pulilan` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `pulilan`;
 
--- --------------------------------------------------------
+-- Dumping structure for table pulilan.achievement_tbl
+CREATE TABLE IF NOT EXISTS `achievement_tbl` (
+  `achievement_id` int NOT NULL AUTO_INCREMENT,
+  `project_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `project_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `picture` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date_submitted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`achievement_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Table structure for table `achievement_tbl`
---
+INSERT IGNORE INTO `achievement_tbl` (`achievement_id`, `project_name`, `project_description`, `picture`, `date_submitted`) VALUES
+  (1, 'Barangay Education Program', 'Distribution of school supplies and learning materials for local students.', 'education_project.jpg', '2026-07-23 08:00:00'),
+  (2, 'Community Feeding Program', 'A nutritional support initiative targeting undernourished children in the barangay.', 'feeding_program.jpg', '2026-07-23 08:00:00'),
+  (3, 'Clean and Green Initiative', 'Tree planting and coastal/community cleanup drive.', 'clean_green.jpg', '2026-07-23 08:00:00');
 
-CREATE TABLE `achievement_tbl` (
-  `achievement_id` int(11) NOT NULL,
-  `project_name` text NOT NULL,
-  `project_description` text NOT NULL,
-  `picture` blob NOT NULL,
-  `date_submitted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `achievement_tbl`
---
-
-INSERT INTO `achievement_tbl` (`achievement_id`, `project_name`, `project_description`, `picture`, `date_submitted`) VALUES
-(8, 'For Education', 'Education', 0x526f626c6f7853637265656e53686f7432303137303730315f3133333532383632332e706e67, '2017-12-26 10:50:13'),
-(9, 'feeding', 'feeding', 0x7369676e2075702e6a7067, '2017-12-29 05:55:19'),
-(10, '', 'Project description', 0x7369676e2075702e6a7067, '2017-12-29 10:42:34');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `brgydetails_tbl`
---
-
-CREATE TABLE `brgydetails_tbl` (
-  `brgydetails_id` int(2) NOT NULL,
-  `fullname` varchar(100) NOT NULL,
-  `email` varchar(80) NOT NULL,
-  `username` varchar(80) NOT NULL,
-  `password` varchar(80) NOT NULL,
-  `contact` int(50) NOT NULL,
-  `brgy_location` varchar(100) NOT NULL,
-  `no_purok` text NOT NULL,
-  `major_sources` text NOT NULL,
-  `brgy_classification` text NOT NULL,
-  `char_brgy` text NOT NULL,
-  `gender` text NOT NULL,
-  `position` text NOT NULL,
-  `male_tanod` text NOT NULL,
-  `female_tanod` text NOT NULL,
-  `male_health_worker` text NOT NULL,
-  `female_health_worker` text NOT NULL,
-  `male_nutrition_scholar` text NOT NULL,
-  `female_nutrition_scholar` text NOT NULL,
-  `male_purok_leaders` text NOT NULL,
-  `female_purok_leaders` text NOT NULL,
-  `male_librarian` text NOT NULL,
-  `female_librarian` text NOT NULL,
-  `male_day_care_worker` text NOT NULL,
-  `female_day_care_worker` text NOT NULL,
-  `male_utility_worker` text NOT NULL,
-  `female_utility_worker` text NOT NULL,
-  `type` varchar(80) NOT NULL,
+-- Dumping structure for table pulilan.brgydetails_tbl
+CREATE TABLE IF NOT EXISTS `brgydetails_tbl` (
+  `brgydetails_id` int NOT NULL AUTO_INCREMENT,
+  `fullname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brgy_location` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_purok` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `major_sources` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brgy_classification` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `char_brgy` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `position` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `male_tanod` int NOT NULL DEFAULT '0',
+  `female_tanod` int NOT NULL DEFAULT '0',
+  `male_health_worker` int NOT NULL DEFAULT '0',
+  `female_health_worker` int NOT NULL DEFAULT '0',
+  `male_nutrition_scholar` int NOT NULL DEFAULT '0',
+  `female_nutrition_scholar` int NOT NULL DEFAULT '0',
+  `male_purok_leaders` int NOT NULL DEFAULT '0',
+  `female_purok_leaders` int NOT NULL DEFAULT '0',
+  `male_librarian` int NOT NULL DEFAULT '0',
+  `female_librarian` int NOT NULL DEFAULT '0',
+  `male_day_care_worker` int NOT NULL DEFAULT '0',
+  `female_day_care_worker` int NOT NULL DEFAULT '0',
+  `male_utility_worker` int NOT NULL DEFAULT '0',
+  `female_utility_worker` int NOT NULL DEFAULT '0',
+  `type` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL,
-  `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`brgydetails_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `brgydetails_tbl`
---
+INSERT IGNORE INTO `brgydetails_tbl` (`brgydetails_id`, `fullname`, `email`, `username`, `password`, `contact`, `brgy_location`, `no_purok`, `major_sources`, `brgy_classification`, `char_brgy`, `gender`, `position`, `male_tanod`, `female_tanod`, `male_health_worker`, `female_health_worker`, `male_nutrition_scholar`, `female_nutrition_scholar`, `male_purok_leaders`, `female_purok_leaders`, `male_librarian`, `female_librarian`, `male_day_care_worker`, `female_day_care_worker`, `male_utility_worker`, `female_utility_worker`, `type`, `date`, `date_added`) VALUES
+  (1, 'Juan Dela Cruz', 'juandelacruz@gmail.com', 'brgy_official1', 'password123', '09123456789', 'Tibag', '7', 'Agriculture / Farming', 'Urban', 'Plain', 'Male', 'Barangay Captain', 4, 1, 2, 3, 1, 2, 4, 3, 0, 1, 1, 2, 2, 1, 'personnel', '2026-01-01', '2026-07-23 08:00:00');
 
-INSERT INTO `brgydetails_tbl` (`brgydetails_id`, `fullname`, `email`, `username`, `password`, `contact`, `brgy_location`, `no_purok`, `major_sources`, `brgy_classification`, `char_brgy`, `gender`, `position`, `male_tanod`, `female_tanod`, `male_health_worker`, `female_health_worker`, `male_nutrition_scholar`, `female_nutrition_scholar`, `male_purok_leaders`, `female_purok_leaders`, `male_librarian`, `female_librarian`, `male_day_care_worker`, `female_day_care_worker`, `male_utility_worker`, `female_utility_worker`, `type`, `date`, `date_added`) VALUES
-(1, 'prince', 'prince@gmail.com', '', '', 922177521, 'dyosa', '', '', '', '', 'Male', 'Kagawad', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'personnel', '0000-00-00', '2018-01-23 00:52:31');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `brgy_q`
---
-
-CREATE TABLE `brgy_q` (
-  `question_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `position` text NOT NULL,
-  `brgy_classification` text NOT NULL,
-  `brgy_location` text NOT NULL,
-  `char_brgy` text NOT NULL,
-  `total_land_area` text NOT NULL,
-  `major_sources` text NOT NULL,
-  `boundaries` text NOT NULL,
-  `no_household` text NOT NULL,
-  `no_families` text NOT NULL,
-  `total_male_voters` int(100) NOT NULL,
-  `total_female_voters` int(100) NOT NULL,
-  `male_tanod` int(100) NOT NULL,
-  `female_tanod` int(100) NOT NULL,
-  `male_health_worker` int(100) NOT NULL,
-  `female_health_worker` text NOT NULL,
-  `male_nutrition_scholar` text NOT NULL,
-  `female_nutrition_scholar` text NOT NULL,
-  `male_purok_leaders` text NOT NULL,
-  `female_purok_leaders` text NOT NULL,
-  `male_librarian` text NOT NULL,
-  `female_librarian` text NOT NULL,
-  `male_day_care_worker` text NOT NULL,
-  `female_day_care_worker` text NOT NULL,
-  `male_utility_worker` text NOT NULL,
-  `female_utility_worker` text NOT NULL,
-  `no_purok` text NOT NULL,
-  `brgy_health_center` text NOT NULL,
-  `hospital` text NOT NULL,
-  `maternity_clinic` text NOT NULL,
-  `child_clinic` text NOT NULL,
-  `botika_brgy` text NOT NULL,
-  `brgy_day_care_center` text NOT NULL,
-  `preschool` text NOT NULL,
-  `elementary` text NOT NULL,
-  `secondary` text NOT NULL,
-  `vocational` text NOT NULL,
-  `college_university` text NOT NULL,
-  `post_office` text NOT NULL,
-  `market` text NOT NULL,
-  `ricemill` text NOT NULL,
-  `cornmill` text NOT NULL,
-  `feedmill` text NOT NULL,
-  `agricultural_market` text NOT NULL,
-  `fertilizer` text NOT NULL,
-  `pesticide` text NOT NULL,
-  `seeds` text NOT NULL,
-  `feeds` text NOT NULL,
-  `type` varchar(50) NOT NULL,
+-- Dumping structure for table pulilan.brgy_q
+CREATE TABLE IF NOT EXISTS `brgy_q` (
+  `question_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `position` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brgy_classification` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brgy_location` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `char_brgy` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_land_area` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `major_sources` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `boundaries` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_household` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_families` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_male_voters` int NOT NULL,
+  `total_female_voters` int NOT NULL,
+  `male_tanod` int NOT NULL,
+  `female_tanod` int NOT NULL,
+  `male_health_worker` int NOT NULL,
+  `female_health_worker` int NOT NULL,
+  `male_nutrition_scholar` int NOT NULL,
+  `female_nutrition_scholar` int NOT NULL,
+  `male_purok_leaders` int NOT NULL,
+  `female_purok_leaders` int NOT NULL,
+  `male_librarian` int NOT NULL,
+  `female_librarian` int NOT NULL,
+  `male_day_care_worker` int NOT NULL,
+  `female_day_care_worker` int NOT NULL,
+  `male_utility_worker` int NOT NULL,
+  `female_utility_worker` int NOT NULL,
+  `no_purok` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brgy_health_center` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hospital` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `maternity_clinic` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `child_clinic` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `botika_brgy` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brgy_day_care_center` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `preschool` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `elementary` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secondary` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vocational` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `college_university` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `post_office` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `market` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ricemill` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cornmill` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `feedmill` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `agricultural_market` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fertilizer` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pesticide` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `seeds` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `feeds` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL,
-  `visibility` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `visibility` tinyint NOT NULL DEFAULT '0',
+  PRIMARY KEY (`question_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
+-- Dumping structure for table pulilan.check_tbl
+CREATE TABLE IF NOT EXISTS `check_tbl` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `c` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cc` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `php` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `java` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `visibility` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Table structure for table `check_tbl`
---
+INSERT IGNORE INTO `check_tbl` (`user_id`, `c`, `cc`, `php`, `java`, `visibility`) VALUES
+  (1, 'C', '', '', '', 1),
+  (2, '', 'C#', 'PHP', '', 1),
+  (3, '', '', '', 'Java', 1);
 
-CREATE TABLE `check_tbl` (
-  `user_id` int(11) NOT NULL,
-  `c` varchar(50) NOT NULL,
-  `cc` varchar(50) NOT NULL,
-  `php` varchar(50) NOT NULL,
-  `java` varchar(50) NOT NULL,
-  `visibility` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- Dumping structure for table pulilan.contact
+CREATE TABLE IF NOT EXISTS `contact` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `fullname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phoneno` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cdate` date NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `check_tbl`
---
+INSERT IGNORE INTO `contact` (`user_id`, `fullname`, `phoneno`, `email`, `cdate`) VALUES
+  (1, 'Maria Santos', '09191234567', 'mariasantos@yahoo.com', '2026-07-23'),
+  (2, 'Pedro Penduko', '09189876543', 'pedropenduko@gmail.com', '2026-07-23');
 
-INSERT INTO `check_tbl` (`user_id`, `c`, `cc`, `php`, `java`, `visibility`) VALUES
-(1, '', '', '', '', 0),
-(2, '', '', '', '', 0),
-(3, 'C', '', '', '', 0),
-(4, '', 'C#', '', '', 0),
-(5, '', 'C#', '', '', 1),
-(6, 'C', 'C#', 'PHP', 'Java', 1),
-(7, 'C', 'C#', '', '', 0),
-(8, 'C', '', '', '', 0),
-(9, '', '', 'PHP', 'Java', 0),
-(10, 'C', 'C#', 'PHP', 'Java', 0),
-(11, '', '', '', 'Java', 0),
-(12, '', '', '', 'Java', 0);
+-- Dumping structure for table pulilan.loghistory
+CREATE TABLE IF NOT EXISTS `loghistory` (
+  `log_id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`log_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
+INSERT IGNORE INTO `loghistory` (`log_id`, `username`, `datetime`) VALUES
+  (1, 'admin', '2026-07-23 08:00:00'),
+  (2, 'tibag_official', '2026-07-23 08:00:00');
 
---
--- Table structure for table `contact`
---
-
-CREATE TABLE `contact` (
-  `user_id` int(10) NOT NULL,
-  `fullname` varchar(100) NOT NULL,
-  `phoneno` int(10) NOT NULL,
-  `email` text NOT NULL,
-  `cdate` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `contact`
---
-
-INSERT INTO `contact` (`user_id`, `fullname`, `phoneno`, `email`, `cdate`) VALUES
-(1, '', 2147483647, 'santoscarlo058@yahoo.com', '2017-12-20'),
-(2, '', 2147483647, 'santoscarlo058@yahoo.com', '2017-12-20'),
-(3, '', 2147483647, 'santoscarlo058@yahoo.com', '2017-12-20'),
-(4, 'hahah', 2147483647, 'kj@yahoo.com', '2017-12-20');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `loghistory`
---
-
-CREATE TABLE `loghistory` (
-  `log_id` int(20) NOT NULL,
-  `username` varchar(80) NOT NULL,
-  `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `loghistory`
---
-
-INSERT INTO `loghistory` (`log_id`, `username`, `datetime`) VALUES
-(1, 'tibag', '2017-12-19 01:51:58'),
-(2, 'balatonga', '2017-12-19 01:51:58');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mainuser_acc`
---
-
-CREATE TABLE `mainuser_acc` (
-  `user_id` int(11) NOT NULL,
-  `brgy_location` varchar(225) NOT NULL,
-  `name` varchar(80) NOT NULL,
-  `position` varchar(50) NOT NULL,
-  `gender` varchar(50) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `brgy_id` int(100) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `contact` int(20) NOT NULL,
-  `registered_voter` text NOT NULL,
-  `no_son` int(2) NOT NULL,
-  `no_daughter` int(2) NOT NULL,
-  `no_nephew` int(2) NOT NULL,
-  `no_niece` int(2) NOT NULL,
-  `no_purok` text NOT NULL,
-  `major_sources` text NOT NULL,
-  `brgy_classification` text NOT NULL,
-  `char_brgy` text NOT NULL,
-  `male_tanod` text NOT NULL,
-  `female_tanod` text NOT NULL,
-  `male_health_worker` text NOT NULL,
-  `female_health_worker` text NOT NULL,
-  `male_nutrition_scholar` text NOT NULL,
-  `female_nutrition_scholar` text NOT NULL,
-  `male_purok_leaders` text NOT NULL,
-  `female_purok_leaders` text NOT NULL,
-  `male_librarian` text NOT NULL,
-  `female_librarian` text NOT NULL,
-  `male_day_care_worker` text NOT NULL,
-  `female_day_care_worker` text NOT NULL,
-  `male_utility_worker` text NOT NULL,
-  `female_utility_worker` text NOT NULL,
-  `province` text NOT NULL,
-  `address` text NOT NULL,
-  `city_municipality` text NOT NULL,
-  `purok_district` text NOT NULL,
-  `civil_status` text NOT NULL,
-  `type` varchar(100) NOT NULL,
+-- Dumping structure for table pulilan.mainuser_acc
+CREATE TABLE IF NOT EXISTS `mainuser_acc` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `brgy_location` varchar(225) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `position` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brgy_id` int NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `registered_voter` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_son` int NOT NULL,
+  `no_daughter` int NOT NULL,
+  `no_nephew` int NOT NULL,
+  `no_niece` int NOT NULL,
+  `no_purok` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `major_sources` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brgy_classification` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `char_brgy` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `male_tanod` int NOT NULL DEFAULT '0',
+  `female_tanod` int NOT NULL DEFAULT '0',
+  `male_health_worker` int NOT NULL DEFAULT '0',
+  `female_health_worker` int NOT NULL DEFAULT '0',
+  `male_nutrition_scholar` int NOT NULL DEFAULT '0',
+  `female_nutrition_scholar` int NOT NULL DEFAULT '0',
+  `male_purok_leaders` int NOT NULL DEFAULT '0',
+  `female_purok_leaders` int NOT NULL DEFAULT '0',
+  `male_librarian` int NOT NULL DEFAULT '0',
+  `female_librarian` int NOT NULL DEFAULT '0',
+  `male_day_care_worker` int NOT NULL DEFAULT '0',
+  `female_day_care_worker` int NOT NULL DEFAULT '0',
+  `male_utility_worker` int NOT NULL DEFAULT '0',
+  `female_utility_worker` int NOT NULL DEFAULT '0',
+  `province` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city_municipality` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `purok_district` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `civil_status` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `visibility` tinyint(1) DEFAULT '0',
-  `logo` blob NOT NULL,
-  `edit_status` varchar(100) NOT NULL DEFAULT 'disabled',
-  `edit_notif` varchar(100) NOT NULL DEFAULT 'UNSEEN',
-  `activate` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `edit_status` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'disabled',
+  `edit_notif` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'UNSEEN',
+  `activate` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `mainuser_acc`
---
+INSERT IGNORE INTO `mainuser_acc` (`user_id`, `brgy_location`, `name`, `position`, `gender`, `username`, `password`, `brgy_id`, `email`, `contact`, `registered_voter`, `no_son`, `no_daughter`, `no_nephew`, `no_niece`, `no_purok`, `major_sources`, `brgy_classification`, `char_brgy`, `male_tanod`, `female_tanod`, `male_health_worker`, `female_health_worker`, `male_nutrition_scholar`, `female_nutrition_scholar`, `male_purok_leaders`, `female_purok_leaders`, `male_librarian`, `female_librarian`, `male_day_care_worker`, `female_day_care_worker`, `male_utility_worker`, `female_utility_worker`, `province`, `address`, `city_municipality`, `purok_district`, `civil_status`, `type`, `date`, `date_created`, `visibility`, `logo`, `edit_status`, `edit_notif`, `activate`) VALUES
+  (1, 'Admin Center', 'System Administrator', 'Admin', 'Male', 'admin', 'admin123', 0, 'admin@pulilan.gov.ph', '09171234567', 'Yes', 0, 0, 0, 0, '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Bulacan', 'Municipal Hall', 'Pulilan', 'District 1', 'Single', 'admin', '2026-01-01', '2026-01-01 00:00:00', 0, 'admin_logo.png', 'approve', 'UNSEEN', 1),
+  (2, 'Executive Office', 'Municipal Executive', 'Executive Officer', 'Male', 'executive', 'exec123', 0, 'executive@pulilan.gov.ph', '09181234567', 'Yes', 0, 0, 0, 0, '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Bulacan', 'Municipal Hall', 'Pulilan', 'District 1', 'Married', 'executive', '2026-01-01', '2026-01-01 00:00:00', 0, '', 'disabled', 'UNSEEN', 1),
+  (3, 'DILG Office', 'DILG Officer', 'Local Government Operations Officer', 'Female', 'dilg', 'dilg123', 0, 'dilg.pulilan@gmail.com', '09191234567', 'Yes', 0, 0, 0, 0, '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Bulacan', 'DILG Compound', 'Pulilan', 'District 1', 'Single', 'dilg', '2026-01-01', '2026-01-01 00:00:00', 0, '', 'disabled', 'UNSEEN', 1),
+  (4, 'Tibag', 'Barangay Captain Tibag', 'Chairman', 'Male', 'tibag_official', 'tibag123', 101, 'tibag.brgy@gmail.com', '09201234567', 'Yes', 1, 2, 0, 0, '7', 'Agriculture', 'Urban', 'Plain', 4, 1, 2, 2, 1, 1, 4, 3, 0, 1, 1, 2, 2, 1, 'Bulacan', 'Brgy Hall Tibag', 'Pulilan', 'Purok 3', 'Married', 'official', '2026-01-01', '2026-01-01 00:00:00', 0, 'tibag_logo.png', 'disabled', 'UNSEEN', 1);
 
-INSERT INTO `mainuser_acc` (`user_id`, `brgy_location`, `name`, `position`, `gender`, `username`, `password`, `brgy_id`, `email`, `contact`, `registered_voter`, `no_son`, `no_daughter`, `no_nephew`, `no_niece`, `no_purok`, `major_sources`, `brgy_classification`, `char_brgy`, `male_tanod`, `female_tanod`, `male_health_worker`, `female_health_worker`, `male_nutrition_scholar`, `female_nutrition_scholar`, `male_purok_leaders`, `female_purok_leaders`, `male_librarian`, `female_librarian`, `male_day_care_worker`, `female_day_care_worker`, `male_utility_worker`, `female_utility_worker`, `province`, `address`, `city_municipality`, `purok_district`, `civil_status`, `type`, `date`, `date_created`, `visibility`, `logo`, `edit_status`, `edit_notif`, `activate`) VALUES
-(1, 'admin', 'admin', 'admin', 'Male', 'admin', 'admin', 0, 'dipaaapi8@gmail.com', 2147483647, '', 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'admin', '0000-00-00', '2017-11-02 19:48:16', 0, '', 'approve', 'UNSEEN', 0),
-(2, 'executive', 'executive', 'executive', 'Male', 'executive', 'executive', 0, 'executive@gmail.com', 956789, '', 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'executive', '2017-12-19', '2017-12-28 03:57:16', 0, '', 'disabled', 'UNSEEN', 0),
-(120, 'dilg', 'dilg', 'dilg', 'male', 'dilg', 'dilg', 0, 'dilg@gmail.com', 0, '', 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'dilg', '0000-00-00', '2018-01-02 08:36:19', 0, '', 'disabled', 'UNSEEN', 0),
-(192, 'suka', 'suka', 'Chairman', 'Female', 'suka', 'suka', 0, 'suka@yahoo.com', 2147483647, '', 0, 0, 0, 0, '17', 'Taxes', 'Urban', 'Plain', '2', '1', '3', '2', '2', '1', '5', '3', '2', '4', '2', '5', '2', '4', '', '', '', '', '', 'official', '0000-00-00', '2018-01-03 01:54:29', 0, '', 'disabled', 'UNSEEN', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `memo`
---
-
-CREATE TABLE `memo` (
-  `memo_id` int(11) NOT NULL,
-  `project_name` text NOT NULL,
-  `project_description` text NOT NULL,
-  `picture` blob NOT NULL,
+-- Dumping structure for table pulilan.memo
+CREATE TABLE IF NOT EXISTS `memo` (
+  `memo_id` int NOT NULL AUTO_INCREMENT,
+  `project_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `project_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `picture` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `memo_date` date NOT NULL,
-  `receiver` text NOT NULL,
-  `memo_status` varchar(100) NOT NULL DEFAULT 'PENDING',
-  `notification_status` varchar(100) NOT NULL DEFAULT 'UNSEEN'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `receiver` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `memo_status` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'PENDING',
+  `notification_status` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'UNSEEN',
+  PRIMARY KEY (`memo_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `memo`
---
+INSERT IGNORE INTO `memo` (`memo_id`, `project_name`, `project_description`, `picture`, `memo_date`, `receiver`, `memo_status`, `notification_status`) VALUES
+  (1, 'Barangay Household Survey Order', 'Mandatory survey rollout for all local residents to update community statistics.', 'survey_banner.jpg', '2026-07-25', 'All Barangays', 'APPROVED', 'UNSEEN'),
+  (2, 'Quarterly DILG Meeting', 'Synchronized report submission and operational briefing for all barangay heads.', 'meeting.jpg', '2026-07-30', 'dilg', 'PENDING', 'UNSEEN');
 
-INSERT INTO `memo` (`memo_id`, `project_name`, `project_description`, `picture`, `memo_date`, `receiver`, `memo_status`, `notification_status`) VALUES
-(1, 'Barangay Household Survey order', 'Announcement for the local government to issue an project according to the needs of every resident', '', '0000-00-00', '0', 'APPROVED', 'UNSEEN'),
-(2, 'memo sample', 'sample', 0x70696374757265, '2018-01-24', 'dilg', 'PENDING', 'UNSEEN');
+-- Dumping structure for table pulilan.message_tbl
+CREATE TABLE IF NOT EXISTS `message_tbl` (
+  `message_id` int NOT NULL AUTO_INCREMENT,
+  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brgy_location` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `notification_status` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'UNSEEN',
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`message_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
+INSERT IGNORE INTO `message_tbl` (`message_id`, `message`, `subject`, `brgy_location`, `user_id`, `notification_status`, `date_created`) VALUES
+  (1, 'Good day, please submit the updated monthly community report before Friday.', 'Monthly Report Reminder', 'Tibag', 4, 'UNSEEN', '2026-07-23 08:00:00');
 
---
--- Table structure for table `message_tbl`
---
-
-CREATE TABLE `message_tbl` (
-  `message_id` int(11) NOT NULL,
-  `message` text NOT NULL,
-  `subject` text NOT NULL,
-  `brgy_location` text NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `notification_status` varchar(100) NOT NULL DEFAULT 'UNSEEN',
-  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `message_tbl`
---
-
-INSERT INTO `message_tbl` (`message_id`, `message`, `subject`, `brgy_location`, `user_id`, `notification_status`, `date_created`) VALUES
-(1, 'trial', 'trail', 'Balatong A', 42, 'SEEN', '2017-12-12 00:54:42'),
-(2, 'sir paki check nga kung may message ako sayo', 'hello', 'DILG', 42, 'UNSEEN', '2017-12-12 22:44:50'),
-(3, 'memo', 'meo', 'DILG', 42, 'SEEN', '2017-12-28 03:14:38'),
-(4, 'hi', 'hi', 'Balatong A', 42, 'SEEN', '2017-12-13 03:59:49'),
-(5, 'e', 'e', 'Balatong A', 42, 'SEEN', '2017-12-16 12:59:44'),
-(6, 'hi', 'hi', 'Admin', 22, 'SEEN', '2017-12-16 19:47:33'),
-(7, 'g', 'g', 'DILG', 42, 'UNSEEN', '2017-12-19 04:24:16'),
-(8, 'g', 'g', 'Balatong A', 42, 'SEEN', '2017-12-19 04:24:45'),
-(9, '', '', 'None', 42, 'UNSEEN', '2017-12-19 16:31:47'),
-(10, 'hahahaha', 'huy ano?', 'Balatong A', 40, 'SEEN', '2017-12-19 23:44:51'),
-(11, 'suntukan', 'hoy', 'Lumbac', 73, 'SEEN', '2017-12-20 07:00:55'),
-(12, 'd', 'dddd', 'DILG', 42, 'UNSEEN', '2017-12-24 02:03:23'),
-(13, 'hi', 'hi admin', 'Admin', 22, 'SEEN', '2017-12-26 10:56:05'),
-(14, 'd', 'hi', 'Admin', 52, 'SEEN', '2017-12-26 23:10:56'),
-(15, 'i will send you later the soft copy of reports', 'hi', 'executive', 42, 'UNSEEN', '2017-12-26 23:12:46'),
-(16, 'd', 'dd', 'Balatong A', 42, 'SEEN', '2017-12-26 23:16:41'),
-(17, 'hi chix', 'hi', 'Balatong A', 52, 'SEEN', '2017-12-26 23:16:26'),
-(18, 'laro tayo lol?', 'g', 'Balatong A', 42, 'SEEN', '2017-12-27 01:47:48'),
-(19, 's', 's', 'Taal', 22, 'SEEN', '2017-12-28 00:51:23'),
-(20, 's', 's', 'Admin', 94, 'SEEN', '2017-12-28 03:47:28'),
-(21, 'h', 'h', 'pu', 42, 'UNSEEN', '2017-12-28 12:17:10'),
-(22, 'hi', 'hi', 'u', 42, 'SEEN', '2017-12-28 12:17:43'),
-(23, 'hi', 'hi', 'rolan', 42, 'UNSEEN', '2017-12-28 12:19:09'),
-(24, 'hihi', 'hi', 'u', 42, 'SEEN', '2017-12-28 12:19:49'),
-(25, 'hi', 'hi', 'pagudpud', 42, 'SEEN', '2017-12-28 12:20:46'),
-(26, 'hoy\r\n', 'hoy', 'u', 101, 'SEEN', '2017-12-28 12:22:25'),
-(27, 'q', 'sample', 'admin', 98, 'SEEN', '2017-12-29 05:53:57'),
-(28, 'say something?', 'hello', 'dilg', 106, 'UNSEEN', '2017-12-30 16:51:25'),
-(29, 'la lang', 'try again', 'dilg', 106, 'UNSEEN', '2017-12-30 16:57:23'),
-(30, 'another', '3rd times', 'dilg', 106, 'UNSEEN', '2017-12-30 17:00:22'),
-(31, 'for good na to', 'last', 'dilg', 106, 'UNSEEN', '2017-12-30 17:07:43'),
-(32, 'trial ko', 'try lng', 'admin', 106, 'SEEN', '2017-12-30 17:12:36'),
-(33, 'baka gumana', 'try lng', 'lily', 42, 'SEEN', '2017-12-30 17:29:38'),
-(34, 'tangina mo', 'gago', 'lily', 42, 'SEEN', '2018-01-01 13:53:41'),
-(35, 'h', 'h', 'dilg', 42, 'UNSEEN', '2018-01-03 05:25:22'),
-(36, 'hi', 'hi', 'admin', 201, 'SEEN', '2018-01-23 00:45:30');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `residentdetails_tbl`
---
-
-CREATE TABLE `residentdetails_tbl` (
-  `user_id` int(11) NOT NULL,
-  `name` varchar(80) NOT NULL,
-  `position` varchar(80) NOT NULL,
-  `email` varchar(80) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(59) NOT NULL,
-  `gender` varchar(80) NOT NULL,
-  `contact` int(20) NOT NULL,
-  `brgy_location` varchar(80) NOT NULL,
-  `province` varchar(80) NOT NULL,
-  `address` varchar(80) NOT NULL,
-  `city_municipality` varchar(80) NOT NULL,
-  `purok_district` varchar(80) NOT NULL,
-  `civil_status` varchar(80) NOT NULL,
+-- Dumping structure for table pulilan.residentdetails_tbl
+CREATE TABLE IF NOT EXISTS `residentdetails_tbl` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `position` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brgy_location` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `province` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city_municipality` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `purok_district` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `civil_status` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `activate` tinyint(1) NOT NULL DEFAULT '0',
-  `type` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
+INSERT IGNORE INTO `residentdetails_tbl` (`user_id`, `name`, `position`, `email`, `username`, `password`, `gender`, `contact`, `brgy_location`, `province`, `address`, `city_municipality`, `purok_district`, `civil_status`, `date_added`, `activate`, `type`) VALUES
+  (1, 'Ana Reyes', 'Resident', 'anareyes@gmail.com', 'anareyes', 'ana123', 'Female', '09211234567', 'Tibag', 'Bulacan', 'Purok 2', 'Pulilan', 'District 1', 'Single', '2026-07-23 08:00:00', 1, 'resident');
 
---
--- Table structure for table `resident_q`
---
-
-CREATE TABLE `resident_q` (
-  `question_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `type` varchar(50) NOT NULL,
-  `name` text NOT NULL,
-  `address` text NOT NULL,
-  `position` varchar(80) NOT NULL,
-  `brgy_id_num` text NOT NULL,
-  `contact` text NOT NULL,
-  `city_municipality` text NOT NULL,
-  `brgy_location` text NOT NULL,
-  `purok_district` text NOT NULL,
-  `province` text NOT NULL,
-  `indigenous` text NOT NULL,
-  `kind_tribe` text NOT NULL,
-  `former_residences` text NOT NULL,
-  `howlong_residences` text NOT NULL,
-  `gender` text NOT NULL,
-  `civil_stat` text NOT NULL,
-  `relation_whom` text NOT NULL,
-  `name_partner` text NOT NULL,
-  `religion` text NOT NULL,
-  `registered_civil` text NOT NULL,
-  `skills` text NOT NULL,
-  `stat_house` text NOT NULL,
-  `no_fam_house` int(100) NOT NULL,
-  `no_household` int(100) NOT NULL,
-  `have_electricity` text NOT NULL,
-  `source_electricity` text NOT NULL,
-  `educ_stat` text NOT NULL,
-  `honors` text NOT NULL,
-  `registered_voters` text NOT NULL,
+-- Dumping structure for table pulilan.resident_q
+CREATE TABLE IF NOT EXISTS `resident_q` (
+  `question_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `position` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brgy_id_num` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city_municipality` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brgy_location` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `purok_district` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `province` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `indigenous` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kind_tribe` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `former_residences` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `howlong_residences` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `civil_stat` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `relation_whom` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_partner` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `religion` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `registered_civil` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `skills` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stat_house` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_fam_house` int NOT NULL,
+  `no_household` int NOT NULL,
+  `have_electricity` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `source_electricity` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `educ_stat` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `honors` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `registered_voters` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `latest_vote` date NOT NULL,
-  `visibility` int(11) NOT NULL DEFAULT '0',
-  `date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `visibility` int NOT NULL DEFAULT '0',
+  `date` date NOT NULL,
+  PRIMARY KEY (`question_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `achievement_tbl`
---
-ALTER TABLE `achievement_tbl`
-  ADD PRIMARY KEY (`achievement_id`);
-
---
--- Indexes for table `brgydetails_tbl`
---
-ALTER TABLE `brgydetails_tbl`
-  ADD PRIMARY KEY (`brgydetails_id`);
-
---
--- Indexes for table `brgy_q`
---
-ALTER TABLE `brgy_q`
-  ADD PRIMARY KEY (`question_id`);
-
---
--- Indexes for table `check_tbl`
---
-ALTER TABLE `check_tbl`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `contact`
---
-ALTER TABLE `contact`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `loghistory`
---
-ALTER TABLE `loghistory`
-  ADD PRIMARY KEY (`log_id`);
-
---
--- Indexes for table `mainuser_acc`
---
-ALTER TABLE `mainuser_acc`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `memo`
---
-ALTER TABLE `memo`
-  ADD PRIMARY KEY (`memo_id`);
-
---
--- Indexes for table `message_tbl`
---
-ALTER TABLE `message_tbl`
-  ADD PRIMARY KEY (`message_id`);
-
---
--- Indexes for table `residentdetails_tbl`
---
-ALTER TABLE `residentdetails_tbl`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `resident_q`
---
-ALTER TABLE `resident_q`
-  ADD PRIMARY KEY (`question_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `achievement_tbl`
---
-ALTER TABLE `achievement_tbl`
-  MODIFY `achievement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `brgydetails_tbl`
---
-ALTER TABLE `brgydetails_tbl`
-  MODIFY `brgydetails_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `brgy_q`
---
-ALTER TABLE `brgy_q`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `check_tbl`
---
-ALTER TABLE `check_tbl`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `contact`
---
-ALTER TABLE `contact`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `loghistory`
---
-ALTER TABLE `loghistory`
-  MODIFY `log_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `mainuser_acc`
---
-ALTER TABLE `mainuser_acc`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=193;
---
--- AUTO_INCREMENT for table `memo`
---
-ALTER TABLE `memo`
-  MODIFY `memo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `message_tbl`
---
-ALTER TABLE `message_tbl`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
---
--- AUTO_INCREMENT for table `residentdetails_tbl`
---
-ALTER TABLE `residentdetails_tbl`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `resident_q`
---
-ALTER TABLE `resident_q`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
-
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

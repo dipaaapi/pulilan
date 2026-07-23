@@ -1,0 +1,167 @@
+<?php
+error_reporting(E_ALL ^ E_NOTICE);
+session_start();
+require('pulilan_db_connect.php');
+include('../pulilan/adminnav.php');
+
+$user_id = isset($_GET['user_id']) ? $_GET['user_id'] : '';
+$fullname = $position = $email = $gender = $contact = $brgy_location = '';
+
+// Handle form submission for updating
+if(isset($_POST['submit'])){
+    $user_id = $_POST['user_id'];
+    $fullname = $_POST['name'];
+    $position = $_POST['position'];
+    $email = $_POST['email'];
+    $gender = $_POST['gender'];
+    $contact = $_POST['contact'];
+    $brgy_location = $_POST['brgy_location'];
+    
+    $update = mysqli_query($connection, "UPDATE mainuser_acc SET name='$fullname', position='$position', email='$email', gender='$gender', contact='$contact', brgy_location='$brgy_location' WHERE user_id='$user_id'");
+    
+    if($update){
+        echo '<div class="alert alert-success alert-dismissible" role="alert" style="margin: 20px;">
+                <strong>Success!</strong> Barangay official information successfully updated. Redirecting...
+              </div>';
+        echo '<script>
+                setTimeout(function() {
+                    window.location.href="updatebrgygrid.php";
+                }, 1500);
+              </script>';
+    } else {
+        echo '<div class="alert alert-danger alert-dismissible" role="alert" style="margin: 20px;">
+                <strong>Error!</strong> Failed to update database: ' . mysqli_error($connection) . '
+              </div>';
+    }
+}
+?>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Barangay & Executive Officials</h1>
+    </div>
+</div>
+
+<?php 
+// If an official is selected via Update button, fetch their record to display in the form above
+if(!empty($user_id)):
+    $get_edit = mysqli_query($connection, "SELECT * FROM mainuser_acc WHERE user_id = '$user_id'");
+    $edit_data = mysqli_fetch_assoc($get_edit);
+    if($edit_data):
+?>
+<!-- UPDATE FORM SECTION (Appears at the top when updating) -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default" style="border: 2px solid #337ab7;">
+            <div class="panel-heading" style="background-color: #337ab7; color: white;">
+                <b>Update Official Information: <?php echo $edit_data['name']; ?></b>
+                <a href="updatebrgygrid.php" class="btn btn-default btn-xs pull-right" style="color: #337ab7;">Cancel / Close</a>
+            </div>
+            <div class="panel-body">
+                <form method="POST">
+                    <input type="hidden" name="user_id" value="<?php echo $edit_data['user_id']; ?>">
+                    <fieldset>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Full Name</label>
+                                <input type="text" name="name" class="form-control" value="<?php echo $edit_data['name']; ?>" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Position</label>
+                                <input type="text" name="position" class="form-control" value="<?php echo $edit_data['position']; ?>" required>   
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Email Address</label>
+                                <input type="text" name="email" class="form-control" value="<?php echo $edit_data['email']; ?>" required>   
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Gender</label>
+                                <input type="text" name="gender" class="form-control" value="<?php echo $edit_data['gender']; ?>" required>   
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Contact Number</label>
+                                <input type="text" name="contact" class="form-control" value="<?php echo $edit_data['contact']; ?>" required>   
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Barangay Location</label>
+                                <input type="text" name="brgy_location" class="form-control" value="<?php echo $edit_data['brgy_location']; ?>" required>   
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-12 text-center" style="margin-top: 20px;">
+                                <button type="submit" name="submit" class="btn btn-primary btn-lg">Save Changes</button>
+                                <a href="updatebrgygrid.php" class="btn btn-default btn-lg">Cancel</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<?php 
+    endif;
+endif; 
+?>
+
+<!-- OFFICIALS TABLE LIST -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <b>List of Officials</b>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <thead>
+                <tr>  
+                    <th>Full Name</th>
+                    <th>Position</th>
+                    <th>Brgy. Location</th>
+                    <th class="warning text-center">View</th>
+                    <th class="info text-center">Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                $results = mysqli_query($connection, "SELECT * FROM mainuser_acc WHERE position = 'Chairman' OR position = 'DILG' OR position = 'executive'");
+                while ($row = mysqli_fetch_assoc($results)):
+                ?>
+                <tr>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['position']; ?></td>
+                    <td><?php echo $row['brgy_location']; ?></td>
+                    <td class="text-center">
+                        <a href="viewofficial.php?user_id=<?php echo $row['user_id'];?>" class="btn btn-outline btn-info btn-sm fa fa-user"> View</a>
+                    </td>
+                    <td class="text-center">
+                        <a href="updatebrgygrid.php?user_id=<?php echo $row['user_id'];?>" class="btn btn-outline btn-primary btn-sm fa fa-pencil"> Edit</a>
+                    </td>
+                </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Core Scripts - Include with every page -->
+<script src="assets/plugins/jquery-1.10.2.js"></script>
+<script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="assets/plugins/pace/pace.js"></script>
+<script src="assets/scripts/siminta.js"></script>
+<!-- Page-Level Plugin Scripts-->
+<script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
+<script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#dataTables-example').dataTable();
+    });
+</script>
+
+<?php include('../pulilan/adminfooter.php'); ?>

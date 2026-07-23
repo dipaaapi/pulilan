@@ -1,16 +1,6 @@
 <?php
 session_start();
 
-// If already logged in, redirect to proper dashboard
-if (isset($_SESSION['username'])) {
-    $type = $_SESSION['type'] ?? '';
-    if ($type === 'admin')     { header("location: adminindex.php"); exit(); }
-    if ($type === 'official')  { header("location: brgyindex.php");  exit(); }
-    if ($type === 'resident')  { header("location: residentindex.php"); exit(); }
-    if ($type === 'dilg')      { header("location: dilgindex.php");  exit(); }
-    if ($type === 'executive') { header("location: executiveindex.php"); exit(); }
-}
-
 $error_message = '';
 
 // Process login
@@ -21,35 +11,53 @@ if (isset($_POST['submit'])) {
     if (empty($username) || empty($password)) {
         $error_message = 'Please enter both username and password.';
     } else {
-        require_once('pulilan_db_connect.php');
-
-        $stmt = $con->prepare("SELECT * FROM mainuser_acc WHERE username = ? AND password = ? AND activate = '0'");
-        $stmt->bind_param("ss", $username, $password);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result && $result->num_rows > 0) {
-            $row  = $result->fetch_assoc();
-            $type = $row['type'];
-
-            $_SESSION['username']  = $username;
-            $_SESSION['user_id']   = $row['user_id'];
-            $_SESSION['type']      = $type;
-            $_SESSION['lol']       = $row['brgy_location'] ?? '';
-            $_SESSION['name']      = $row['name'] ?? $username;
-
-            if ($type === 'admin')     { header("location: adminindex.php");    exit(); }
-            if ($type === 'official')  { header("location: brgyindex.php");     exit(); }
-            if ($type === 'resident')  { header("location: residentindex.php"); exit(); }
-            if ($type === 'dilg')      { header("location: dilgindex.php");     exit(); }
-            if ($type === 'executive') { header("location: executiveindex.php"); exit(); }
-
-            // Fallback unknown type
-            $error_message = 'Your account type is not recognized. Please contact the administrator.';
+        $connect_file = 'pulilan_db_connect.php';
+        if (!file_exists($connect_file)) {
+            $error_message = 'Connection file not found: ' . $connect_file;
         } else {
-            $error_message = 'Incorrect username or password. Please try again.';
+            require_once($connect_file);
+
+            // Ginamit na natin ang $connection base sa iyong database file
+            if (!isset($connection) || !$connection) {
+                $error_message = 'Database connection failed.';
+            } else {
+                $check_stmt = $connection->prepare("SELECT * FROM mainuser_acc WHERE username = ? LIMIT 1");
+                if (!$check_stmt) {
+                    $error_message = 'SQL prepare failed: ' . $connection->error;
+                } else {
+                    $check_stmt->bind_param("s", $username);
+                    $check_stmt->execute();
+                    $check_res = $check_stmt->get_result();
+
+                    if ($check_res && $check_res->num_rows > 0) {
+                        $user_data = $check_res->fetch_assoc();
+
+                        if ($password === $user_data['password']) {
+                            $type = $user_data['type'];
+
+                            $_SESSION['username']  = $username;
+                            $_SESSION['user_id']   = $user_data['user_id'] ?? 1;
+                            $_SESSION['type']      = $type;
+                            $_SESSION['lol']       = $user_data['brgy_location'] ?? '';
+                            $_SESSION['name']      = $user_data['name'] ?? $username;
+
+                            if ($type === 'admin')     { header("location: adminindex.php");    exit(); }
+                            if ($type === 'official')  { header("location: brgyindex.php");     exit(); }
+                            if ($type === 'resident')  { header("location: residentindex.php"); exit(); }
+                            if ($type === 'dilg')      { header("location: dilgindex.php");     exit(); }
+                            if ($type === 'executive') { header("location: executiveindex.php"); exit(); }
+
+                            $error_message = 'Valid account, but user type "' . $type . '" has no matching dashboard.';
+                        } else {
+                            $error_message = 'Incorrect password. Please try again.';
+                        }
+                    } else {
+                        $error_message = 'Username not found in the database.';
+                    }
+                    $check_stmt->close();
+                }
+            }
         }
-        $stmt->close();
     }
 }
 ?>
@@ -59,7 +67,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login — CBMS Pulilan</title>
-    <meta name="description" content="Log in to the Community-Based Monitoring System of Pulilan, Bulacan.">
+    <meta name="description" content="Login to the Community-Based Monitoring System of Pulilan, Bulacan.">
 
     <!-- Bootstrap 5 -->
     <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet">
@@ -76,7 +84,6 @@ if (isset($_POST['submit'])) {
             --brand-secondary: #3b82f6;
             --brand-accent: #60a5fa;
             --sidebar-bg: #0f172a;
-            --card-radius: 20px;
         }
 
         html, body {
@@ -92,7 +99,7 @@ if (isset($_POST['submit'])) {
             display: grid;
             grid-template-columns: 1fr 1fr;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .login-wrapper { grid-template-columns: 1fr; }
             .login-hero    { display: none; }
         }
@@ -181,6 +188,7 @@ if (isset($_POST['submit'])) {
             justify-content: center;
             padding: 40px 24px;
             background: #fff;
+            overflow-y: auto;
         }
         .login-box {
             width: 100%;
@@ -190,7 +198,7 @@ if (isset($_POST['submit'])) {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 36px;
+            margin-bottom: 28px;
         }
         .login-box .brand-mark img { width: 40px; }
         .login-box .brand-mark span {
@@ -207,28 +215,10 @@ if (isset($_POST['submit'])) {
         .login-box .tagline {
             color: #64748b;
             font-size: 0.9rem;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
         /* Form Controls */
-        .form-floating .form-control {
-            border: 1.5px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 14px 44px 14px 16px;
-            height: 58px;
-            font-size: 0.925rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-            color: #0f172a;
-        }
-        .form-floating .form-control:focus {
-            border-color: var(--brand-secondary);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
-        }
-        .form-floating label {
-            padding: 14px 16px;
-            color: #94a3b8;
-            font-size: 0.875rem;
-        }
         .input-group-wrap {
             position: relative;
             margin-bottom: 18px;
@@ -247,7 +237,7 @@ if (isset($_POST['submit'])) {
             padding-left: 42px !important;
             border: 1.5px solid #e2e8f0;
             border-radius: 12px;
-            height: 52px;
+            height: 50px;
             font-size: 0.925rem;
             transition: border-color 0.2s, box-shadow 0.2s;
             color: #0f172a;
@@ -287,14 +277,14 @@ if (isset($_POST['submit'])) {
             background: linear-gradient(135deg, #1e40af, #3b82f6);
             border: none;
             border-radius: 12px;
-            height: 52px;
+            height: 50px;
             font-weight: 600;
             font-size: 0.95rem;
             letter-spacing: 0.3px;
             color: #fff;
             width: 100%;
             margin-top: 8px;
-            transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+            transition: transform 0.15s, box-shadow 0.15s;
             box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
         }
         .btn-login:hover {
@@ -304,7 +294,7 @@ if (isset($_POST['submit'])) {
         }
         .btn-login:active { transform: translateY(0); }
 
-        /* Alert */
+        /* Alerts */
         .alert-login {
             border-radius: 12px;
             border: 1.5px solid #fca5a5;
@@ -321,7 +311,7 @@ if (isset($_POST['submit'])) {
         /* Footer link */
         .login-footer {
             text-align: center;
-            margin-top: 28px;
+            margin-top: 24px;
             color: #64748b;
             font-size: 0.875rem;
         }
@@ -385,7 +375,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <h2>Welcome back</h2>
-            <p class="tagline">Sign in to your account to continue.</p>
+            <p class="tagline">Please enter your details to sign in.</p>
 
             <?php if (!empty($error_message)): ?>
             <div class="alert-login" role="alert">
@@ -409,7 +399,6 @@ if (isset($_POST['submit'])) {
                             placeholder="Enter your username"
                             value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>"
                             autocomplete="username"
-                            autofocus
                             required
                         >
                     </div>
@@ -417,10 +406,7 @@ if (isset($_POST['submit'])) {
 
                 <!-- Password -->
                 <div class="mb-3">
-                    <div class="d-flex justify-content-between">
-                        <label for="password" class="form-label-custom">Password</label>
-                        <a href="change_password.php" style="font-size:0.8rem;color:#3b82f6;text-decoration:none;font-weight:500">Forgot password?</a>
-                    </div>
+                    <label for="password" class="form-label-custom">Password</label>
                     <div class="input-group-wrap">
                         <i class="fa fa-lock input-icon"></i>
                         <input
@@ -438,13 +424,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
 
-                <!-- Remember me -->
-                <div class="d-flex align-items-center mb-2">
-                    <input type="checkbox" id="rememberMe" class="form-check-input me-2" style="border-radius:5px;cursor:pointer">
-                    <label for="rememberMe" class="form-check-label" style="font-size:0.875rem;color:#475569;cursor:pointer">Remember me</label>
-                </div>
-
-                <button type="submit" name="submit" class="btn-login mt-2" id="loginBtn">
+                <button type="submit" name="submit" class="btn-login" id="loginBtn">
                     <i class="fa fa-sign-in me-2"></i> Sign In
                 </button>
 
@@ -453,7 +433,7 @@ if (isset($_POST['submit'])) {
             <div class="divider">or</div>
 
             <div class="login-footer">
-                Don't have an account? <a href="registration.php">Register here</a>
+                Don't have an account yet? <a href="registration.php">Register here</a>
             </div>
 
             <p class="copyright">
@@ -479,13 +459,6 @@ if (isset($_POST['submit'])) {
             pwd.type = 'password';
             icon.className = 'fa fa-eye';
         }
-    });
-
-    // Loading state on submit
-    document.querySelector('form').addEventListener('submit', function () {
-        var btn = document.getElementById('loginBtn');
-        btn.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i> Signing in...';
-        btn.disabled = true;
     });
 </script>
 

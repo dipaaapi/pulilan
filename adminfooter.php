@@ -43,6 +43,28 @@
     <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
 
+    <!-- Bootstrap 5 JS Bundle (Kinakailangan para sa dropdown at collapse functionality) -->
+    <script src="assets/plugins/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Toggle mobile sidebar
+        document.getElementById('sidebarToggleMobile')?.addEventListener('click', function () {
+            document.getElementById('mainSidebar').classList.toggle('mobile-open');
+        });
+
+        // Scroll to top button logic (optional enhancement)
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('scrollTopBtn');
+            if (btn) {
+                if (window.scrollY > 300) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            }
+        });
+    </script>
+
     <script>
     $(document).ready(function () {
         // Initialize DataTables if present
