@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 $type = $_GET['type'] ?? '';
 $active_tab = $_GET['tab'] ?? 'inbox'; // inbox | sent | drafts
 
-include('../pulilan/adminnav.php');
+include('navbar.php');
 ?>
 
 <div class="container-fluid">
@@ -31,11 +31,20 @@ include('../pulilan/adminnav.php');
          VIEW A SINGLE MESSAGE
     ============================================================ -->
     <?php
-        mysqli_query($con, "UPDATE message_tbl SET notification_status = 'SEEN' WHERE message_id = '$type'");
-        $sql3 = mysqli_query($con, "SELECT * FROM message_tbl WHERE message_id = '$type'");
-        $h = mysqli_fetch_array($sql3);
+        $updateStmt = mysqli_prepare($con, "UPDATE message_tbl SET notification_status = 'SEEN' WHERE message_id = ?");
+        mysqli_stmt_bind_param($updateStmt, 'i', $type);
+        mysqli_stmt_execute($updateStmt);
+
+        $msgStmt = mysqli_prepare($con, "SELECT * FROM message_tbl WHERE message_id = ?");
+        mysqli_stmt_bind_param($msgStmt, 'i', $type);
+        mysqli_stmt_execute($msgStmt);
+        $h = mysqli_fetch_array(mysqli_stmt_get_result($msgStmt));
+
         $sender = $h['user_id'] ?? null;
-        $getSender = mysqli_query($con, "SELECT * FROM mainuser_acc WHERE user_id = '$sender'");
+        $senderStmt = mysqli_prepare($con, "SELECT * FROM mainuser_acc WHERE user_id = ?");
+        mysqli_stmt_bind_param($senderStmt, 'i', $sender);
+        mysqli_stmt_execute($senderStmt);
+        $getSender = mysqli_stmt_get_result($senderStmt);
         $gg = mysqli_fetch_array($getSender);
         $senderName = $gg['name'] ?? 'Unknown';
     ?>
@@ -426,7 +435,7 @@ include('../pulilan/adminnav.php');
                 // Show compose panel
                 var panel = document.getElementById('composePanel');
                 if (panel && !panel.classList.contains('show')) {
-                    new bootstrap.Collapse(panel).show();
+                    panel.classList.add('show');
                 }
                 // Switch to inbox tab to see compose
                 var inboxTab = document.getElementById('inbox-tab');
@@ -488,7 +497,13 @@ include('../pulilan/adminnav.php');
     var tabParam = urlParams.get('tab');
     if (tabParam) {
         var tabEl = document.getElementById(tabParam + '-tab');
-        if (tabEl) { new bootstrap.Tab(tabEl).show(); }
+        if (tabEl) {
+            document.querySelectorAll('[data-bs-toggle="tab"]').forEach(function (btn) { btn.classList.remove('active'); });
+            document.querySelectorAll('.tab-pane').forEach(function (pane) { pane.classList.remove('active'); });
+            var targetPane = document.getElementById(tabParam + 'Pane');
+            if (targetPane) targetPane.classList.add('active');
+            tabEl.classList.add('active');
+        }
     }
 
     // Initial render

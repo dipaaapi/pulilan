@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-include('adminnav.php');
+include('navbar.php');
 ?>
 
 <!-- Main Content Container -->
@@ -73,4 +73,4 @@ include('adminnav.php');
     </div>
 </div>
 
-<?php include('adminfooter.php'); ?>
+<?php include('footer.php'); ?>

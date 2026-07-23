@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
                             $_SESSION['lol']       = $user_data['brgy_location'] ?? '';
                             $_SESSION['name']      = $user_data['name'] ?? $username;
 
-                            if ($type === 'admin')     { header("location: adminindex.php");    exit(); }
+                            if ($type === 'admin')     { header("location: admin/index.php");    exit(); }
                             if ($type === 'official')  { header("location: brgyindex.php");     exit(); }
                             if ($type === 'resident')  { header("location: residentindex.php"); exit(); }
                             if ($type === 'dilg')      { header("location: dilgindex.php");     exit(); }
