@@ -58,7 +58,7 @@ require('pulilan_db_connect.php');
     <div class="row">
       <div class="col-lg-12">
           <!-- Advanced Tables -->
-          <div class="panel panel-default">
+          <div class="card">
              <div class="table-responsive">          
           <table class="table">
             <thead class="label-info">

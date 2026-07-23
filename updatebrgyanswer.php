@@ -75,15 +75,15 @@ form#multiphase {
     <div class="row">
         <div class="col-lg-12">
                 <h1 class="page-header">Barangay Profile Questionnaire
-                  <a href="brgyindex.php" class="btn btn-warning pull-right">Return</a>
+                  <a href="brgyindex.php" class="btn btn-warning float-end">Return</a>
                 </h1>
             </div>
         </div><!-- end  page header -->
-        <div class="panel panel-primary col col-lg-12 col-md-12">
+        <div class="card bg-primary text-white col col-lg-12 col-md-12">
             <div class="panel-head" align="center">
                 <h4><b>Initial Form</b></h4>
             </div>
-            <div class="panel-body" align="center">
+            <div class="card-body" align="center">
                 <table>
                     <thead>
                         <tr class="table-condensed">
@@ -116,7 +116,7 @@ form#multiphase {
                     </tbody>
                 </table>
             </div>
-            <div class="panel-body" align="center">
+            <div class="card-body" align="center">
                 <table>
                     <thead>
                         <tr class="table-condensed">
@@ -140,7 +140,7 @@ form#multiphase {
             <div class="panel-head" align="center">
                 <h4><b>Demographic Reference</b></h4>
             </div>
-            <div class="panel-body" align="center">
+            <div class="card-body" align="center">
                 <table>
                     <thead>
                         <tr class="table-condensed">
@@ -186,7 +186,7 @@ form#multiphase {
                     </tbody>
                     </table>
                     </div>
-              <div class="panel-body" align="center">
+              <div class="card-body" align="center">
                 <table>
                     <thead>
                         <tr class="table-condensed">
@@ -204,7 +204,7 @@ form#multiphase {
                     </tbody>
                   </table>
                 </div>
-              <div class="panel-body" align="center">
+              <div class="card-body" align="center">
                 <table>
                     <thead>
                         <tr class="table-condensed">
@@ -227,7 +227,7 @@ form#multiphase {
                   <h4><b>List of Available Facility</b></h4>
                 </div>
 
-                <div class="panel-body" align="center">
+                <div class="card-body" align="center">
                     <p><b>Health Facility</b></p>
                     <table>
                       <thead>
@@ -247,7 +247,7 @@ form#multiphase {
                     </table>
                 </div>
                       
-                <div class="panel-body" align="center">
+                <div class="card-body" align="center">
                     <table>
                       <thead>
                         <tr>
@@ -264,7 +264,7 @@ form#multiphase {
                     </table>
                 </div>
 
-                <div class="panel-body" align="center">
+                <div class="card-body" align="center">
                     <table>
                     <p><b>Health Facility</b></p>
                       <thead>
@@ -298,7 +298,7 @@ form#multiphase {
                     </table>
                 </div>
 
-                <div class="panel-body" align="center">
+                <div class="card-body" align="center">
                     <table>
                     <p><b>Service Facility</b></p>
                       <thead>
@@ -354,7 +354,7 @@ form#multiphase {
                         </tr>
                       </tbody>
                     </table>
-                  <div class="panel-body" align="center">
+                  <div class="card-body" align="center">
                       <input class="btn btn-success" type="submit" name="submit" value="Submit">
                   </div>
                   </div>

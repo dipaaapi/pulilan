@@ -1,88 +1,111 @@
 ﻿.user-info {
     display: block;
-    color:#000!important;
+    color: #000 !important;
     display: inline-block;
     padding: 15px;
     margin-bottom: 0px
 }
+
 .user-text-online {
-    font-size:18px;
-    color:#fff
+    font-size: 18px;
+    color: #fff
 }
+
 .user-circle-online {
-    width: 15px!important;
-    height: 15px!important;
+    width: 15px !important;
+    height: 15px !important;
 }
 
 /* side-menu section */
-.nav > li > a:hover, .nav > li > a:focus {
-    background-color:rgba(74, 72, 126, 0);
+.nav>li>a:hover,
+.nav>li>a:focus {
+    background-color: rgba(74, 72, 126, 0);
 }
-.navbar-top-links  .open > a, .nav .open > a:hover, .nav .open > a:focus {
+
+.navbar-top-links .open>a,
+.nav .open>a:hover,
+.nav .open>a:focus {
     background-color: #75C5B8;
     color: gray;
     text-shadow: 1px 5px 25px white;
 }
+
 .navbar-top-links a:hover {
     text-shadow: 1px 5px 25px white;
 }
-.navbar-top-links > li > a {
+
+.navbar-top-links>li>a {
     color: #FFFFFF;
 }
+
 #side-menu {
     background-color: #008e00;
 }
+
 #side-menu li {
     cursor: pointer;
 }
+
 #side-menu a {
-    color:#fff;
+    color: #fff;
     padding-bottom: 5px;
 }
+
 .selected {
-    background-color:rgb(83, 163, 163);
+    background-color: rgb(83, 163, 163);
 }
+
 /* back colors */
 .blue {
-    background-color:rgb(113, 159, 241);
+    background-color: rgb(113, 159, 241);
 }
+
 .green {
-    background-color:rgb(144, 236, 192);
+    background-color: rgb(144, 236, 192);
 }
+
 .red {
-    background-color:rgb(255, 102, 133);
+    background-color: rgb(255, 102, 133);
 }
+
 .yellow {
-    background-color:rgb(237, 253, 46);
+    background-color: rgb(237, 253, 46);
 }
+
 /* No border */
 .no-boder {
-    border:0px solid #5bc0de !important;
+    border: 0px solid #5bc0de !important;
 }
+
 .navbar-header {
     position: absolute;
     height: 10vh;
     padding: 0;
     margin: 0;
 }
-@media (min-width: 768px;) {
+
+@media (min-width: 768px) {
     nav {
         position: absolute;
         top: 10vh;
         width: 20vw;
-    }   
+    }
 }
-@media (max-width: 664px;) {
+
+@media (max-width: 664px) {
     .navbar-header {
         width: 664px;
-    }   
+    }
 }
+
 .navbar-brand {
-    padding-left:20px;
+    padding-left: 20px;
 }
+
 .navbar-brand img {
-    height:30px;
+    height: 30px;
 }
+
 .top-label {
     position: absolute;
     top: 50%;
@@ -90,13 +113,16 @@
     margin-top: -24px;
     margin-right: -24px;
 }
+
 /*large font*/
 .large-font {
-    font-size:18px;
+    font-size: 18px;
 }
+
 .body-Login-back {
-    background-color:#84B899;
+    background-color: #84B899;
 }
+
 .margin-tips {
-    margin:5px;
+    margin: 5px;
 }

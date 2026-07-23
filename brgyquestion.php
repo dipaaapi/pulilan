@@ -48,7 +48,7 @@ require('pulilan_db_connect.php');
   </script>
             </div>
 
-<div class="panel panel-heading">
+<div class="panel card-header">
 
   <table class="table table-responsive table-bordered">
     <thead>
@@ -92,7 +92,7 @@ require('pulilan_db_connect.php');
 
 $("table").DataTable();
 
-$('.dataTables_filter').addClass('pull-right');
+$('.dataTables_filter').addClass('float-end');
 
 
 </script>

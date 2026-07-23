@@ -7,7 +7,7 @@ require('pulilan_db_connect.php');
 <?php include('../pulilan/adminnav.php'); ?>
 
 <h1>Barangay & Executive Officials</h1>
-<div class="panel panel-heading">
+<div class="panel card-header">
 
   <table class="table table-responsive table-hover">
     <thead>
@@ -49,7 +49,7 @@ require('pulilan_db_connect.php');
 
 $("table").DataTable();
 
-$('.dataTables_filter').addClass('pull-right');
+$('.dataTables_filter').addClass('float-end');
 
 
 </script>

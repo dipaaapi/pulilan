@@ -13,19 +13,19 @@
         </div>
 
         <div class="form-group col-md-6">
-         <input  id="" type="input" name="position" class="form-control pull-right"  placeholder="Enter Position" value="" required>   
+         <input  id="" type="input" name="position" class="form-control float-end"  placeholder="Enter Position" value="" required>   
         </div>
 
         <div class="form-group col-md-6">
-         <input  id="email" type="input" name="email" class="form-control pull-right"  placeholder="Enter Email" value="" required>   
+         <input  id="email" type="input" name="email" class="form-control float-end"  placeholder="Enter Email" value="" required>   
         </div>
 
         <div class="form-group col-md-6">
-         <input  id="gender" type="input" name="gender" class="form-control pull-right"  placeholder="Enter Gender" value="" required>   
+         <input  id="gender" type="input" name="gender" class="form-control float-end"  placeholder="Enter Gender" value="" required>   
         </div>
 
         <div class="form-group col-md-6">
-         <input  id="" type="input" name="contact" class="form-control pull-right"  placeholder="Enter Contact Number" value="" required>   
+         <input  id="" type="input" name="contact" class="form-control float-end"  placeholder="Enter Contact Number" value="" required>   
         </div>
 
         <div class="form-group col-md-6">

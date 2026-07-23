@@ -25,12 +25,12 @@ session_start();
                  <!--  page header -->
                 <div class="col-lg-12">
                     <h1 class="page-header">View Memo
-                        <a href="brgyindex.php" class="btn btn-warning pull-right">Return</a>
+                        <a href="brgyindex.php" class="btn btn-warning float-end">Return</a>
                     </h1>
                 </div>
             </div><!-- end  page header -->
 
-    <div class="panel panel-info col col-lg-12 col-md-12 center" align="center">
+    <div class="card bg-info text-white col col-lg-12 col-md-12 center" align="center">
             <table class="table-condensed">
               <thead class="label-info">
                 <tr>

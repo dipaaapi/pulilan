@@ -7,13 +7,16 @@ thead tr td p {
     font-weight: bold;
     color: white;
 }
+
 .table {
     width: 100vw;
     height: auto;
 }
+
 .panel {
     overflow: auto;
 }
+
 #page-wrapper {
     position: absolute;
     top: 10vh;
@@ -23,6 +26,7 @@ thead tr td p {
     right: 0;
     width: 80vw;
 }
+
 h1 {
     margin: 2vh 0;
     font-size: 4rem;
@@ -33,50 +37,67 @@ h1 {
     font-weight: inherit;
     padding-bottom: 1vh;
 }
+
 li[class="last_menu"] {
     display: none;
 }
+
 table {
     width: 100%;
     margin: 0;
     margin-top: 5vh;
     border-radius: 5px;
 }
+
 #memo {
     border-radius: 5px;
     padding: 5px;
     margin: 0;
     box-shadow: 0 0 7px;
 }
+
 h3 {
     margin: 0;
     padding: 10px;
 }
+
 form {
     padding: 10px 0;
 }
-form:hover, table:hover {
+
+form:hover,
+table:hover {
     box-shadow: 0 0 7px;
     padding: 10px;
     transition: .5s;
 }
-form input[name=receiver], form input[name=subject] {
+
+form input[name=receiver],
+form input[name=subject] {
     margin-bottom: 10px;
 }
-button[name=send_message], button[name=send_memo] {
+
+button[name=send_message],
+button[name=send_memo] {
     background-color: green;
     border: 1px solid green;
     text-align: center;
     text-transform: uppercase;
     color: white;
 }
+
 .submit_btn {
     text-align: center;
 }
-form input[name=picture], form textarea[name=memo_body] {
+
+form input[name=picture],
+form textarea[name=memo_body] {
     margin-bottom: 10px;
 }
-input[type=text], select, textarea {
+
+input[type=text],
+select,
+textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -86,6 +107,7 @@ input[type=text], select, textarea {
     margin-bottom: 16px;
     resize: vertical;
 }
+
 .table {
     width: 100%;
     padding: 0;
@@ -94,9 +116,11 @@ input[type=text], select, textarea {
     text-align: center;
     height: auto;
 }
+
 .table:hover {
     box-shadow: 0 0 7px black;
 }
+
 input[type=text] {
     float: left;
     width: 100%;
@@ -116,23 +140,27 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: #45a049;
 }
+
 #navigation {
     height: 10vh;
     margin: 0;
-    padding: 0;
+    padding: 1em;
     position: absolute;
     right: 0;
 }
+
 #navbar {
-    background-color: #008e00;
+    background-color: #058b0d;
     height: 10vh;
     padding: 0;
     margin: 0;
 }
+
 #navigation li a {
     padding: 10px;
     height: 10vh;
 }
+
 .navbar-toggle {
     position: absolute;
     top: 0;
@@ -144,20 +172,24 @@ input[type=submit]:hover {
     height: 10vh;
     width: 10vw;
 }
+
 .navbar-toggle i {
     font-size: 4rem;
     color: white;
 }
+
 .brand {
     height: 10vh;
-    width: 20vw;
+    width: auto !important;
     padding: 0;
     margin: 0;
 }
+
 @media only screen and (max-width: 425px) {
     .panel {
         overflow: scroll;
     }
+
     #page-wrapper {
         position: absolute;
         top: 10vh;
@@ -167,16 +199,20 @@ input[type=submit]:hover {
         right: 0;
         width: 100vw;
     }
-    .brand > img[alt="pulilan logo"] {
+
+    .brand>img[alt="pulilan logo"] {
         width: auto;
         height: 10vh;
     }
+
     ul[id="navigation"] {
         display: none;
     }
+
     li[class="last_menu"] {
         display: block;
     }
+
     h1 {
         margin: 3vh 0;
         font-size: 3em;
@@ -190,14 +226,14 @@ input[type=submit]:hover {
         border-radius: 5px;
     }
 }
+
 .brand img {
-    width: 20vw;
+    width: auto;
     height: 10vh;
-    padding: 0;
+    padding: 10px;
     margin: 0;
-    background-color: rgb(0,0,0,0.5);
-    box-shadow: 0 0 10px black;
 }
+
 .user-tag {
     margin: 0;
     text-transform: uppercase;
@@ -205,9 +241,10 @@ input[type=submit]:hover {
     text-align: center;
     padding: 5px;
     display: block;
-    background-color: rgb(0,0,0,.4);
+    background-color: rgb(0, 0, 0, .4);
     border-radius: 5px;
 }
+
 .collapse.in {
     display: inline;
     width: 50vw;
@@ -217,9 +254,11 @@ input[type=submit]:hover {
     padding: 0;
     margin: 0;
 }
+
 .collapse.in .user-section {
     display: none;
 }
+
 .collapse.in #nav-back {
     height: 90vh;
     width: 50vw;
@@ -229,14 +268,15 @@ input[type=submit]:hover {
     background-color: #008e00;
     right: -7px;
 }
+
 @media only screen and (min-width: 425px) {
-  .pace {
-    position: absolute;
-    top: 15vh;
-    right: 10vw;
-    width: auto;
-    height: auto;
-    font-weight: bold;
-    font-size: 2em;
-  }
+    .pace {
+        position: absolute;
+        top: 15vh;
+        right: 10vw;
+        width: auto;
+        height: auto;
+        font-weight: bold;
+        font-size: 2em;
+    }
 }

@@ -78,7 +78,7 @@ $q = mysqli_query($con, "UPDATE mainuser_acc set edit_status = 'request', edit_n
 
 ?>
                     <!-- Advanced Tables -->
-                    <div class="panel panel-default">
+                    <div class="card">
                        <div class="table-responsive">          
                     <table class="table">
                       <thead class="label-info">

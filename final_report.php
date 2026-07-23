@@ -48,16 +48,16 @@ function printpage() {
                 <!-- Page Header -->
                 <div class="col-lg-12">
                     <h1 class="page-header">Barangay Consolidated Final Report for year <?php echo $year; ?>
-                        <a href="adminindex.php" class="btn btn-warning pull-right">Return</a>
+                        <a href="adminindex.php" class="btn btn-warning float-end">Return</a>
                     </h1>
                 </div>
                 <!--End Page Header -->
             </div>
 
             <div class="row">
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel panel-primary text-center no-boder">
-                        <div class="panel-body" style="background-color: lightgray;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card bg-primary text-white text-center no-boder">
+                        <div class="card-body" style="background-color: lightgray;">
                             <i class="fa fa fa-user fa-3x"></i>
                             <p><?php echo $totalCount; ?></p>
                             <span class="panel-eyecandy-title">Total Barangay | <?php echo $year; ?>
@@ -65,9 +65,9 @@ function printpage() {
                         </div>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel panel-primary text-center no-boder">
-                        <div class="panel-body" style="background-color: lightgray;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card bg-primary text-white text-center no-boder">
+                        <div class="card-body" style="background-color: lightgray;">
                             <i class="fa fa fa-home fa-3x"></i>
                             <p><?php echo $residentcount;?></p>
                             <span class="panel-eyecandy-title">Total Resident | <?php echo $year; ?>
@@ -75,9 +75,9 @@ function printpage() {
                         </div>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel panel-primary text-center no-boder">
-                        <div class="panel-body" style="background-color: lightgray;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card bg-primary text-white text-center no-boder">
+                        <div class="card-body" style="background-color: lightgray;">
                             <i class="fa fa fa-users fa-3x"></i>
                             <p><?php echo $residentmalecount; ?></p>
                             <span class="panel-eyecandy-title">Male Resident | <?php echo $year; ?>
@@ -85,9 +85,9 @@ function printpage() {
                         </div>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel panel-primary text-center no-boder">
-                        <div class="panel-body" style="background-color: lightgray;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card bg-primary text-white text-center no-boder">
+                        <div class="card-body" style="background-color: lightgray;">
                             <i class="fa fa fa-users fa-3x"></i>
                             <p><?php echo $residentfemalecount; ?></p>
                             <span class="panel-eyecandy-title">Female Resident | <?php echo $year; ?>
@@ -99,12 +99,12 @@ function printpage() {
 
             <!--   Female Personnel -->
             <div class="row">
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading" style="background-color: pink;">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card text-center">
+                        <div class="card-header" style="background-color: pink;">
                             <b>Female Personnel</b>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -154,27 +154,27 @@ function printpage() {
                 </div>
             </div><!-- End  Female Personnel -->
 
-            <div class="row panel panel-primary no-boder">
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body yellow" style="border-radius: 25px;">
+            <div class="row card bg-primary text-white no-boder">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body yellow" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-users fa-3x"></i> Families | <b><?php echo $totalfamiliesrep1; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body green" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body green" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-users fa-3x"></i> Household | <b><?php echo $totalhouseholdrep1; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body blue" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body blue" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-users fa-3x"></i> Male Voters | <b><?php echo $totalmalerep1; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body red" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body red" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-users fa-3x"></i> Female Voters | <b><?php echo $totalfemalerep1; ?></b>
                         </span>
                     </div>
@@ -183,12 +183,12 @@ function printpage() {
 
             <!--   Male Personnel -->
             <div class="row">
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading" style="background-color: lightblue;">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card text-center">
+                        <div class="card-header" style="background-color: lightblue;">
                             <b>Male Personnel</b>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -239,27 +239,27 @@ function printpage() {
                 
             </div>
 
-            <div class="row panel panel-primary no-boder">
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body red" style="border-radius: 25px;">
+            <div class="row card bg-primary text-white no-boder">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body red" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Health Center | <b><?php echo $totalbhealth; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body yellow" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body yellow" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Hospital | <b><?php echo $totalhospital; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body green" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body green" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Maternity Clinic | <b><?php echo $totalmclinic; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body blue" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body blue" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Child Clinic | <b><?php echo $totalcclinic; ?></b>
                         </span>
                     </div>
@@ -268,12 +268,12 @@ function printpage() {
             
             <!--   Civil Report -->
             <div class="row">
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading" style="background-color: lightgray;">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card text-center">
+                        <div class="card-header" style="background-color: lightgray;">
                             <b>Civil Report in <?php echo $totalCount; ?> Barangay</b>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -308,27 +308,27 @@ function printpage() {
                 </div><!-- End  Civil Report -->                
             </div>
 
-            <div class="row panel panel-primary no-boder">
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body blue" style="border-radius: 25px;">
+            <div class="row card bg-primary text-white no-boder">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body blue" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Botika ng Brgy. | <b><?php echo $totalbbrgy; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body red" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body red" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Day Care Center | <b><?php echo $totaldcenter; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body yellow" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body yellow" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Preschool | <b><?php echo $totalpreschool; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body green" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body green" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Elementary School | <b><?php echo $totalelem; ?></b>
                         </span>
                     </div>
@@ -337,12 +337,12 @@ function printpage() {
 
             <!--   Religion Report -->
             <div class="row">
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading" style="background-color: lightgreen;">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card text-center">
+                        <div class="card-header" style="background-color: lightgreen;">
                             <b>Religion Report in <?php echo $totalCount; ?> Barangay</b>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -401,27 +401,27 @@ function printpage() {
                 </div><!-- End  Religion Report -->                
             </div>
 
-            <div class="row panel panel-primary no-boder">
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body green" style="border-radius: 25px;">
+            <div class="row card bg-primary text-white no-boder">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body green" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Secondary School | <b><?php echo $totalsecondary; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body blue" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body blue" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Vocational School | <b><?php echo $totalvocational; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body red" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body red" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> College/University | <b><?php echo $totalcolun; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body yellow" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body yellow" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Post Office | <b><?php echo $totalpoffice; ?></b>
                         </span>
                     </div>
@@ -430,12 +430,12 @@ function printpage() {
 
             <div class="row">
                 <!--   Housing Report -->
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading" style="background-color: gray;">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card text-center">
+                        <div class="card-header" style="background-color: gray;">
                             <b>Housing Report in <?php echo $totalCount; ?> Barangay</b>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -487,27 +487,27 @@ function printpage() {
                 </div><!-- End  Housing Report -->
             </div>
 
-            <div class="row panel panel-primary no-boder">
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body yellow" style="border-radius: 25px;">
+            <div class="row card bg-primary text-white no-boder">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body yellow" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Market | <b><?php echo $totalmarket; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body green" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body green" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Rice Mill | <b><?php echo $totalrmill; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body blue" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body blue" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Corn Mill | <b><?php echo $totalcmill; ?></b>
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <div class="panel-body red" style="border-radius: 25px;">
+                <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                    <div class="card-body red" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Feed Mill | <b><?php echo $totalfmill; ?></b>
                         </span>
                     </div>
@@ -516,12 +516,12 @@ function printpage() {
 
             <!--   Educational Report -->
             <div class="row">
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card text-center">
+                        <div class="card-header">
                             <b>Educational Report in <?php echo $totalCount; ?> Barangay</b>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -582,39 +582,39 @@ function printpage() {
                 
             </div>
 
-            <div class="row panel panel-primary no-boder" align="center">
-                <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <div class="panel-body red" style="border-radius: 25px;">
+            <div class="row card bg-primary text-white no-boder" align="center">
+                <div class="col col-lg-2 col-md-2 col-sm-2 col-2">
+                    <div class="card-body red" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> <b><?php echo $totalamarket; ?></b> <br />Agricultural Market
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <div class="panel-body yellow" style="border-radius: 25px;">
+                <div class="col col-lg-2 col-md-2 col-sm-2 col-2">
+                    <div class="card-body yellow" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> <b><?php echo $totalfdealer; ?></b> <br />Fertilizer Dealer
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <div class="panel-body green" style="border-radius: 25px;">
+                <div class="col col-lg-2 col-md-2 col-sm-2 col-2">
+                    <div class="card-body green" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> <b><?php echo $totalpdealer; ?></b> <br />Pesticide Dealer
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <div class="panel-body blue" style="border-radius: 25px;">
+                <div class="col col-lg-2 col-md-2 col-sm-2 col-2">
+                    <div class="card-body blue" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> <b><?php echo $totalsdealer; ?></b><br /> Seeds Dealer
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <div class="panel-body red" style="border-radius: 25px;">
+                <div class="col col-lg-2 col-md-2 col-sm-2 col-2">
+                    <div class="card-body red" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> <b><?php echo $totalfddealer; ?></b><br /> Feeds Dealer
                         </span>
                     </div>
                 </div>
-                <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <div class="panel-body yellow" style="border-radius: 25px;">
+                <div class="col col-lg-2 col-md-2 col-sm-2 col-2">
+                    <div class="card-body yellow" style="border-radius: 25px;">
                         <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> <b><?php echo $alldealer; ?></b><br /> Total Facility
                         </span>
                     </div>

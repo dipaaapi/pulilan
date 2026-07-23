@@ -31,7 +31,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="adminindex.php">
-                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-responsive" />
+                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-fluid" />
                 </a>
             </div>
             <!-- end navbar-header -->
@@ -48,7 +48,7 @@
                             <a href="#">
                                 <div>
                                     <strong><span class=" label label-danger">Andrew Smith</span></strong>
-                                    <span class="pull-right text-muted">
+                                    <span class="float-end text-muted">
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
@@ -60,7 +60,7 @@
                             <a href="#">
                                 <div>
                                     <strong><span class=" label label-info">Jonney Depp</span></strong>
-                                    <span class="pull-right text-muted">
+                                    <span class="float-end text-muted">
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
@@ -72,7 +72,7 @@
                             <a href="#">
                                 <div>
                                     <strong><span class=" label label-success">Jonney Depp</span></strong>
-                                    <span class="pull-right text-muted">
+                                    <span class="float-end text-muted">
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
@@ -101,7 +101,7 @@
                                 <div>
                                     <p>
                                         <strong>Task 1</strong>
-                                        <span class="pull-right text-muted">40% Complete</span>
+                                        <span class="float-end text-muted">40% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
@@ -117,7 +117,7 @@
                                 <div>
                                     <p>
                                         <strong>Task 2</strong>
-                                        <span class="pull-right text-muted">20% Complete</span>
+                                        <span class="float-end text-muted">20% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
@@ -133,7 +133,7 @@
                                 <div>
                                     <p>
                                         <strong>Task 3</strong>
-                                        <span class="pull-right text-muted">60% Complete</span>
+                                        <span class="float-end text-muted">60% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
@@ -149,7 +149,7 @@
                                 <div>
                                     <p>
                                         <strong>Task 4</strong>
-                                        <span class="pull-right text-muted">80% Complete</span>
+                                        <span class="float-end text-muted">80% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
@@ -180,7 +180,7 @@
                             <a href="#">
                                 <div>
                                     <i class="fa fa-comment fa-fw"></i>New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <span class="float-end text-muted small">4 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -189,7 +189,7 @@
                             <a href="#">
                                 <div>
                                     <i class="fa fa-twitter fa-fw"></i>3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                    <span class="float-end text-muted small">12 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -198,7 +198,7 @@
                             <a href="#">
                                 <div>
                                     <i class="fa fa-envelope fa-fw"></i>Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <span class="float-end text-muted small">4 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -207,7 +207,7 @@
                             <a href="#">
                                 <div>
                                     <i class="fa fa-tasks fa-fw"></i>New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <span class="float-end text-muted small">4 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -216,7 +216,7 @@
                             <a href="#">
                                 <div>
                                     <i class="fa fa-upload fa-fw"></i>Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <span class="float-end text-muted small">4 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -264,7 +264,7 @@
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img src="../pulilan/img/brgy/balatonga.png" alt="brgy logo" class="img img-responsive">
+                                <img src="../pulilan/img/brgy/balatonga.png" alt="brgy logo" class="img img-fluid">
                             </div>
                             <br>
                             <div class="text-center">
@@ -319,11 +319,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <!-- Line chart -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                    <div class="card">
+                        <div class="card-header">
                             Gender Chart
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="flot-chart">
                                 <div class="flot-chart-content" id="flot-line-chart"></div>
                             </div>
@@ -333,11 +333,11 @@
                 </div>
                 <div class="col-lg-6">
                     <!-- pie chart-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                    <div class="card">
+                        <div class="card-header">
                             Pie Chart Example
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="flot-chart">
                                 <div class="flot-chart-content" id="flot-pie-chart"></div>
                             </div>
@@ -347,11 +347,11 @@
                 </div>
                 <div class="col-lg-6">
                      <!--  Multiple Axes Line Chart-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                    <div class="card">
+                        <div class="card-header">
                             Multiple Axes Line Chart Example
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="flot-chart">
                                 <div class="flot-chart-content" id="flot-line-chart-multi"></div>
                             </div>
@@ -361,11 +361,11 @@
                 </div>
                 <div class="col-lg-6">
                     <!-- Moving Line Chart -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                    <div class="card">
+                        <div class="card-header">
                             Moving Line Chart Example
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="flot-chart">
                                 <div class="flot-chart-content" id="flot-line-chart-moving"></div>
                             </div>
@@ -375,11 +375,11 @@
                 </div>
                 <div class="col-lg-6">
                     <!-- Bar Chart -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                    <div class="card">
+                        <div class="card-header">
                             Bar Chart Example
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="flot-chart">
                                 <div class="flot-chart-content" id="flot-bar-chart"></div>
                             </div>

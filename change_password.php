@@ -1,16 +1,15 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
 session_start();
- 
-
 ?>
 <?php include 'minnav.php'; ?>
-                        <a class="img img-responsive" href="nlanding.php">
-                          <img class="col col-lg-12 col-md-12 col-sm-12 col-xs-12" src="../pulilan/img/plogo.png" alt="pulilan logo"/>
+                    <div>
+                        <a class="img img-fluid" href="nlanding.php">
+                          <img class="col col-lg-12 col-md-12 col-sm-12 col-12" src="../assets/img/pulilan-logo.png" alt="pulilan logo"/>
                         </a>
-                        <h1 class="panel-title fa fa-user" style="text-shadow: 1px 1px 2px red, 0 0 25px orange, 0 0 5px yellow;"> CBMS 2017 | Change Password Form</h1>
+                        <h1 class="card-title fa fa-user" style="text-shadow: 1px 1px 2px red, 0 0 25px orange, 0 0 5px yellow;"> CBMS 2017 | Change Password Form</h1>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <form method="POST">
                             <fieldset>
                                 <div class="form-group">
@@ -28,47 +27,49 @@ session_start();
                             </fieldset>
                         </form>
                         <?php
-                        $username = $_SESSION['username'];
-                        if($_POST['submit'])
-                        {
-                            $currentpassword = ($_POST['currentpassword']);
-                            $newpassword = ($_POST['newpassword']);
-                            $confirmpassword = ($_POST['confirmpassword']);
-                            //check pass in db
-                            $connection = mysqli_connect("localhost", "root", "","pulilan");
-                            $getquery ="SELECT password FROM mainuser_acc WHERE username = '$username'";
-                            $result = mysqli_query($connection, $getquery);
-                            $row = mysqli_fetch_assoc($result); 
+                        $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 
-                            $currentpassworddb=$row['password'];
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+                            $currentpassword = $_POST['currentpassword'];
+                            $newpassword = $_POST['newpassword'];
+                            $confirmpassword = $_POST['confirmpassword'];
                             
-                            if($currentpassword ==$currentpassworddb)
-                            {
-                                if($newpassword ==$confirmpassword)
-                                {
-                                    //change pass in db
+                            // Check connection and database
+                            $connection = mysqli_connect("localhost", "root", "", "pulilan");
+                            if (!$connection) {
+                                die("Connection failed: " . mysqli_connect_error());
+                            }
+
+                            $getquery = "SELECT password FROM mainuser_acc WHERE username = '$username'";
+                            $result = mysqli_query($connection, $getquery);
+                            
+                            if ($result && mysqli_num_rows($result) > 0) {
+                                $row = mysqli_fetch_assoc($result); 
+                                $currentpassworddb = $row['password'];
+                                
+                                if ($currentpassword == $currentpassworddb) {
+                                    if ($newpassword == $confirmpassword) {
+                                        // Change password in database
                                         $querychange = "UPDATE mainuser_acc SET password='$newpassword' WHERE username = '$username'";
                                         $update_query = mysqli_query($connection, $querychange);
-                                        if(!$update_query){
-                                            echo "mysqli_error";
+                                        
+                                        if (!$update_query) {
+                                            echo '<div class="alert alert-danger" style="margin-top:10px;">Error updating password.</div>';
+                                        } else {
+                                            echo '<script>';
+                                            echo 'alert("Successfully changed!");';
+                                            echo 'window.location.href="brgyindex.php";';
+                                            echo '</script>';
                                         }
-                                        else{
-                                          echo'<script>';
-               echo'alert("successfully changed!");';
-               echo'window.location.href="brgyindex.php";';
-               echo'</script>';
-                                           // header("location: change_password.php");
-                                        }
-
-                                }
-                                else
-                                {
-
+                                    } else {
+                                        echo '<div class="alert alert-warning" style="margin-top:10px;">New password and confirmation do not match.</div>';
+                                    }
+                                } else {
+                                    echo '<div class="alert alert-danger" style="margin-top:10px;">Current password is incorrect.</div>';
                                 }
                             }
-                           
+                            mysqli_close($connection);
                         }
-                       //check change pass
                         ?>
                     </div>
                 </div>
@@ -77,8 +78,7 @@ session_start();
         </div>
     </div>
     
-
-  
+ 
      <!-- Core Scripts - Include with every page -->
     <script src="assets/plugins/jquery-1.10.2.js"></script>
     <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>

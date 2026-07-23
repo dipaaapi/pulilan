@@ -428,7 +428,7 @@
 
             <div class="section" id="section4" >
                 <div class="container">
-                    <div class="col-md-8 col-md-offset-2">
+                    <div class="col-md-8 offset-md-2">
 
 
                         <h2 class="title" data-animate="fadeInDown">Contact us</h2>

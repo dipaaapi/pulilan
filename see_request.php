@@ -79,7 +79,7 @@ input[type=submit]:hover {
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="adminindex.php">
-                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-responsive" />
+                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-fluid" />
                 </a>
             </div>
             <!-- end navbar-header -->
@@ -124,7 +124,7 @@ input[type=submit]:hover {
                             <a href="adminindex.php?type=<?php echo $d['message_id']; ?>">
                                 <div>
                                     <strong><span class=" label label-danger"><?php echo $name; ?></span></strong>
-                                    <span class="pull-right text-muted">
+                                    <span class="float-end text-muted">
                                         <em><?php echo $g['date_created']; ?></em>
                                     </span>
                                 </div>
@@ -153,7 +153,7 @@ input[type=submit]:hover {
                                 <div>
                                     <p>
                                         <strong>Task 1</strong>
-                                        <span class="pull-right text-muted">40% Complete</span>
+                                        <span class="float-end text-muted">40% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
@@ -169,7 +169,7 @@ input[type=submit]:hover {
                                 <div>
                                     <p>
                                         <strong>Task 2</strong>
-                                        <span class="pull-right text-muted">20% Complete</span>
+                                        <span class="float-end text-muted">20% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
@@ -185,7 +185,7 @@ input[type=submit]:hover {
                                 <div>
                                     <p>
                                         <strong>Task 3</strong>
-                                        <span class="pull-right text-muted">60% Complete</span>
+                                        <span class="float-end text-muted">60% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
@@ -201,7 +201,7 @@ input[type=submit]:hover {
                                 <div>
                                     <p>
                                         <strong>Task 4</strong>
-                                        <span class="pull-right text-muted">80% Complete</span>
+                                        <span class="float-end text-muted">80% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
@@ -241,7 +241,7 @@ input[type=submit]:hover {
                             <a href="see_request.php?did=<?php echo $s['user_id']; ?>">
                                 <div>
                                     <i class="fa fa-bell"></i>Request Resident Update
-                                    <span class="pull-right text-muted small"><?php echo $s['brgy_location']; ?></span>
+                                    <span class="float-end text-muted small"><?php echo $s['brgy_location']; ?></span>
                                     <p>Resident: <?php echo $s['name']; ?></p>
                                 </div>
                             </a>
@@ -295,7 +295,7 @@ input[type=submit]:hover {
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img src="../pulilan/img/logo.png" alt="admin logo" class="img img-responsive">
+                                <img src="../pulilan/img/logo.png" alt="admin logo" class="img img-fluid">
                             </div>
                             <br>
                             <div class="text-center">
@@ -440,7 +440,7 @@ if($did !=""){
     while($ll = mysqli_fetch_array($qll)){
 
         ?>
-            <div class="panel panel-default">
+            <div class="card">
                 <div class="container">
 
                 Brgy: <h4><?php echo $ll['brgy_location']; ?></h4><br>
@@ -464,7 +464,7 @@ global $all;
     while($ll = mysqli_fetch_array($qll)){
 
         ?>
-            <div class="panel panel-default">
+            <div class="card">
                 <div class="container">
 
                 Brgy: <h4><?php echo $ll['brgy_location']; ?></h4><br>

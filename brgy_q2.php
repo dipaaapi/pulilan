@@ -36,7 +36,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="brgyindex.php">
-                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-responsive" />
+                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-fluid" />
                 </a>
             </div>
             <!-- end navbar-header -->
@@ -46,7 +46,7 @@
               <i class="fa fa-sign-out fa-3x"></i> Cancel</a>
               </li>
             </ul><!-- end navbar-top-links -->
-<progress value="0" max="100" id="progressBar" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></progress>
+<progress value="0" max="100" id="progressBar" class="col-lg-12 col-md-12 col-sm-12 col-12"></progress>
         </nav>
         <!-- end navbar top -->
 
@@ -60,7 +60,7 @@
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img src="../pulilan/img/Balatong-A.jpg" alt="admin logo" class="img img-responsive">
+                                <img src="../pulilan/img/Balatong-A.jpg" alt="admin logo" class="img img-fluid">
                             </div>
                             <br>
                             <div class="text-center">
@@ -108,16 +108,16 @@
                 <div id="phase1">
                     <div class="text-center">
                         <h1>Initial Form</h1><br>
-                        <input class="col-lg-6 col-md-6 col-sm-6 col-xs-6" placeholder="First Name" id="firstname" name="firstname" autofocus>
-                        <input class="col-lg-6 col-md-6 col-sm-6 col-xs-6" placeholder="Last Name" id="lastname" name="lastname"><br>
-                        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6">Select Position</p>
-                        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6">Select Gender</p>
-                        <select class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="position" name="position">
+                        <input class="col-lg-6 col-md-6 col-sm-6 col-6" placeholder="First Name" id="firstname" name="firstname" autofocus>
+                        <input class="col-lg-6 col-md-6 col-sm-6 col-6" placeholder="Last Name" id="lastname" name="lastname"><br>
+                        <p class="col-lg-6 col-md-6 col-sm-6 col-6">Select Position</p>
+                        <p class="col-lg-6 col-md-6 col-sm-6 col-6">Select Gender</p>
+                        <select class="col-lg-6 col-md-6 col-sm-6 col-6" id="position" name="position">
                           <option value=""></option>
                           <option value="Chairman">Chairman</option>
                           <option value="Secretary">Secretary</option>
                         </select>
-                        <select class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="gender" name="gender">
+                        <select class="col-lg-6 col-md-6 col-sm-6 col-6" id="gender" name="gender">
                           <option value=""></option>
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>

@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
 <script src="js/jquery-ui.js"></script>
   <h1>Update Resident Details</h1>
 
-  <div class="col col-lg-12 col-md-12 panel panel-default">
+  <div class="col col-lg-12 col-md-12 card">
 
 
         <?php

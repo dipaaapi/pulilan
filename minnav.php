@@ -18,6 +18,6 @@
 
     <div class="container">
         <div class="changep">
-            <div class="col col-lg-4 col-md-4 col-sm-6 col-xs-6 col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-3">
-                <div class="login-panel panel panel-default">                  
-                    <div class="panel-heading text-center">
+            <div class="col col-lg-4 col-md-4 col-sm-6 col-6 offset-lg-4 offset-md-4 offset-sm-3 offset-3">
+                <div class="login-card card">                  
+                    <div class="card-header text-center">

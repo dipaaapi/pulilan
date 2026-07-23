@@ -102,7 +102,7 @@ input[type=submit]:hover {
                             <a href="adminprofile.php?type=<?php echo $d['message_id']; ?>">
                                 <div>
                                     <strong><span class=" label label-danger"><?php echo $name; ?></span></strong>
-                                    <span class="pull-right text-muted">
+                                    <span class="float-end text-muted">
                                         <em><?php echo $g['date_created']; ?></em>
                                     </span>
                                 </div>
@@ -139,7 +139,7 @@ input[type=submit]:hover {
                             <a href="see_request.php?did=<?php echo $s['user_id']; ?>">
                                 <div>
                                     <i class="fa fa-bell"></i>Request Resident Update
-                                    <span class="pull-right text-muted small"><?php echo $s['brgy_location']; ?></span>
+                                    <span class="float-end text-muted small"><?php echo $s['brgy_location']; ?></span>
                                     <p>Resident: <?php echo $s['name']; ?></p>
                                 </div>
                             </a>
@@ -170,7 +170,7 @@ input[type=submit]:hover {
             <!-- sidebar-collapse -->
                 <!-- user image section-->
                 <div class="user-section">
-                    <img src="../pulilan/img/blogo.jpg" alt="brgy logo" class="img img-responsive">
+                    <img src="../pulilan/img/blogo.jpg" alt="brgy logo" class="img img-fluid">
                     <p class="user-p">Brgy. <?php echo $_SESSION['username']; ?></p>
                 </div>
                 <!--end user image section-->

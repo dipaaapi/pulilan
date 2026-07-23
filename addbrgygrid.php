@@ -17,37 +17,37 @@ session_start();
 
         <div class="form-group col-md-4">
          <label>Email:</label>
-         <input type="text" name="email" class="form-control pull-right"  placeholder="Enter Email" value="" required>   
+         <input type="text" name="email" class="form-control float-end"  placeholder="Enter Email" value="" required>   
         </div>
 
         <div class="form-group col-md-4">
          <label>Username:</label>
-         <input type="text" name="username" class="form-control pull-right"  placeholder="Enter Username" required>
+         <input type="text" name="username" class="form-control float-end"  placeholder="Enter Username" required>
         </div>
 
         <div class="form-group col-md-4">
          <label>Password:</label>
-         <input type="text" name="password" class="form-control pull-right"  placeholder="Enter Password" required>
+         <input type="text" name="password" class="form-control float-end"  placeholder="Enter Password" required>
         </div>
          
         <div class="form-group col-md-4">
          <label>Contact Number:</label>
-         <input type="text" name="contact" class="form-control pull-right"  placeholder="Enter Contact Number" required>   
+         <input type="text" name="contact" class="form-control float-end"  placeholder="Enter Contact Number" required>   
         </div>
 
         <div class="form-group col-md-4">
          <label>Barangay Location:</label>
-         <input type="text" name="brgy_location" class="form-control pull-right"  placeholder="Enter Barangay Location" required>   
+         <input type="text" name="brgy_location" class="form-control float-end"  placeholder="Enter Barangay Location" required>   
         </div>
 
         <div class="form-group col-md-6">
          <label>Number of Purok/Sitios:</label>
-         <input type="text" name="no_purok" class="form-control pull-right"  placeholder="Enter Number of Purok/Sitios" required>   
+         <input type="text" name="no_purok" class="form-control float-end"  placeholder="Enter Number of Purok/Sitios" required>   
         </div>
 
         <div class="form-group col-md-6">
          <label>Major Source of Livelihood:</label>
-         <input type="text" name="major_sources" class="form-control pull-right"  placeholder="Enter Major Source of Livelihood" required>   
+         <input type="text" name="major_sources" class="form-control float-end"  placeholder="Enter Major Source of Livelihood" required>   
         </div>
 
         <div class="form-group col-md-3">
@@ -90,72 +90,72 @@ session_start();
 
         <div class="form-group col-md-3">
          <label>Male Tanod:</label>
-         <input type="text" name="male_tanod" class="form-control pull-right"  placeholder="Male Tanod" required>   
+         <input type="text" name="male_tanod" class="form-control float-end"  placeholder="Male Tanod" required>   
         </div>
 
         <div class="form-group col-md-3">
          <label>Female Tanod:</label>
-         <input type="text" name="female_tanod" class="form-control pull-right"  placeholder="Female Tanod" required>   
+         <input type="text" name="female_tanod" class="form-control float-end"  placeholder="Female Tanod" required>   
         </div>
 
         <div class="form-group col-md-3">
          <label>Male Health Worker:</label>
-         <input type="text" name="male_health_worker" class="form-control pull-right"  placeholder="Male Health Worker" required>   
+         <input type="text" name="male_health_worker" class="form-control float-end"  placeholder="Male Health Worker" required>   
         </div>
 
         <div class="form-group col-md-3">
          <label>Female Health Worker:</label>
-         <input type="text" name="female_health_worker" class="form-control pull-right"  placeholder="Female Health Worker" required>   
+         <input type="text" name="female_health_worker" class="form-control float-end"  placeholder="Female Health Worker" required>   
         </div>
 
         <div class="form-group col-md-3">
          <label>Male Nutrition Scholar:</label>
-         <input type="text" name="male_nutrition_scholar" class="form-control pull-right"  placeholder="Male Nutrition Scholar" required>   
+         <input type="text" name="male_nutrition_scholar" class="form-control float-end"  placeholder="Male Nutrition Scholar" required>   
         </div>
 
         <div class="form-group col-md-3">
          <label>Female Nutrition Scholar:</label>
-         <input type="text" name="female_nutrition_scholar" class="form-control pull-right"  placeholder="Female Nutrition Scholar" required>   
+         <input type="text" name="female_nutrition_scholar" class="form-control float-end"  placeholder="Female Nutrition Scholar" required>   
         </div>
 
         <div class="form-group col-md-3">
          <label>Male Purok Leaders:</label>
-         <input type="text" name="male_purok_leaders" class="form-control pull-right"  placeholder="Male Purok Leaders" required>   
+         <input type="text" name="male_purok_leaders" class="form-control float-end"  placeholder="Male Purok Leaders" required>   
         </div>
 
         <div class="form-group col-md-3">
          <label>Female Purok Leaders:</label>
-         <input type="text" name="female_purok_leaders" class="form-control pull-right"  placeholder="Female Purok Leaders" required>   
+         <input type="text" name="female_purok_leaders" class="form-control float-end"  placeholder="Female Purok Leaders" required>   
         </div>
 
         <div class="form-group col-md-3">
          <label>Male Librarian:</label>
-         <input type="text" name="male_librarian" class="form-control pull-right"  placeholder="Male Librarian" required>   
+         <input type="text" name="male_librarian" class="form-control float-end"  placeholder="Male Librarian" required>   
         </div>
 
         <div class="form-group col-md-3">
          <label>Female Librarian:</label>
-         <input type="text" name="female_librarian" class="form-control pull-right"  placeholder="Female Librarian" required>   
+         <input type="text" name="female_librarian" class="form-control float-end"  placeholder="Female Librarian" required>   
         </div>
 
         <div class="form-group col-md-3">
          <label>Male Day Care Worker:</label>
-         <input type="text" name="male_day_care_worker" class="form-control pull-right"  placeholder="Male Day Care Worker" required>   
+         <input type="text" name="male_day_care_worker" class="form-control float-end"  placeholder="Male Day Care Worker" required>   
         </div>
 
         <div class="form-group col-md-3">
          <label>Female Day Care Worker:</label>
-         <input type="text" name="female_day_care_worker" class="form-control pull-right"  placeholder="Female Day Care Worker" required>   
+         <input type="text" name="female_day_care_worker" class="form-control float-end"  placeholder="Female Day Care Worker" required>   
         </div>
 
         <div class="form-group col-md-6">
          <label>Male Utility Worker:</label>
-         <input type="text" name="male_utility_worker" class="form-control pull-right"  placeholder="Male Utility Worker" required>   
+         <input type="text" name="male_utility_worker" class="form-control float-end"  placeholder="Male Utility Worker" required>   
         </div>
 
         <div class="form-group col-md-6">
          <label>Female Utility Worker:</label>
-         <input type="text" name="female_utility_worker" class="form-control pull-right"  placeholder="Female Utility Worker" required>
+         <input type="text" name="female_utility_worker" class="form-control float-end"  placeholder="Female Utility Worker" required>
         </div>
 
         <div class="form-group" align="center">

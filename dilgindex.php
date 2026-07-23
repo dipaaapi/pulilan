@@ -102,7 +102,7 @@ input[type=submit]:hover {
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="residentindex.php">
-                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-responsive" />
+                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-fluid" />
                 </a>
             </div><!-- end navbar-header -->
 
@@ -147,7 +147,7 @@ input[type=submit]:hover {
                             <a href="adminindex.php?type=<?php echo $d['message_id']; ?>">
                                 <div>
                                     <strong><span class=" label label-danger"><?php echo $name; ?></span></strong>
-                                    <span class="pull-right text-muted">
+                                    <span class="float-end text-muted">
                                         <em><?php echo $g['date_created']; ?></em>
                                     </span>
                                 </div>
@@ -224,7 +224,7 @@ input[type=submit]:hover {
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img src="../pulilan/img/dilg.png" alt="resident logo" class="img img-responsive">
+                                <img src="../pulilan/img/dilg.png" alt="resident logo" class="img img-fluid">
                             </div>
                             <br>
                             <div class="text-center">
@@ -406,13 +406,13 @@ else{
                    
                    ?>
 
-                   <div class="panel panel-default">
-    <div class="panel-body">
+                   <div class="card">
+    <div class="card-body">
         <div class="row">
-            <div class="col-xs-5">
+            <div class="col-5">
                             <img src="achievment/temp/<?php echo $prod['picture']; ?>" width="300px" height="300px;">
                         </div>
-                        <div class="col-xs-5">
+                        <div class="col-5">
                             <h3>Project Name: <?php echo $prod['project_name']; ?></h3>
 
                             <h4>Project Description:</h4>
@@ -445,10 +445,10 @@ else{
 
             <form method="POST" action="notification_process/official_message_process.php">
 
-            <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                 <input type="text" name="receiver" data-placement="right" placeholder="Receiver" required>
             </div>
-            <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                 <input type="text" id="subject" name="subject" placeholder="Subject" required>
             </div>
          

@@ -1,113 +1,106 @@
 <?php
+/**
+ * Modern SMS Gateway Integration (Traccar SMS Gateway)
+ * 
+ * This class replaces the outdated smsgateway.me service.
+ * It is designed to work with the Traccar SMS Gateway Android app.
+ */
 
-    class SmsGateway {
+class SmsGateway {
 
-        static $baseUrl = "https://smsgateway.me";
+    private $gatewayUrl;
+    private $authorizationToken;
 
-
-        function __construct($email,$password) {
-            $this->email = $email;
-            $this->password = $password;
-        }
-
-        function createContact ($name,$number) {
-            return $this->makeRequest('/api/v3/contacts/create','POST',['name' => $name, 'number' => $number]);
-        }
-
-        function getContacts ($page=1) {
-           return $this->makeRequest('/api/v3/contacts','GET',['page' => $page]);
-        }
-
-        function getContact ($id) {
-            return $this->makeRequest('/api/v3/contacts/view/'.$id,'GET');
-        }
-
-
-        function getDevices ($page=1)
-        {
-            return $this->makeRequest('/api/v3/devices','GET',['page' => $page]);
-        }
-
-        function getDevice ($id)
-        {
-            return $this->makeRequest('/api/v3/devices/view/'.$id,'GET');
-        }
-
-        function getMessages($page=1)
-        {
-            return $this->makeRequest('/api/v3/messages','GET',['page' => $page]);
-        }
-
-        function getMessage($id)
-        {
-            return $this->makeRequest('/api/v3/messages/view/'.$id,'GET');
-        }
-
-        function sendMessageToNumber($to, $message, $device, $options=[]) {
-            $query = array_merge(['number'=>$to, 'message'=>$message, 'device' => $device], $options);
-            return $this->makeRequest('/api/v3/messages/send','POST',$query);
-        }
-
-        function sendMessageToManyNumbers ($to, $message, $device, $options=[]) {
-            $query = array_merge(['number'=>$to, 'message'=>$message, 'device' => $device], $options);
-            return $this->makeRequest('/api/v3/messages/send','POST', $query);
-        }
-
-        function sendMessageToContact ($to, $message, $device, $options=[]) {
-            $query = array_merge(['contact'=>$to, 'message'=>$message, 'device' => $device], $options);
-            return $this->makeRequest('/api/v3/messages/send','POST', $query);
-        }
-
-        function sendMessageToManyContacts ($to, $message, $device, $options=[]) {
-            $query = array_merge(['contact'=>$to, 'message'=>$message, 'device' => $device], $options);
-            return $this->makeRequest('/api/v3/messages/send','POST', $query);
-        }
-
-        function sendManyMessages ($data) {
-            $query['data'] = $data;
-            return $this->makeRequest('/api/v3/messages/send','POST', $query);
-        }
-
-        private function makeRequest ($url, $method, $fields=[]) {
-
-            $fields['email'] = $this->email;
-            $fields['password'] = $this->password;
-
-            $url = smsGateway::$baseUrl.$url;
-
-            $fieldsString = http_build_query($fields);
-
-
-            $ch = curl_init();
-
-            if($method == 'POST')
-            {
-                curl_setopt($ch,CURLOPT_POST, count($fields));
-                curl_setopt($ch,CURLOPT_POSTFIELDS, $fieldsString);
-            }
-            else
-            {
-                $url .= '?'.$fieldsString;
-            }
-
-            curl_setopt($ch, CURLOPT_URL,$url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-            curl_setopt($ch, CURLOPT_HEADER , false);  // we want headers
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
-            $result = curl_exec ($ch);
-
-            $return['response'] = json_decode($result,true);
-
-            if($return['response'] == false)
-                $return['response'] = $result;
-
-            $return['status'] = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
-            curl_close ($ch);
-
-            return $return;
-        }
+    /**
+     * @param string $gatewayUrl The IP address and port of your Android phone running Traccar (e.g., "http://192.168.1.100:8082")
+     * @param string $authorizationToken (Optional) The token/password you set in the Traccar app settings
+     */
+    public function __construct($gatewayUrl, $authorizationToken = '') {
+        $this->gatewayUrl = rtrim($gatewayUrl, '/');
+        $this->authorizationToken = $authorizationToken;
     }
 
+    /**
+     * Sends an SMS message to a specific number.
+     * Note: $device and $options parameters are kept for backwards compatibility with older smsgateway.me code, 
+     * but are ignored by this new implementation.
+     * 
+     * @param string $to The recipient's mobile number (e.g., "+639123456789")
+     * @param string $message The text message to send
+     * @param mixed $device Ignored (for backwards compatibility)
+     * @param array $options Ignored (for backwards compatibility)
+     * @return array Returns an array with 'success' boolean and 'response' data.
+     */
+    public function sendMessageToNumber($to, $message, $device = null, $options = []) {
+        $data = [
+            'to' => $to,
+            'message' => $message
+        ];
+
+        return $this->makeRequest('/', 'POST', $data);
+    }
+
+    /**
+     * Internal method to execute the cURL request to the Android phone
+     */
+    private function makeRequest($endpoint, $method, $data = []) {
+        $url = $this->gatewayUrl . $endpoint;
+        
+        $ch = curl_init($url);
+        
+        $headers = [
+            'Content-Type: application/json',
+            'Accept: application/json'
+        ];
+
+        if (!empty($this->authorizationToken)) {
+            // Traccar uses the Authorization header for its token
+            $headers[] = 'Authorization: ' . $this->authorizationToken;
+        }
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        
+        // Ignore SSL verification in case you are using a local network IP without a certificate
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+        if ($method === 'POST') {
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        }
+
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $error = curl_error($ch);
+        curl_close($ch);
+
+        if ($error) {
+            return [
+                'success' => false,
+                'error' => $error
+            ];
+        }
+
+        return [
+            'success' => ($httpCode >= 200 && $httpCode < 300),
+            'http_code' => $httpCode,
+            'response' => json_decode($response, true) ?? $response
+        ];
+    }
+    
+    // ==============================================================================
+    // DUMMY METHODS FOR BACKWARDS COMPATIBILITY
+    // These methods existed in smsgateway.me but are not applicable to Traccar.
+    // They are kept here so your old code doesn't crash with "undefined method" errors.
+    // ==============================================================================
+    
+    public function createContact($name, $number) { return ['success' => true]; }
+    public function getContacts($page = 1) { return ['success' => true]; }
+    public function getContact($id) { return ['success' => true]; }
+    public function getDevices($page = 1) { return ['success' => true]; }
+    public function getDevice($id) { return ['success' => true]; }
+    public function getMessages($page = 1) { return ['success' => true]; }
+    public function getMessage($id) { return ['success' => true]; }
+}
 ?>

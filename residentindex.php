@@ -76,7 +76,7 @@ input[type=submit]:hover {
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="residentindex.php">
-                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-responsive" />
+                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-fluid" />
                 </a>
             </div>
             <!-- end navbar-header -->
@@ -119,7 +119,7 @@ input[type=submit]:hover {
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                            <img src="../pulilan/iimg/person-1.jpg" alt="" class="img img-responsive">
+                            <img src="../pulilan/iimg/person-1.jpg" alt="" class="img img-fluid">
                             </div>
                             <br>
                             <div class="text-center">
@@ -272,13 +272,13 @@ input[type=submit]:hover {
                    
                    ?>
 
-                   <div class="panel panel-default">
-    <div class="panel-body">
+                   <div class="card">
+    <div class="card-body">
         <div class="row">
-            <div class="col-xs-5">
+            <div class="col-5">
                             <img src="achievment/temp/<?php echo $prod['picture']; ?>" width="300px" height="300px;">
                         </div>
-                        <div class="col-xs-5">
+                        <div class="col-5">
                             <h3>Project Name: <?php echo $prod['project_name']; ?></h3>
 
                             <h4>Project Description:</h4>

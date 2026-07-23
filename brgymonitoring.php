@@ -54,7 +54,7 @@ function printpage() {
     <label class="form-check-label">
         <input type="button" name="filter" id="filter" value="Filter" class="btn btn-success" />  
     </label>
-   <div class="col-md-1 pull-right">  
+   <div class="col-md-1 float-end">  
      <a class="btn prnt" id="printpagebutton" onclick="printpage()">Print this page</a>
   </div> 
 </form>

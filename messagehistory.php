@@ -68,7 +68,7 @@ input[type=submit]:hover {
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="residentindex.php">
-                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-responsive" />
+                    <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-fluid" />
                 </a>
             </div>
             <!-- end navbar-header -->
@@ -118,7 +118,7 @@ input[type=submit]:hover {
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                            <img src="../pulilan/iimg/person-1.jpg" alt="" class="img img-responsive">
+                            <img src="../pulilan/iimg/person-1.jpg" alt="" class="img img-fluid">
                             </div>
                             <br>
                             <div class="text-center">
@@ -168,7 +168,7 @@ input[type=submit]:hover {
   <div class="row">
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
-                    <div class="panel panel-default">
+                    <div class="card">
                        <div class="table-responsive">          
                     <table class="table">
                       <thead class="label-info">

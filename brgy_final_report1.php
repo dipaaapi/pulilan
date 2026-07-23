@@ -69,43 +69,43 @@ function printpage() {
                 <!-- Page Header -->
                 <div class="col-lg-12">
                     <h1 class="page-header">Barangay Final Report
-                        <a href="brgyindex.php" class="btn btn-warning pull-right">Return</a>
+                        <a href="brgyindex.php" class="btn btn-warning float-end">Return</a>
                     </h1>
                 </div>
                 <!--End Page Header -->
             </div>
             <div class="row">
-                <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="panel panel-primary text-center no-boder">
-                        <div class="panel-body green">
+                <div class="col col-lg-4 col-md-4 col-sm-4 col-4">
+                    <div class="card bg-primary text-white text-center no-boder">
+                        <div class="card-body green">
                             <i class="fa fa fa-home fa-3x"></i>
                             <p><?php echo $residentcount;?></p>
                         </div>
-                        <div class="panel-footer">
+                        <div class="card-footer">
                             <span class="panel-eyecandy-title">Total Resident | 2017
                             </span>
                         </div>
                     </div>
                 </div>
-                <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="panel panel-primary text-center no-boder">
-                        <div class="panel-body blue">
+                <div class="col col-lg-4 col-md-4 col-sm-4 col-4">
+                    <div class="card bg-primary text-white text-center no-boder">
+                        <div class="card-body blue">
                             <i class="fa fa fa-users fa-3x"></i>
                             <p><?php echo $residentmalecount; ?></p>
                         </div>
-                        <div class="panel-footer">
+                        <div class="card-footer">
                             <span class="panel-eyecandy-title">Male Resident | 2017
                             </span>
                         </div>
                     </div>
                 </div>
-                <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="panel panel-primary text-center no-boder">
-                        <div class="panel-body red">
+                <div class="col col-lg-4 col-md-4 col-sm-4 col-4">
+                    <div class="card bg-primary text-white text-center no-boder">
+                        <div class="card-body red">
                             <i class="fa fa fa-users fa-3x"></i>
                             <p><?php echo $residentfemalecount; ?></p>
                         </div>
-                        <div class="panel-footer">
+                        <div class="card-footer">
                             <span class="panel-eyecandy-title">Female Resident | 2017
                             </span>
                         </div>
@@ -143,27 +143,27 @@ function printpage() {
                 }
                 ?>
 
-                <div class="row panel panel-primary no-boder">
-                    <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                        <div class="panel-body yellow" style="border-radius: 25px;">
+                <div class="row card bg-primary text-white no-boder">
+                    <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                        <div class="card-body yellow" style="border-radius: 25px;">
                             <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Families | <b><?php echo $resultfamilies; ?></b>
                             </span>
                         </div>
                     </div>
-                    <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                        <div class="panel-body green" style="border-radius: 25px;">
+                    <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                        <div class="card-body green" style="border-radius: 25px;">
                             <span class="panel-eyecandy-title"> <i class="fa fa fa-home fa-3x"></i> Household | <b><?php echo $resulthousehold; ?></b>
                             </span>
                         </div>
                     </div>
-                    <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                        <div class="panel-body blue" style="border-radius: 25px;">
+                    <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                        <div class="card-body blue" style="border-radius: 25px;">
                             <span class="panel-eyecandy-title"> <i class="fa fa fa-user fa-3x"></i> Male Voters | <b><?php echo $totalmalerep1; ?></b>
                             </span>
                         </div>
                     </div>
-                    <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                        <div class="panel-body red" style="border-radius: 25px;">
+                    <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
+                        <div class="card-body red" style="border-radius: 25px;">
                             <span class="panel-eyecandy-title"> <i class="fa fa fa-user fa-3x"></i> Female Voters | <b><?php echo $totalfemalerep1; ?></b>
                             </span>
                         </div>
@@ -172,11 +172,11 @@ function printpage() {
 
                 <!--   Civil Report -->
                 <div class="col-lg-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
+                    <div class="card text-center">
+                        <div class="card-header">
                             <b>Civil Report</b>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -236,11 +236,11 @@ function printpage() {
 
                 <!--   Religion Report -->
                 <div class="col-lg-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
+                    <div class="card text-center">
+                        <div class="card-header">
                             <b>Religion Report</b>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -344,11 +344,11 @@ function printpage() {
 
                 <!--   Housing Report -->
                 <div class="col-lg-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
+                    <div class="card text-center">
+                        <div class="card-header">
                             <b>Housing Report</b>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -414,11 +414,11 @@ function printpage() {
 
                 <!--   Educational Report -->
                 <div class="col-lg-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
+                    <div class="card text-center">
+                        <div class="card-header">
                             <b>Educational Report</b>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -523,11 +523,11 @@ function printpage() {
 
                 <!--   Facility Report -->
                 <div class="col-lg-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
+                    <div class="card text-center">
+                        <div class="card-header">
                             <b>List of Available Facility</b>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>

@@ -94,15 +94,15 @@ else{
 
     <div class="container">
         <div class="changep">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">                  
-                    <div class="panel-heading text-center">
+            <div class="col-md-4 offset-md-4">
+                <div class="login-card card">                  
+                    <div class="card-header text-center">
                         <a href="nlanding.php">
                           <img src="../pulilan/img/plogo.png" alt=""/>
                         </a>
-                        <h1 class="panel-title fa fa-user" style="text-shadow: 1px 1px 2px red, 0 0 25px orange, 0 0 5px yellow;"> Update Barangay Information</h1>
+                        <h1 class="card-title fa fa-user" style="text-shadow: 1px 1px 2px red, 0 0 25px orange, 0 0 5px yellow;"> Update Barangay Information</h1>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
 
                       <?php
 

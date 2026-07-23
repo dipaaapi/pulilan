@@ -55,7 +55,7 @@ input[type=submit]:hover {
                  <!--  page header -->
                 <div class="col-lg-12">
                     <h1 class="page-header">Resident Questionnaire
-                    <a href="residentindex.php" class="btn btn-warning pull-right">Return</a>
+                    <a href="residentindex.php" class="btn btn-warning float-end">Return</a>
                     </h1>
                 </div>
                  <!-- end  page header -->
@@ -93,7 +93,7 @@ input[type=submit]:hover {
   </script>
             </div>
 
-<div class="panel panel-heading">
+<div class="panel card-header">
 
   <table class="table table-responsive table-bordered">
     <thead>
@@ -137,7 +137,7 @@ input[type=submit]:hover {
 
 $("table").DataTable();
 
-$('.dataTables_filter').addClass('pull-right');
+$('.dataTables_filter').addClass('float-end');
 
 
 </script>

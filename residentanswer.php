@@ -77,16 +77,16 @@ form#multiphase {
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Resident Profile Questionnaire
-            <a href="brgyindex.php" class="btn btn-warning pull-right">Return</a>
+            <a href="brgyindex.php" class="btn btn-warning float-end">Return</a>
             </h1>
         </div>
     </div><!-- end  page header -->
 
-    <div class="panel panel-primary col col-lg-12 col-md-12">
+    <div class="card bg-primary text-white col col-lg-12 col-md-12">
         <div class="panel-head" align="center">
             <h4><b>Initial Form</b></h4>
         </div>
-        <div class="panel-body" align="center">
+        <div class="card-body" align="center">
             <table>
                 <thead>
                     <tr class="table-condensed">
@@ -142,7 +142,7 @@ form#multiphase {
         <div class="panel-head" align="center">
             <h4><b>Civil Report</b></h4>
         </div>
-        <div class="panel-body" align="center">
+        <div class="card-body" align="center">
             <table>
                 <thead>
                     <tr class="table-condensed">
@@ -175,7 +175,7 @@ form#multiphase {
         <div class="panel-head" align="center">
             <h4><b>Religion Report</b></h4>
         </div>
-        <div class="panel-body" align="center">
+        <div class="card-body" align="center">
             <table>
                 <thead>
                     <tr class="table-condensed">
@@ -203,7 +203,7 @@ form#multiphase {
         <div class="panel-head" align="center">
             <h4><b>Housing Report</b></h4>
         </div>
-        <div class="panel-body" align="center">
+        <div class="card-body" align="center">
             <table>
                 <thead>
                     <tr class="table-condensed">
@@ -237,7 +237,7 @@ form#multiphase {
         <div class="panel-head" align="center">
             <h4><b>Educational Report</b></h4>
         </div>
-        <div class="panel-body" align="center">
+        <div class="card-body" align="center">
             <table>
                 <thead>
                     <tr class="table-condensed">

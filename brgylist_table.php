@@ -57,7 +57,7 @@ require('pulilan_db_connect.php');
           });
   });
   </script>
-  <div class="panel panel-heading">
+  <div class="panel card-header">
     <table class="table">
       <thead class="label-info">
         <tr>

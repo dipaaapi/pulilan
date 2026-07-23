@@ -81,7 +81,7 @@ if(isset($_POST['submit'])){
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery-ui.js"></script>
 
-  <div class="col col-lg-12 col-md-12 panel panel-default">
+  <div class="col col-lg-12 col-md-12 card">
           <?php
 
           $get = mysqli_query($connection, "SELECT * FROM brgydetails_tbl WHERE brgydetails_id = '$brgydetails_id'");
@@ -100,23 +100,23 @@ if(isset($_POST['submit'])){
                       </div>
 
                       <div class="form-group col-md-6">
-                       <input  id="" type="input" name="position" class="form-control pull-right"  placeholder="Enter Position" value="<?php echo $h['position'], $position;?>" required>   
+                       <input  id="" type="input" name="position" class="form-control float-end"  placeholder="Enter Position" value="<?php echo $h['position'], $position;?>" required>   
                       </div>
 
                       <div class="form-group col-md-6">
-                       <input  id="email" type="input" name="email" class="form-control pull-right"  placeholder="Enter Email" value="<?php echo $h['email'], $email;?>" required>   
+                       <input  id="email" type="input" name="email" class="form-control float-end"  placeholder="Enter Email" value="<?php echo $h['email'], $email;?>" required>   
                       </div>
 
                       <div class="form-group col-md-6">
-                       <input  id="gender" type="input" name="gender" class="form-control pull-right"  placeholder="Enter Gender" value="<?php echo $h['gender'], $gender;?>" required>   
+                       <input  id="gender" type="input" name="gender" class="form-control float-end"  placeholder="Enter Gender" value="<?php echo $h['gender'], $gender;?>" required>   
                       </div>
 
                       <div class="form-group col-md-6">
-                       <input  id="" type="input" name="contact" class="form-control pull-right"  placeholder="Enter Contact Number" value="<?php echo $h['contact'], $contact;?>" required>   
+                       <input  id="" type="input" name="contact" class="form-control float-end"  placeholder="Enter Contact Number" value="<?php echo $h['contact'], $contact;?>" required>   
                       </div>
 
                        <div class="form-group col-md-6">
-                       <input  id="" type="input" name="brgy_location" class="form-control pull-right"  placeholder="Enter Contact Number" value="<?php echo $h['brgy_location'], $contact;?>" required>   
+                       <input  id="" type="input" name="brgy_location" class="form-control float-end"  placeholder="Enter Contact Number" value="<?php echo $h['brgy_location'], $contact;?>" required>   
                       </div>
 
 

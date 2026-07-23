@@ -35,7 +35,7 @@ if (!isset($_SESSION['username'])) {
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="adminindex.php">
-                        <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-responsive" />
+                        <img src="../pulilan/img/plogo.png" alt="pulilan logo" style="width: 150%; height: 300%;" class="img-fluid" />
                     </a>
                 </div>
                 <!-- end navbar-header -->
@@ -52,7 +52,7 @@ if (!isset($_SESSION['username'])) {
                                 <a href="#">
                                     <div>
                                         <strong><span class=" label label-danger">Andrew Smith</span></strong>
-                                        <span class="pull-right text-muted">
+                                        <span class="float-end text-muted">
                                             <em>Yesterday</em>
                                         </span>
                                     </div>
@@ -64,7 +64,7 @@ if (!isset($_SESSION['username'])) {
                                 <a href="#">
                                     <div>
                                         <strong><span class=" label label-info">Jonney Depp</span></strong>
-                                        <span class="pull-right text-muted">
+                                        <span class="float-end text-muted">
                                             <em>Yesterday</em>
                                         </span>
                                     </div>
@@ -76,7 +76,7 @@ if (!isset($_SESSION['username'])) {
                                 <a href="#">
                                     <div>
                                         <strong><span class=" label label-success">Jonney Depp</span></strong>
-                                        <span class="pull-right text-muted">
+                                        <span class="float-end text-muted">
                                             <em>Yesterday</em>
                                         </span>
                                     </div>
@@ -105,7 +105,7 @@ if (!isset($_SESSION['username'])) {
                                     <div>
                                         <p>
                                             <strong>Task 1</strong>
-                                            <span class="pull-right text-muted">40% Complete</span>
+                                            <span class="float-end text-muted">40% Complete</span>
                                         </p>
                                         <div class="progress progress-striped active">
                                             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
@@ -121,7 +121,7 @@ if (!isset($_SESSION['username'])) {
                                     <div>
                                         <p>
                                             <strong>Task 2</strong>
-                                            <span class="pull-right text-muted">20% Complete</span>
+                                            <span class="float-end text-muted">20% Complete</span>
                                         </p>
                                         <div class="progress progress-striped active">
                                             <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
@@ -137,7 +137,7 @@ if (!isset($_SESSION['username'])) {
                                     <div>
                                         <p>
                                             <strong>Task 3</strong>
-                                            <span class="pull-right text-muted">60% Complete</span>
+                                            <span class="float-end text-muted">60% Complete</span>
                                         </p>
                                         <div class="progress progress-striped active">
                                             <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
@@ -153,7 +153,7 @@ if (!isset($_SESSION['username'])) {
                                     <div>
                                         <p>
                                             <strong>Task 4</strong>
-                                            <span class="pull-right text-muted">80% Complete</span>
+                                            <span class="float-end text-muted">80% Complete</span>
                                         </p>
                                         <div class="progress progress-striped active">
                                             <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
@@ -184,7 +184,7 @@ if (!isset($_SESSION['username'])) {
                                 <a href="#">
                                     <div>
                                         <i class="fa fa-comment fa-fw"></i>New Comment
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                        <span class="float-end text-muted small">4 minutes ago</span>
                                     </div>
                                 </a>
                             </li>
@@ -193,7 +193,7 @@ if (!isset($_SESSION['username'])) {
                                 <a href="#">
                                     <div>
                                         <i class="fa fa-twitter fa-fw"></i>3 New Followers
-                                        <span class="pull-right text-muted small">12 minutes ago</span>
+                                        <span class="float-end text-muted small">12 minutes ago</span>
                                     </div>
                                 </a>
                             </li>
@@ -202,7 +202,7 @@ if (!isset($_SESSION['username'])) {
                                 <a href="#">
                                     <div>
                                         <i class="fa fa-envelope fa-fw"></i>Message Sent
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                        <span class="float-end text-muted small">4 minutes ago</span>
                                     </div>
                                 </a>
                             </li>
@@ -211,7 +211,7 @@ if (!isset($_SESSION['username'])) {
                                 <a href="#">
                                     <div>
                                         <i class="fa fa-tasks fa-fw"></i>New Task
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                        <span class="float-end text-muted small">4 minutes ago</span>
                                     </div>
                                 </a>
                             </li>
@@ -220,7 +220,7 @@ if (!isset($_SESSION['username'])) {
                                 <a href="#">
                                     <div>
                                         <i class="fa fa-upload fa-fw"></i>Server Rebooted
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                        <span class="float-end text-muted small">4 minutes ago</span>
                                     </div>
                                 </a>
                             </li>
@@ -268,7 +268,7 @@ if (!isset($_SESSION['username'])) {
                             <!-- user image section-->
                             <div class="user-section">
                                 <div class="user-section-inner">
-                                    <img src="../pulilan/img/logo.png" alt="admin logo" class="img img-responsive">
+                                    <img src="../pulilan/img/logo.png" alt="admin logo" class="img img-fluid">
                                 </div>
                                 <br>
                                 <div class="text-center">
@@ -303,14 +303,14 @@ if (!isset($_SESSION['username'])) {
 
                 <div class="row">
                     <!-- Page Header -->
-                    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                         <h1 class="page-header">Memo Details</h1>
                     </div>
                     <!--End Page Header -->
                 </div>
                 <div class="col-lg-8 text-center">
-                    <div class="panel panel-default">
-                        <h4 class="panel-heading">Annual memorandum Proclamation</h4>
+                    <div class="card">
+                        <h4 class="card-header">Annual memorandum Proclamation</h4>
                         <table class="table-bordered">
                             <thead>
                                 <tr>
@@ -330,11 +330,11 @@ if (!isset($_SESSION['username'])) {
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading text-center">
+                    <div class="card bg-primary text-white">
+                        <div class="card-header text-center">
                             Switch Location
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <p class="col-lg-8">Brgy no. 1</p>
                             <button id="brgyon1" type="button" class="col-lg-2 btn btn-outline btn-success fa fa-check"></button>
                             <button id="brgyoff1" type="button" class="col-lg-2 btn btn-outline btn-danger fa fa-times"></button>
@@ -393,7 +393,7 @@ if (!isset($_SESSION['username'])) {
                             <button id="brgyon19" type="button" class="col-lg-2 btn btn-outline btn-success fa fa-check"></button>
                             <button id="brgyoff19" type="button" class="col-lg-2 btn btn-outline btn-danger fa fa-times"></button>
                         </div>
-                        <div class="panel-footer">
+                        <div class="card-footer">
                             <p><b>Note:</b>the switch button will trigger the request of each barangays request.</p>
                         </div>
                     </div>

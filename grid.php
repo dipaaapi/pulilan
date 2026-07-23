@@ -46,7 +46,7 @@
                             <a href="#">
                                 <div>
                                     <strong><span class=" label label-danger">Andrew Smith</span></strong>
-                                    <span class="pull-right text-muted">
+                                    <span class="float-end text-muted">
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
@@ -58,7 +58,7 @@
                             <a href="#">
                                 <div>
                                     <strong><span class=" label label-info">Jonney Depp</span></strong>
-                                    <span class="pull-right text-muted">
+                                    <span class="float-end text-muted">
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
@@ -70,7 +70,7 @@
                             <a href="#">
                                 <div>
                                     <strong><span class=" label label-success">Jonney Depp</span></strong>
-                                    <span class="pull-right text-muted">
+                                    <span class="float-end text-muted">
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
@@ -99,7 +99,7 @@
                                 <div>
                                     <p>
                                         <strong>Task 1</strong>
-                                        <span class="pull-right text-muted">40% Complete</span>
+                                        <span class="float-end text-muted">40% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
@@ -115,7 +115,7 @@
                                 <div>
                                     <p>
                                         <strong>Task 2</strong>
-                                        <span class="pull-right text-muted">20% Complete</span>
+                                        <span class="float-end text-muted">20% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
@@ -131,7 +131,7 @@
                                 <div>
                                     <p>
                                         <strong>Task 3</strong>
-                                        <span class="pull-right text-muted">60% Complete</span>
+                                        <span class="float-end text-muted">60% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
@@ -147,7 +147,7 @@
                                 <div>
                                     <p>
                                         <strong>Task 4</strong>
-                                        <span class="pull-right text-muted">80% Complete</span>
+                                        <span class="float-end text-muted">80% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
@@ -178,7 +178,7 @@
                             <a href="#">
                                 <div>
                                     <i class="fa fa-comment fa-fw"></i>New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <span class="float-end text-muted small">4 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -187,7 +187,7 @@
                             <a href="#">
                                 <div>
                                     <i class="fa fa-twitter fa-fw"></i>3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                    <span class="float-end text-muted small">12 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -196,7 +196,7 @@
                             <a href="#">
                                 <div>
                                     <i class="fa fa-envelope fa-fw"></i>Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <span class="float-end text-muted small">4 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -205,7 +205,7 @@
                             <a href="#">
                                 <div>
                                     <i class="fa fa-tasks fa-fw"></i>New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <span class="float-end text-muted small">4 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -214,7 +214,7 @@
                             <a href="#">
                                 <div>
                                     <i class="fa fa-upload fa-fw"></i>Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <span class="float-end text-muted small">4 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -391,8 +391,8 @@
             <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
+                    <div class="card">
+                        <div class="card-body">
                             <h3>Grid options</h3>
                             <p>See how aspects of the Bootstrap grid system work across multiple devices with a handy table.</p>
                             <div class="table-responsive">
@@ -487,8 +487,8 @@
              <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
+                    <div class="card">
+                        <div class="card-body">
                             <h3>Example: Stacked-to-horizontal</h3>
                             <p>Using a single set of
                                 <code>.col-md-*</code> grid classes, you can create a default grid system that starts out stacked on mobile devices and tablet devices (the extra small to small range) before becoming horizontal on desktop (medium) devices. Place grid columns in any
@@ -528,24 +528,24 @@
             <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
+                    <div class="card">
+                        <div class="card-body">
                             <h3>Example: Mobile and desktop</h3>
                             <p>Don't want your columns to simply stack in smaller devices? Use the extra small and medium device grid classes by adding
                                 <code>.col-xs-*</code>
                                 <code>.col-md-*</code> to your columns. See the example below for a better idea of how it all works.</p>
                             <div class="row show-grid">
-                                <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
-                                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+                                <div class="col-12 col-md-8">.col-12 .col-md-8</div>
+                                <div class="col-6 col-md-4">.col-6 .col-md-4</div>
                             </div>
                             <div class="row show-grid">
-                                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-                                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-                                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+                                <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+                                <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+                                <div class="col-6 col-md-4">.col-6 .col-md-4</div>
                             </div>
                             <div class="row show-grid">
-                                <div class="col-xs-6">.col-xs-6</div>
-                                <div class="col-xs-6">.col-xs-6</div>
+                                <div class="col-6">.col-6</div>
+                                <div class="col-6">.col-6</div>
                             </div>
                         </div>
                     </div>
@@ -556,21 +556,21 @@
             <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
+                    <div class="card">
+                        <div class="card-body">
                             <h3>Example: Mobile, tablet, desktops</h3>
                             <p>Build on the previous example by creating even more dynamic and powerful layouts with tablet
                                 <code>.col-sm-*</code> classes.</p>
                             <div class="row show-grid">
-                                <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
-                                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+                                <div class="col-12 col-sm-6 col-md-8">.col-12 .col-sm-6 .col-md-8</div>
+                                <div class="col-6 col-md-4">.col-6 .col-md-4</div>
                             </div>
                             <div class="row show-grid">
-                                <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
-                                <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+                                <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+                                <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
                                 <!-- Optional: clear the XS cols if their content doesn't match in height -->
                                 <div class="clearfix visible-xs"></div>
-                                <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+                                <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
                             </div>
                         </div>
                     </div>
@@ -582,23 +582,23 @@
             <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
+                    <div class="card">
+                        <div class="card-body">
                             <h3 id="grid-responsive-resets">Responsive column resets</h3>
                             <p>With the four tiers of grids available you're bound to run into issues where, at certain breakpoints, your columns don't clear quite right as one is taller than the other. To fix that, use a combination of a
                                 <code>.clearfix</code> and our <a href="#responsive-utilities">responsive utility classes</a>.</p>
                             <div class="row show-grid">
-                                <div class="col-xs-6 col-sm-3">
-                                    .col-xs-6 .col-sm-3
+                                <div class="col-6 col-sm-3">
+                                    .col-6 .col-sm-3
                                     <br>Resize your viewport or check it out on your phone for an example.
                                 </div>
-                                <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+                                <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
 
                                 <!-- Add the extra clearfix for only the required viewport -->
                                 <div class="clearfix visible-xs"></div>
 
-                                <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
-                                <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+                                <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+                                <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
                             </div>
                         </div>
                     </div>
@@ -610,24 +610,24 @@
             <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
+                    <div class="card">
+                        <div class="card-body">
                             <h3 id="grid-offsetting">Offsetting columns</h3>
                             <p>Move columns to the right using
                                 <code>.col-md-offset-*</code> classes. These classes increase the left margin of a column by
                                 <code>*</code> columns. For example,
-                                <code>.col-md-offset-4</code> moves
+                                <code>.offset-md-4</code> moves
                                 <code>.col-md-4</code> over four columns.</p>
                             <div class="row show-grid">
                                 <div class="col-md-4">.col-md-4</div>
-                                <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+                                <div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
                             </div>
                             <div class="row show-grid">
-                                <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
-                                <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+                                <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+                                <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
                             </div>
                             <div class="row show-grid">
-                                <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+                                <div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
                             </div>
                         </div>
                     </div>
@@ -638,8 +638,8 @@
             <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
+                    <div class="card">
+                        <div class="card-body">
                             <h3 id="grid-nesting">Nesting columns</h3>
                             <p>To nest your content with the default grid, add a new
                                 <code>.row</code> and set of
@@ -667,8 +667,8 @@
             <!--  row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
+                    <div class="card">
+                        <div class="card-body">
                             <h3 id="grid-column-ordering">Column ordering</h3>
                             <p>Easily change the order of our built-in grid columns with
                                 <code>.col-md-push-*</code> and

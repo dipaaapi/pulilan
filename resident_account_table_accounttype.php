@@ -54,7 +54,7 @@ require('pulilan_db_connect.php');
                             <a href="#">
                                 <div>
                                     <strong><span class=" label label-danger">Andrew Smith</span></strong>
-                                    <span class="pull-right text-muted">
+                                    <span class="float-end text-muted">
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
@@ -66,7 +66,7 @@ require('pulilan_db_connect.php');
                             <a href="#">
                                 <div>
                                     <strong><span class=" label label-info">Jonney Depp</span></strong>
-                                    <span class="pull-right text-muted">
+                                    <span class="float-end text-muted">
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
@@ -78,7 +78,7 @@ require('pulilan_db_connect.php');
                             <a href="#">
                                 <div>
                                     <strong><span class=" label label-success">Jonney Depp</span></strong>
-                                    <span class="pull-right text-muted">
+                                    <span class="float-end text-muted">
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
@@ -107,7 +107,7 @@ require('pulilan_db_connect.php');
                                 <div>
                                     <p>
                                         <strong>Task 1</strong>
-                                        <span class="pull-right text-muted">40% Complete</span>
+                                        <span class="float-end text-muted">40% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
@@ -123,7 +123,7 @@ require('pulilan_db_connect.php');
                                 <div>
                                     <p>
                                         <strong>Task 2</strong>
-                                        <span class="pull-right text-muted">20% Complete</span>
+                                        <span class="float-end text-muted">20% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
@@ -139,7 +139,7 @@ require('pulilan_db_connect.php');
                                 <div>
                                     <p>
                                         <strong>Task 3</strong>
-                                        <span class="pull-right text-muted">60% Complete</span>
+                                        <span class="float-end text-muted">60% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
@@ -155,7 +155,7 @@ require('pulilan_db_connect.php');
                                 <div>
                                     <p>
                                         <strong>Task 4</strong>
-                                        <span class="pull-right text-muted">80% Complete</span>
+                                        <span class="float-end text-muted">80% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
@@ -186,7 +186,7 @@ require('pulilan_db_connect.php');
                             <a href="#">
                                 <div>
                                     <i class="fa fa-comment fa-fw"></i>New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <span class="float-end text-muted small">4 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -195,7 +195,7 @@ require('pulilan_db_connect.php');
                             <a href="#">
                                 <div>
                                     <i class="fa fa-twitter fa-fw"></i>3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                    <span class="float-end text-muted small">12 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -204,7 +204,7 @@ require('pulilan_db_connect.php');
                             <a href="#">
                                 <div>
                                     <i class="fa fa-envelope fa-fw"></i>Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <span class="float-end text-muted small">4 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -213,7 +213,7 @@ require('pulilan_db_connect.php');
                             <a href="#">
                                 <div>
                                     <i class="fa fa-tasks fa-fw"></i>New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <span class="float-end text-muted small">4 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -222,7 +222,7 @@ require('pulilan_db_connect.php');
                             <a href="#">
                                 <div>
                                     <i class="fa fa-upload fa-fw"></i>Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <span class="float-end text-muted small">4 minutes ago</span>
                                 </div>
                             </a>
                         </li>
@@ -326,7 +326,7 @@ require('pulilan_db_connect.php');
             <div class="row">
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
-                    <div class="panel panel-default">
+                    <div class="card">
                        <div class="table-responsive">          
                     <table class="table">
                       <thead>

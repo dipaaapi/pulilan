@@ -2,186 +2,75 @@
 session_start();
 
 if (!isset($_SESSION['username'])) {
-  header("location: login.php");
+    header("location: login.php");
+    exit();
 }
 
-if(isset($_GET['memo'])){
-    $memo = $_GET['memo'];
-}
-global $memo;
-
-if(isset($_GET['type'])){
-    $type = $_GET['type'];
-}
-global $type;
-
-if(isset($_GET['done'])){
-    $done = $_GET['done'];
-}
-global $done;
-
-if(isset($_Get['view'])){
-    $view_memo = $_GET['view'];
-}
-global $view_memo;
-?>
-<?php include('../pulilan/adminnav.php'); ?> 
-    <h1>Message</h1>
-    <?php
-        if($done =="memo"){
-    ?>
-
-    <div class="alert alert-success"><div class="close" data-dismiss="alert">&times</div>Successfully Uploaded Memo</div>
-
-    <?php
-}
-
-if(isset($_SESSION['notif'])&&!empty($_SESSION['notif'])){
-    $notif = $_SESSION['notif'];
-    ?>
-    
-
-
-    <?php
-}
-
+include('../pulilan/adminnav.php');
 ?>
 
-<?php
-
-/*if(isset($_GET['memo'])){
-    $memo = $_GET['memo'];
-}
-global $memo;
-
-if(isset($_GET['type'])){
-    $type = $_GET['type'];
-}
-global $type;*/
-
-if($type !="" && $memo == ""){
-
-    $updateNotif = mysqli_query($con, "UPDATE message_tbl set notification_status = 'SEEN' where message_id = '$type'");
-
-    $sql3 = mysqli_query($con, "SELECT * from message_tbl where message_id = '$type'");
-    $h = mysqli_fetch_array($sql3);
-
-    $sender = $h['user_id'];
-
-    $getSender_1 = mysqli_query($con, "SELECT * FROM mainuser_acc where user_id = '$sender'");
-    $gg = mysqli_fetch_array($getSender_1);
-    $senderName = $gg['name'];
-    $brgy = $gg['brgy_location'];
-
-    ?>
-
-        <div class="col col-lg-4 col-md-4" align="center">
-            Sender:<input type="text" disabled value="<?php echo $senderName; ?>" class="form-control">
+<!-- Main Content Container -->
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col-12">
+            <h2 class="mt-3 mb-3 border-bottom pb-2 text-secondary">
+                <i class="fa fa-dashboard me-2"></i> Dashboard
+            </h2>
         </div>
-        <div class="col col-lg-4 col-md-4" align="center">
-            Subject:<input type="text" disabled value="<?php echo $h['subject']; ?>" class="form-control">
+    </div>
+
+    <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+        <i class="fa fa-folder-open me-2"></i> Welcome back, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- Quick Access Cards -->
+    <div class="row g-4 mt-1">
+        <div class="col-md-6 col-xl-3">
+            <a href="admin_messages.php" class="text-decoration-none">
+                <div class="card shadow-sm border-0 h-100 text-center p-3 bg-primary text-white">
+                    <div class="card-body">
+                        <i class="fa fa-envelope fa-3x mb-3"></i>
+                        <h5 class="card-title">Messages</h5>
+                        <p class="card-text small opacity-75">View and send messages to barangays.</p>
+                    </div>
+                </div>
+            </a>
         </div>
-        <div class="col col-lg-4 col-md-4" align="center">
-            Receiver:<input type="text" disabled value="<?php echo $h['brgy_location']; ?>" class="form-control">
+        <div class="col-md-6 col-xl-3">
+            <a href="admin_memo.php" class="text-decoration-none">
+                <div class="card shadow-sm border-0 h-100 text-center p-3 bg-info text-white">
+                    <div class="card-body">
+                        <i class="fa fa-file-text fa-3x mb-3"></i>
+                        <h5 class="card-title">Memos</h5>
+                        <p class="card-text small opacity-75">Create and manage official memos.</p>
+                    </div>
+                </div>
+            </a>
         </div>
-        <div class="col col-lg-12 col-md-12" align="center">
-            Message:<textarea rows="5" cols="100%" class="form-control" disabled><?php echo $h['message']; ?></textarea>
+        <div class="col-md-6 col-xl-3">
+            <a href="brgylist_table.php" class="text-decoration-none">
+                <div class="card shadow-sm border-0 h-100 text-center p-3 bg-success text-white">
+                    <div class="card-body">
+                        <i class="fa fa-users fa-3x mb-3"></i>
+                        <h5 class="card-title">Accounts</h5>
+                        <p class="card-text small opacity-75">Manage barangay & executive accounts.</p>
+                    </div>
+                </div>
+            </a>
         </div>
-
-        <?php
-
-            }
-            
-            elseif($type =="" && $memo == ""){
-
-        ?>
-        <div id="alert" class="alert alert-success alert-dismissible fade in" style="text-transform: uppercase;">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-          <p class="alert-msg"><i class="fa fa-folder-open"></i>Welcome to<b> <?php echo $_SESSION['username'];?></b> dashboard</p>
+        <div class="col-md-6 col-xl-3">
+            <a href="history_final_report.php" class="text-decoration-none">
+                <div class="card shadow-sm border-0 h-100 text-center p-3 bg-dark text-white">
+                    <div class="card-body">
+                        <i class="fa fa-bar-chart fa-3x mb-3"></i>
+                        <h5 class="card-title">Reports</h5>
+                        <p class="card-text small opacity-75">View final CBMS reports.</p>
+                    </div>
+                </div>
+            </a>
         </div>
+    </div>
+</div>
 
-        <form method="POST" action="notification_process/admin_message_process.php">
-            <input class="form-control" type="text" name="receiver" data-placement="right" placeholder="Receiver" required>
-            <input class="form-control" type="text" id="subject" name="subject" placeholder="Subject" required>
-            <textarea id="message" name="message" placeholder="Write something.." rows="5" cols="100%"></textarea>
-            <div class="submit_btn">
-                <button id="submit" type="submit" name="send_message" class="btn">Send Message</button>
-            </div>
-        </form>
-        <?php
-
-            }
-            elseif($type =="" && $memo == "true"){
-        ?>
-
-        <form method="POST" action="achievment/create_memo.php" enctype="multipart/form-data">
-            <p>Add Memo</p>
-            <input type="text" name="memo" placeholder="Memo Name / Memo No" required>
-            <!-- <div class="item" name="receiver" required>
-                <input type="text" name="receiver" data-placement="right">
-            </div> -->
-            <textarea name="memo_body" placeholder="Memo Body" rows="5" cols="100%" required></textarea>
-            <input type="file" name="picture" id="picture" class="form-control">
-            <div class="submit_btn">
-                <button type="submit" name="send_memo" class="btn">Create Memo</button>
-            </div>
-        </form>
-
-        <?php
-            }
-            elseif($type =="" && $memo == "view"){
-
-            $view_memo = mysqli_query($con, "SELECT * from memo");
-        ?>
-
-        <table class="table">
-            <tr class="label-info">
-                <th>Memo Status</th>
-                <th>View Memo</th>
-                <th>Action</th>
-            </tr>
-            <?php
-            while($view_m = mysqli_fetch_array($view_memo)){
-            ?>
-            <tr>
-                <td>
-                    <?php echo $view_m['project_name']; ?>
-                </td>
-                <td>
-                    <?php echo $view_m['memo_status']; ?>
-                </td>
-                <td>
-                    <a href="memo.php?view=<?php echo $view_m['memo_id']; ?>" class="btn btn-primary">
-                        View Memo
-                    </a>
-                </td>
-            </tr>
-            <?php
-        }
-
-            ?>
-        </table>
-
-        <?php
-        }
-        ?>
-    <!-- end wrapper -->
-
-    <!-- alert -->
-    <script src="js/alert.js"></script>
-    <script src="js/clicknav.js"></script>
-    <!-- / alert -->
-
-    <!-- Core Scripts - Include with every page -->
-    <script src="assets/plugins/jquery-1.10.2.js"></script>
-    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="assets/plugins/pace/pace.js"></script>
-    <script src="assets/scripts/siminta.js"></script>
-    <!-- Page-Level Plugin Scripts-->
-    <script src="assets/plugins/morris/raphael-2.1.0.min.js"></script>
-    <script src="assets/plugins/morris/morris.js"></script>
-    <script src="assets/scripts/dashboard-demo.js"></script>
-</body>
-
-</html>
+<?php include('adminfooter.php'); ?>

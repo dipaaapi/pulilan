@@ -4,7 +4,7 @@ session_start();
 require('pulilan_db_connect.php');
 ?>
 <style>
-	#panel, #panel-body {
+	#panel, #card-body {
 		padding: 0;
 	}
 	.title-panel {
@@ -26,9 +26,9 @@ require('pulilan_db_connect.php');
 </style>
 <?php include('../pulilan/adminnav.php'); ?>
     <h1>Log History</h1>
-	<div id="panel" class="panel panel-default col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<div class="panel-body" id="panel-body">
-			<table class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div id="panel" class="card col col-lg-12 col-md-12 col-sm-12 col-12">
+		<div class="card-body" id="card-body">
+			<table class="col col-lg-12 col-md-12 col-sm-12 col-12">
 				<thead>
 					<tr class="table-bordered">
 						<th>ID</th>

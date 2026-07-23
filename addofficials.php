@@ -10,7 +10,7 @@ require('pulilan_db_connect.php');
 <?php include('brgynav.php'); ?>
   <h1>Add Barangay Official's Information</h1>
 
-  <div class="col col-lg-12 col-md-12 panel panel-default">
+  <div class="col col-lg-12 col-md-12 card">
     <form method="POST">        
       <fieldset>
 
