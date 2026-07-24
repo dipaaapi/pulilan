@@ -31,13 +31,14 @@ include('navbar.php');
     <?php endif; ?>
 
     <div class="row g-4">
+        <!-- Create Memo Form -->
         <div class="col-lg-5">
             <div class="card shadow-sm border-0">
                 <div class="card-header bg-info text-white">
                     <h5 class="card-title mb-0"><i class="fa fa-plus me-2"></i> Create New Memo</h5>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="../achievment/create_memo.php" enctype="multipart/form-data">
+                    <form method="POST" action="achievment/create_memo.php" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label class="form-label fw-bold text-muted">Memo Name / Memo No</label>
                             <input type="text" name="memo" class="form-control" placeholder="e.g. Memo No. 2024-001" required>
@@ -46,22 +47,9 @@ include('navbar.php');
                             <label class="form-label fw-bold text-muted">Memo Body</label>
                             <textarea name="memo_body" class="form-control" placeholder="Enter memo content..." rows="7" required></textarea>
                         </div>
-                        <div class="mb-3">
-                            <label for="receiver" class="form-label fw-bold text-muted">Receiver</label>
-                            <select name="receiver" id="receiver" class="form-control" required>
-                                <option value="" disabled selected>- Select a Receiver -</option>
-                                <?php
-                                    // Fetch officials from the database to populate the dropdown
-                                    $officials_query = mysqli_query($connection, "SELECT name FROM mainuser_acc WHERE type IN ('brgy_official', 'dilg') ORDER BY name ASC");
-                                    while ($official = mysqli_fetch_assoc($officials_query)) {
-                                        echo '<option value="' . htmlspecialchars($official['name']) . '">' . htmlspecialchars($official['name']) . '</option>';
-                                    }
-                                ?>
-                            </select>
-                        </div>
                         <div class="mb-4">
-                            <label for="picture" class="form-label fw-bold text-muted">Attachment <span class="text-muted fw-normal">(Images or PDF only)</span></label>
-                            <input type="file" name="picture" id="picture" class="form-control" accept="image/*,application/pdf">
+                            <label for="picture" class="form-label fw-bold text-muted">Attachment <span class="text-muted fw-normal">(Optional)</span></label>
+                            <input type="file" name="picture" id="picture" class="form-control">
                         </div>
                         <button type="submit" name="send_memo" class="btn btn-info text-white w-100">
                             <i class="fa fa-upload me-2"></i> Create Memo
@@ -71,6 +59,7 @@ include('navbar.php');
             </div>
         </div>
 
+        <!-- Memo List -->
         <div class="col-lg-7">
             <div class="card shadow-sm border-0">
                 <div class="card-header bg-dark text-white">

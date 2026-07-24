@@ -1,15 +1,15 @@
 <?php
 session_start();
 
+require_once __DIR__ . '/../pulilan_db_connect.php';
+
 if (!isset($_SESSION['username'])) {
     header("location: ../login.php");
     exit();
 }
 
-require_once __DIR__ . '/../pulilan_db_connect.php';
-
 if (isset($_GET['brgydetails_id'])) {
-    $brgydetails_id = mysqli_real_escape_string($connection, $_GET['brgydetails_id']);
+    $brgydetails_id = $_GET['brgydetails_id'];
 
     // Set the timezone to your local timezone
     date_default_timezone_set('Asia/Manila');

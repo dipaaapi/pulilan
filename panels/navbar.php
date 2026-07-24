@@ -423,13 +423,13 @@ $user_avatar = isset($_SESSION['user_image']) && !empty($_SESSION['user_image'])
             <button class="acc-btn" onclick="toggleNightMode()" id="nightModeBtn" title="Toggle Night Mode">🌙</button>
             <button class="acc-btn" onclick="toggleHighContrast()" title="Toggle High Contrast">👁️</button>
         </div>
-        
+
         <!-- Login or Dashboard State -->
         <?php if ($is_logged_in): ?>
             <div class="user-profile-menu">
                 <img src="<?php echo htmlspecialchars($user_avatar); ?>" alt="Profile" class="user-avatar" onerror="this.src='https://ui-avatars.com/api/?name=<?php echo urlencode($username); ?>&background=2563eb&color=fff';">
                 <span class="user-name"><?php echo htmlspecialchars($username); ?></span>
-                <a href="dashboard.php" class="dashboard-btn">Dashboard</a>
+                <a href="admin/index.php" class="dashboard-btn">Dashboard</a>
             </div>
         <?php else: ?>
             <a href="login.php" class="login-btn">Login</a>
@@ -467,13 +467,13 @@ function setPageAccessibility(size) {
 function toggleNightMode() {
     document.body.classList.toggle('night-mode');
     const isNight = document.body.classList.contains('night-mode');
-    
+
     // Update Button Icon
     const btn = document.getElementById('nightModeBtn');
     if (btn) {
         btn.innerHTML = isNight ? '☀️' : '🌙';
     }
-    
+
     // Store preference
     localStorage.setItem('theme_mode', isNight ? 'night' : 'light');
 }

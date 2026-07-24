@@ -19,8 +19,6 @@ if(isset($_GET['view'])){
 }
 global $view_memo;
 
-echo $view_memo;
-
 ?>
 <style>
     .composed {
@@ -31,17 +29,21 @@ echo $view_memo;
         box-shadow: 0 0 10px;
         border-radius: 5px;
         transition: .5s;
+        background: #fff;
+        border: 1px solid #ddd;
     }
-    #subject_memo {
+    #attachment-viewer {
         position: absolute;
         top: 14vh;
         right: 10vw;
-        padding: 10px;
-        width: auto;
+        width: 45%;
+        height: 70vh;
         border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    img:hover {
-        box-shadow: 0 0 10px;
+    #attachment-viewer:hover {
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 </style>
 <?php include('../pulilan/adminnav.php'); ?>
@@ -64,10 +66,23 @@ if($view_memo != ""){
     <p><b>Date:</b> <?php echo $sm['memo_date']; ?></p>
     <p><b>Status:</b> <?php echo $sm['memo_status']; ?></p>
     <p><b>Message:</b> <?php echo $sm['project_description']; ?></p>
+    <p><b>Receiver:</b> <?php echo $sm['receiver']; ?></p>
 </div>
 
-<img id="subject_memo" src="achievment/temp/<?php echo $sm['picture']; ?>">
+<?php
+    $attachment = $sm['picture'] ?? '';
+    if (!empty($attachment)) {
+        $file_path = 'achievment/temp/' . htmlspecialchars($attachment);
+        $file_extension = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
+        $image_extensions = ['jpg', 'jpeg', 'png', 'gif'];
 
+        if (in_array($file_extension, $image_extensions)) {
+            echo '<img id="attachment-viewer" src="' . $file_path . '" alt="Memo Attachment">';
+        } elseif ($file_extension === 'pdf') {
+            echo '<embed id="attachment-viewer" src="' . $file_path . '" type="application/pdf">';
+        }
+    }
+?>
 <?php
 }
 ?>

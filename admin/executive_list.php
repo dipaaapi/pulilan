@@ -1,128 +1,66 @@
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
 session_start();
-require('pulilan_db_connect.php');
+
+if (!isset($_SESSION['username'])) {
+    header("location: login.php");
+    exit();
+}
+
+include('navbar.php');
 ?>
-<?php include('../pulilan/adminnav.php'); ?>
-  <h1>Executive List</h1>
 
-  <script>
-    function showResult(str) {
-      if (window.XMLHttpRequest) {
-        // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-      } else {  // code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange=function() {
-        if (this.readyState==4 && this.status==200) {
-          document.getElementById("livesearch").innerHTML=this.responseText;
-        }
-      }
-      xmlhttp.open("GET","livesearch/livesearch.php?r="+str,true);
-      xmlhttp.send();
-    }
-  </script>
-
-  <div class="form-group">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-        <input type="text" class="form-control" placeholder="Search..." onkeyup="showResult(this.value)" name="search" id="search">
-        <span class="input-group-btn">
-            <input class="btn btn-default" type="submit" value="Go" name="_submit">
-        </span>
+<div class="container-fluid">
+    <!-- Page Header -->
+    <div class="row mb-3">
+        <div class="col-12 d-flex justify-content-between align-items-center mt-3 mb-3 border-bottom pb-2">
+            <h2 class="text-secondary mb-0">
+                <i class="fa fa-user-secret me-2"></i> Executive & DILG Accounts
+            </h2>
+            <a href="addexecutive_grid.php" class="btn btn-sm btn-primary">
+                <i class="fa fa-plus me-1"></i> Add New Account
+            </a>
+        </div>
     </div>
-    <div id="here"></div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped" id="execTable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Username</th>
+                            <th>Account Type</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = mysqli_query($connection, "SELECT * FROM mainuser_acc WHERE type IN ('dilg', 'executive') AND visibility = '0' ORDER BY user_id DESC");
+                        while ($result = mysqli_fetch_array($sql)):
+                        ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($result['user_id']); ?></td>
+                            <td><?php echo htmlspecialchars($result['name']); ?></td>
+                            <td><?php echo htmlspecialchars($result['gender']); ?></td>
+                            <td><?php echo htmlspecialchars($result['username']); ?></td>
+                            <td><span class="badge bg-info text-dark"><?php echo htmlspecialchars($result['type']); ?></span></td>
+                            <td class="text-end">
+                                <a href="updateresidentregistration.php?user_id=<?php echo htmlspecialchars($result['user_id']); ?>" class="btn btn-sm btn-outline-info">
+                                    <i class="fa fa-pencil-square-o me-1"></i> Edit
+                                </a>
+                                <a href="actions/delete_acc.php?user_id=<?php echo htmlspecialchars($result['user_id']); ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to archive this account?');">
+                                    <i class="fa fa-archive me-1"></i> Archive
+                                </a>
+                            </td>
+                        </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <script> 
-    $(document).ready(function(e)
-    {
-        $("#search").keyup(function()
-        {
-            $("#here").show();
-            var x = $(this).val();
-            $.ajax(
-            {
-                type:'GET',
-                url:'searchfetch.php',
-                data:'q=' +x,
-                success:function(data)
-                {
-
-                    $("#here").html(data);
-                }
-            });
-            });
-    });
-    </script>
-    <div class="row">
-      <div class="col-lg-12">
-          <!-- Advanced Tables -->
-          <div class="card">
-             <div class="table-responsive">          
-          <table class="table">
-            <thead class="label-info">
-              <tr>
-                  <th>Id</th>
-                  <th>Name</th>
-                  <th>Gender</th>
-                  <th>Username</th>
-                  <th>Password</th>
-                  <th>accounttype</th>
-                  <th>Edit</th>
-                  <th class="danger">Delete</th>
-              </tr>
-            </thead>
-            <tbody id="livesearch">
-            
-          <!--End Advanced Tables -->
-           <?php
-           $con = mysqli_connect("localhost", "root", "", "pulilan");
-          $sql = mysqli_query($con, "SELECT * from mainuser_acc where type = 'dilg' OR type = 'executive'  && visibility = '0' ");
-
-      while($result = mysqli_fetch_array($sql))
-    { 
-
-    ?>
-      <tr>
-      <td style="color: red;"><?php echo $result['user_id'];?></td>
-      <td><?php echo $result['name'];?></td>
-      <td><?php echo $result['gender'];?></td>
-      <td><?php echo $result['username'];?></td>
-      <td><?php echo $result['password'];?></td>
-      <td><?php echo $result['type'];?></td>
-      <td>
-        <a class="btn btn-outline btn-info fa fa-pencil-square-o" href="updateresidentregistration.php?user_id=<?php echo $result['user_id'];?>"></a>
-      </td>
-
-      <td>
-       <a type="button" href="delete_acc.php?user_id=<?php echo $result['user_id']; ?>" class="btn btn-outline btn-danger fa fa-times"></a>
-     </td>
-    <tr>
-  <?php
-    }
-  ?>
-  <!--start of query-->
-  </tbody>
-    </table><!-- end wrapper -->
-
-    <!-- Core Scripts - Include with every page -->
-    <script src="assets/plugins/jquery-1.10.2.js"></script>
-    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="assets/plugins/pace/pace.js"></script>
-    <script src="assets/scripts/siminta.js"></script>
-    <!-- Page-Level Plugin Scripts-->
-    <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#dataTables-example').dataTable();
-        });
-    </script>
-
-</body>
-
-</html>
-</tr>
-
+</div>
+<?php include('footer.php'); ?>

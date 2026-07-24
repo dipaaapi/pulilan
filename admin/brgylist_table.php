@@ -46,7 +46,7 @@ include('navbar.php');
                     </thead>
                     <tbody>
                         <?php
-                        $sql = mysqli_query($con, "SELECT * FROM brgydetails_tbl WHERE type = 'official' ORDER BY brgydetails_id DESC");
+                        $sql = mysqli_query($connection, "SELECT * FROM brgydetails_tbl WHERE date = null AND type = 'official' ORDER BY brgydetails_id DESC");
                         while ($result = mysqli_fetch_array($sql)):
                         ?>
                         <tr>
@@ -59,8 +59,8 @@ include('navbar.php');
                                 <a href="edit_brgy.php?brgydetails_id=<?php echo htmlspecialchars($result['brgydetails_id']); ?>" class="btn btn-sm btn-outline-info">
                                     <i class="fa fa-pencil-square-o me-1"></i> Edit
                                 </a>
-                                <a type="button" href="actions/permanent_delete_brgy.php?brgydetails_id=<?php echo htmlspecialchars($result['brgydetails_id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('PERMANENT DELETE: This action cannot be undone. Are you sure?');">
-                                    <i class="fa fa-trash me-1"></i> Delete
+                                <a href="actions/archive_brgy.php?brgydetails_id=<?php echo htmlspecialchars($result['brgydetails_id']); ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to archive this account?');">
+                                    <i class="fa fa-archive me-1"></i> Archive
                                 </a>
                             </td>
                         </tr>

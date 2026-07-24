@@ -9,7 +9,6 @@ if (!isset($_SESSION['username'])) {
 include('navbar.php');
 ?>
 
-<!-- Main Content Container -->
 <div class="container-fluid">
     <div class="row mb-3">
         <div class="col-12">
@@ -24,7 +23,6 @@ include('navbar.php');
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
-    <!-- Quick Access Cards -->
     <div class="row g-4 mt-1">
         <div class="col-md-6 col-xl-3">
             <a href="admin_messages.php" class="text-decoration-none">

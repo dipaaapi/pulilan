@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 $type = $_GET['type'] ?? '';
 $active_tab = $_GET['tab'] ?? 'inbox'; // inbox | sent | drafts
 
-include('navbar.php');
+include __DIR__ . '/navbar.php';
 ?>
 
 <div class="container-fluid">
@@ -20,7 +20,7 @@ include('navbar.php');
             <h2 class="text-secondary mb-0">
                 <i class="fa fa-envelope me-2"></i> Messages
             </h2>
-            <a href="adminindex.php" class="btn btn-sm btn-outline-secondary">
+            <a href="index.php" class="btn btn-sm btn-outline-secondary">
                 <i class="fa fa-arrow-left me-1"></i> Back to Dashboard
             </a>
         </div>
@@ -31,17 +31,17 @@ include('navbar.php');
          VIEW A SINGLE MESSAGE
     ============================================================ -->
     <?php
-        $updateStmt = mysqli_prepare($con, "UPDATE message_tbl SET notification_status = 'SEEN' WHERE message_id = ?");
+        $updateStmt = mysqli_prepare($connection, "UPDATE message_tbl SET notification_status = 'SEEN' WHERE message_id = ?");
         mysqli_stmt_bind_param($updateStmt, 'i', $type);
         mysqli_stmt_execute($updateStmt);
 
-        $msgStmt = mysqli_prepare($con, "SELECT * FROM message_tbl WHERE message_id = ?");
+        $msgStmt = mysqli_prepare($connection, "SELECT * FROM message_tbl WHERE message_id = ?");
         mysqli_stmt_bind_param($msgStmt, 'i', $type);
         mysqli_stmt_execute($msgStmt);
         $h = mysqli_fetch_array(mysqli_stmt_get_result($msgStmt));
 
         $sender = $h['user_id'] ?? null;
-        $senderStmt = mysqli_prepare($con, "SELECT * FROM mainuser_acc WHERE user_id = ?");
+        $senderStmt = mysqli_prepare($connection, "SELECT * FROM mainuser_acc WHERE user_id = ?");
         mysqli_stmt_bind_param($senderStmt, 'i', $sender);
         mysqli_stmt_execute($senderStmt);
         $getSender = mysqli_stmt_get_result($senderStmt);
@@ -162,7 +162,7 @@ include('navbar.php');
                     <div class="card border-0 shadow-sm text-center p-2" style="background:linear-gradient(135deg,#3b82f6,#6366f1)">
                         <div class="text-white" style="font-size:1.5rem;font-weight:700">
                             <?php
-                                $res = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(*) as c FROM message_tbl WHERE brgy_location = 'Admin'"));
+                                $res = mysqli_fetch_assoc(mysqli_query($connection, "SELECT COUNT(*) as c FROM message_tbl WHERE brgy_location = 'Admin'"));
                                 echo $res['c'] ?? 0;
                             ?>
                         </div>
@@ -173,7 +173,7 @@ include('navbar.php');
                     <div class="card border-0 shadow-sm text-center p-2" style="background:linear-gradient(135deg,#10b981,#059669)">
                         <div class="text-white" style="font-size:1.5rem;font-weight:700">
                             <?php
-                                $res2 = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(*) as c FROM message_tbl WHERE brgy_location != 'Admin'"));
+                                $res2 = mysqli_fetch_assoc(mysqli_query($connection, "SELECT COUNT(*) as c FROM message_tbl WHERE brgy_location != 'Admin'"));
                                 echo $res2['c'] ?? 0;
                             ?>
                         </div>
@@ -184,7 +184,7 @@ include('navbar.php');
                     <div class="card border-0 shadow-sm text-center p-2" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
                         <div class="text-white" style="font-size:1.5rem;font-weight:700">
                             <?php
-                                $res3 = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(*) as c FROM message_tbl WHERE brgy_location = 'Admin' AND notification_status = 'UNSEEN'"));
+                                $res3 = mysqli_fetch_assoc(mysqli_query($connection, "SELECT COUNT(*) as c FROM message_tbl WHERE brgy_location = 'Admin' AND notification_status = 'UNSEEN'"));
                                 echo $res3['c'] ?? 0;
                             ?>
                         </div>
@@ -213,7 +213,7 @@ include('navbar.php');
                                 id="inbox-tab" data-bs-toggle="tab" data-bs-target="#inboxPane" type="button" role="tab">
                                 <i class="fa fa-inbox me-2"></i>Inbox
                                 <?php
-                                    $unread = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(*) as c FROM message_tbl WHERE brgy_location='Admin' AND notification_status='UNSEEN'"))['c'] ?? 0;
+                                    $unread = mysqli_fetch_assoc(mysqli_query($connection, "SELECT COUNT(*) as c FROM message_tbl WHERE brgy_location='Admin' AND notification_status='UNSEEN'"))['c'] ?? 0;
                                     if ($unread > 0) echo '<span class="badge bg-danger ms-1">' . $unread . '</span>';
                                 ?>
                             </button>
@@ -255,7 +255,7 @@ include('navbar.php');
                                                         LEFT JOIN mainuser_acc u ON m.user_id = u.user_id
                                                         WHERE m.brgy_location = 'Admin'
                                                         ORDER BY m.message_id DESC LIMIT 30";
-                                        $inbox = mysqli_query($con, $inbox_query);
+                                        $inbox = mysqli_query($connection, $inbox_query);
                                         if ($inbox && mysqli_num_rows($inbox) > 0) {
                                             while ($row = mysqli_fetch_assoc($inbox)):
                                     ?>
@@ -314,7 +314,7 @@ include('navbar.php');
                                                        FROM message_tbl m
                                                        WHERE m.brgy_location != 'Admin'
                                                        ORDER BY m.message_id DESC LIMIT 30";
-                                        $sent = mysqli_query($con, $sent_query);
+                                        $sent = mysqli_query($connection, $sent_query);
                                         if ($sent && mysqli_num_rows($sent) > 0) {
                                             while ($srow = mysqli_fetch_assoc($sent)):
                                     ?>
@@ -511,4 +511,4 @@ include('navbar.php');
 })();
 </script>
 
-<?php include('adminfooter.php'); ?>
+<?php include __DIR__ . '/footer.php'; ?>

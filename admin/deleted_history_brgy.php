@@ -1,11 +1,4 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['username'])) {
-    header("location: login.php");
-    exit();
-}
-
 include('navbar.php');
 ?>
 <div class="container-fluid">
@@ -36,8 +29,7 @@ include('navbar.php');
                     </thead>
                     <tbody>
                         <?php
-                        $show_record = "SELECT * FROM brgydetails_tbl WHERE visibility = 1 ORDER BY archived_date DESC";
-                        $show_record_query = mysqli_query($con, $show_record);
+                        $show_record_query = mysqli_query($connection, "SELECT * FROM brgydetails_tbl WHERE visibility != 0 ORDER BY archived_date DESC");
                         if ($show_record_query && mysqli_num_rows($show_record_query) > 0):
                             while ($result = mysqli_fetch_assoc($show_record_query)):
                         ?>

@@ -13,10 +13,8 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-$con = mysqli_connect("localhost", "root", "", "pulilan");
-if (!$con) {
-    die('Database connection failed: ' . mysqli_connect_error());
-}
+require_once __DIR__ . '/../../pulilan_db_connect.php';
+
 
 if (isset($_POST['send_message'])) {
 
@@ -24,8 +22,8 @@ if (isset($_POST['send_message'])) {
     $subject  = $_POST['subject'] ?? '';
     $message  = $_POST['message'] ?? '';
 
-    $stmt = mysqli_prepare($con, "INSERT INTO message_tbl (message, subject, brgy_location, user_id) VALUES (?, ?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, 'sssi', $message, $subject, $receiver, $uid);
+    $stmt = mysqli_prepare($connection, "INSERT INTO message_tbl (message, subject, brgy_location, user_id) VALUES (?, ?, ?, ?)");
+    mysqli_stmt_bind_param($stmt, 'sssi', $message, $subject, $receiver, $uid); // Assumes $connection is from the included file
     $sql = mysqli_stmt_execute($stmt);
 
     if ($sql) {

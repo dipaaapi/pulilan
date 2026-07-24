@@ -17,7 +17,7 @@ include('navbar.php');
             <h2 class="text-secondary mb-0">
                 <i class="fa fa-file-text me-2"></i> Memos
             </h2>
-            <a href="adminindex.php" class="btn btn-sm btn-outline-secondary">
+            <a href="index.php" class="btn btn-sm btn-outline-secondary">
                 <i class="fa fa-arrow-left me-1"></i> Back to Dashboard
             </a>
         </div>
@@ -38,7 +38,7 @@ include('navbar.php');
                     <h5 class="card-title mb-0"><i class="fa fa-plus me-2"></i> Create New Memo</h5>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="achievment/create_memo.php" enctype="multipart/form-data">
+                    <form method="POST" action="../achievment/create_memo.php" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label class="form-label fw-bold text-muted">Memo Name / Memo No</label>
                             <input type="text" name="memo" class="form-control" placeholder="e.g. Memo No. 2024-001" required>
@@ -47,9 +47,22 @@ include('navbar.php');
                             <label class="form-label fw-bold text-muted">Memo Body</label>
                             <textarea name="memo_body" class="form-control" placeholder="Enter memo content..." rows="7" required></textarea>
                         </div>
+                        <div class="mb-3">
+                            <label for="receiver" class="form-label fw-bold text-muted">Receiver</label>
+                            <select name="receiver" id="receiver" class="form-select" required>
+                                <option value="" disabled selected>- Select a Receiver -</option>
+                                <?php
+                                    // Fetch officials from the database to populate the dropdown
+                                    $officials_query = mysqli_query($connection, "SELECT name FROM mainuser_acc WHERE type IN ('official', 'dilg', 'executive') ORDER BY name ASC");
+                                    while ($official = mysqli_fetch_assoc($officials_query)) {
+                                        echo '<option value="' . htmlspecialchars($official['name']) . '">' . htmlspecialchars($official['name']) . '</option>';
+                                    }
+                                ?>
+                            </select>
+                        </div>
                         <div class="mb-4">
-                            <label for="picture" class="form-label fw-bold text-muted">Attachment <span class="text-muted fw-normal">(Optional)</span></label>
-                            <input type="file" name="picture" id="picture" class="form-control">
+                            <label for="picture" class="form-label fw-bold text-muted">Attachment <span class="text-muted fw-normal">(Images or PDF only)</span></label>
+                            <input type="file" name="picture" id="picture" class="form-control" accept="image/*,application/pdf">
                         </div>
                         <button type="submit" name="send_memo" class="btn btn-info text-white w-100">
                             <i class="fa fa-upload me-2"></i> Create Memo
@@ -77,7 +90,7 @@ include('navbar.php');
                             </thead>
                             <tbody>
                                 <?php
-                                    $view_memo_query = mysqli_query($con, "SELECT * FROM memo ORDER BY memo_id DESC");
+                                    $view_memo_query = mysqli_query($connection, "SELECT * FROM memo ORDER BY memo_id DESC");
                                     $memo_count = $view_memo_query ? mysqli_num_rows($view_memo_query) : 0;
                                     if ($memo_count > 0) {
                                         while ($view_m = mysqli_fetch_array($view_memo_query)):
@@ -110,4 +123,4 @@ include('navbar.php');
     </div>
 </div>
 
-<?php include('adminfooter.php'); ?>
+<?php include __DIR__ . '/footer.php'; ?>

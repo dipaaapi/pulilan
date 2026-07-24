@@ -112,7 +112,7 @@ include('navbar.php');
             <h2 class="text-secondary mb-0">
                 <i class="fa fa-plus me-2"></i> Add Barangay Details
             </h2>
-            <a href="adminindex.php" class="btn btn-sm btn-outline-secondary">
+            <a href="index.php" class="btn btn-sm btn-outline-secondary">
                 <i class="fa fa-arrow-left me-1"></i> Back to Dashboard
             </a>
         </div>
@@ -267,62 +267,6 @@ include('navbar.php');
     </div>
 </div>
 
-  <?php
-
-          if(isset($_POST['submit']))
-          {
-   if(!empty($_POST['username']) && !empty(['password'])){
-
-
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $contact = $_POST['contact'];
-            $brgy_location = $_POST['brgy_location'];
-            $no_purok = $_POST['no_purok'];
-            $major_sources = $_POST['major_sources'];
-            $brgy_classification = $_POST['brgy_classification'];
-            $char_brgy = $_POST['char_brgy'];
-            $gender = $_POST['gender'];
-            $position = $_POST['position'];
-            $male_tanod = $_POST['male_tanod'];
-            $female_tanod = $_POST['female_tanod'];
-            $male_health_worker = $_POST['male_health_worker'];
-            $female_health_worker = $_POST['female_health_worker'];
-            $male_nutrition_scholar = $_POST['male_nutrition_scholar'];
-            $female_nutrition_scholar = $_POST['female_nutrition_scholar'];
-            $male_purok_leaders = $_POST['male_purok_leaders'];
-            $female_purok_leaders = $_POST['female_purok_leaders'];
-            $male_librarian = $_POST['male_librarian'];
-            $female_librarian = $_POST['female_librarian'];
-            $male_day_care_worker = $_POST['male_day_care_worker'];
-            $female_day_care_worker = $_POST['female_day_care_worker'];
-            $male_utility_worker = $_POST['male_utility_worker'];
-            $female_utility_worker = $_POST['female_utility_worker'];
-            $type = 'official';
-            
-            $connection = mysqli_connect("localhost", "root", "", "pulilan");
-
-            $query = mysqli_query($connection, "INSERT INTO brgydetails_tbl(fullname, email, username, password, contact, brgy_location, no_purok, major_sources, brgy_classification, char_brgy, gender, position, male_tanod, female_tanod, male_health_worker, female_health_worker, male_nutrition_scholar, female_nutrition_scholar, male_purok_leaders, female_purok_leaders, male_librarian, female_librarian, male_day_care_worker, female_day_care_worker, male_utility_worker, female_utility_worker, type) VALUES('$name', '$email', '$username', '$password', '$contact', '$brgy_location','$no_purok', '$major_sources', '$brgy_classification', '$char_brgy', '$gender', '$position', '$male_tanod', '$female_tanod', '$male_health_worker', '$female_health_worker', '$male_nutrition_scholar', '$female_nutrition_scholar', '$male_purok_leaders', '$female_purok_leaders', '$male_librarian', '$female_librarian', '$male_day_care_worker', '$female_day_care_worker', '$male_utility_worker', '$female_utility_worker', '$type')");
-
-            if($query)
-            {
-
-               echo'<script>';
-               echo'alert("successfully Added!");';
-               echo'window.location.href="brgylist_table.php";';
-               echo'</script>';
-            }
-            else{
-
-              echo 'mysql_error';
-            }
-}
-
-          }
-        ?>
-        
 <?php include('footer.php'); ?>
 <script>
 document.addEventListener("DOMContentLoaded", function() {

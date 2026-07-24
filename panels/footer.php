@@ -170,7 +170,7 @@
 
 <footer class="site-footer">
     <div class="footer-wrapper">
-        
+
         <!-- Column 1: Local Municipal Identity -->
         <div class="footer-col">
             <div class="footer-brand">

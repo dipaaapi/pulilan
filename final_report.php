@@ -1,5 +1,5 @@
-<?php 
-$year = $_POST['year'];
+<?php
+    $year = $_POST['year'];
 include('../pulilan/final_report_function.php');
 
  ?>
@@ -29,11 +29,11 @@ function printpage() {
     //Get the print button and put it into a variable
     var printButton = document.getElementById("printpagebutton");
     var filter = document.getElementById("filter");
-    
-    //Set the button visibility to 'hidden' 
+
+    //Set the button visibility to 'hidden'
     printButton.style.visibility = 'hidden';
      filter.style.visibility = 'hidden';
-   
+
     //Print the page content
     window.print()
 
@@ -48,7 +48,7 @@ function printpage() {
                 <!-- Page Header -->
                 <div class="col-lg-12">
                     <h1 class="page-header">Barangay Consolidated Final Report for year <?php echo $year; ?>
-                        <a href="adminindex.php" class="btn btn-warning float-end">Return</a>
+                        <a href="admin/index.php" class="btn btn-warning float-end">Return</a>
                     </h1>
                 </div>
                 <!--End Page Header -->
@@ -236,7 +236,6 @@ function printpage() {
                         </div>
                     </div>
                 </div><!-- End  Male Personnel -->
-                
             </div>
 
             <div class="row card bg-primary text-white no-boder">
@@ -265,7 +264,7 @@ function printpage() {
                     </div>
                 </div>
             </div>
-            
+
             <!--   Civil Report -->
             <div class="row">
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
@@ -305,7 +304,7 @@ function printpage() {
                             </div>
                         </div>
                     </div>
-                </div><!-- End  Civil Report -->                
+                </div><!-- End  Civil Report -->
             </div>
 
             <div class="row card bg-primary text-white no-boder">
@@ -356,7 +355,7 @@ function printpage() {
                                     </thead>
                                     <tbody>
                                     <?php
-                                    { 
+                                    {
                                     ?>
                                     <tr>
                                         <td><?php echo $totalreligionrep1; ?></td>
@@ -380,8 +379,8 @@ function printpage() {
                                     </thead>
                                     <tbody>
 
-                                    <?php                                    
-                                    { 
+                                    <?php
+                                    {
                                     ?>
                                     <tr>
                                         <td><?php echo $totalreligionrep6; ?></td>
@@ -398,7 +397,7 @@ function printpage() {
                             </div>
                         </div>
                     </div>
-                </div><!-- End  Religion Report -->                
+                </div><!-- End  Religion Report -->
             </div>
 
             <div class="row card bg-primary text-white no-boder">
@@ -448,7 +447,7 @@ function printpage() {
                                     <tbody>
 
                                     <?php
-                                    { 
+                                    {
                                     ?>
                                     <tr>
                                         <td><?php echo $totalhousingrep1; ?></td>
@@ -469,7 +468,7 @@ function printpage() {
                                     <tbody>
 
                                     <?php
-                                    { 
+                                    {
                                     ?>
                                     <tr>
                                         <td><?php echo $totalhousingrep4; ?></td>
@@ -536,7 +535,7 @@ function printpage() {
                                     <tbody>
 
                                     <?php
-                                    { 
+                                    {
                                     ?>
                                     <tr>
                                         <td><?php echo $totaleducationalrep1; ?></td>
@@ -561,7 +560,7 @@ function printpage() {
                                     <tbody>
 
                                     <?php
-                                    { 
+                                    {
                                     ?>
                                     <tr>
                                         <td><?php echo $totaleducationalrep6; ?></td>
@@ -579,7 +578,6 @@ function printpage() {
                         </div>
                     </div>
                 </div><!-- End  Educational Report -->
-                
             </div>
 
             <div class="row card bg-primary text-white no-boder" align="center">
@@ -624,4 +622,4 @@ function printpage() {
                     <a class="btn btn-primary fa fa-print" id=""> PRINT</a>
                 </div>
 
-<?php include('../pulilan/adminfooter.php'); ?>
+<?php include('admin\footer.php'); ?>

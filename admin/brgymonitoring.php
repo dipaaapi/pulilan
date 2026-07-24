@@ -1,27 +1,30 @@
 <?php
-session_start();
-
-$connection = mysqli_connect("localhost", "root", "", "pulilan");
-$query = "SELECT * FROM mainuser_acc where type IN ('brgy_official','executive','dilg') ORDER BY user_id ASC";
-$result = mysqli_query($connection, $query);
+include __DIR__ . '/navbar.php';
+error_reporting(0); // Suppress notices for this legacy page
 ?>
-<style>
-  .container {
-    width: auto;
-    padding: 0;
-    margin: 0;
-  }
-  .prnt {
-    background-color: #008e00;
-    color: white;
-    position: absolute;
-    right: 0;
-  }
-  .page-wrapper {
-    top: 25vh;
-  }
-</style>
-<?php include('../pulilan/adminnav.php'); ?>
+<div class="container-fluid">
+    <!-- Page Header -->
+    <div class="row mb-3">
+        <div class="col-12 d-flex justify-content-between align-items-center mt-3 mb-3 border-bottom pb-2">
+            <h2 class="text-secondary mb-0">
+                <i class="fa fa-map-marker me-2"></i> Barangay Monitoring Report
+            </h2>
+            <button class="btn btn-sm btn-outline-secondary" id="printpagebutton" onclick="printpage()">
+                <i class="fa fa-print me-1"></i> Print this page
+            </button>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-body">
+            <form class="row g-3 align-items-end" id="filterForm">
+                <div class="col-md-3"><label for="from_date" class="form-label">From Date</label><input type="date" name="from_date" id="from_date" class="form-control"></div>
+                <div class="col-md-3"><label for="to_date" class="form-label">To Date</label><input type="date" name="to_date" id="to_date" class="form-control"></div>
+                <div class="col-md-3"><button type="button" name="filter" id="filter" class="btn btn-primary w-100"><i class="fa fa-filter me-2"></i>Filter</button></div>
+            </form>
+        </div>
+    </div>
+
 <script> // Print
 function printpage() {
 
@@ -29,6 +32,7 @@ function printpage() {
     var printButton = document.getElementById("printpagebutton");
     var filter = document.getElementById("filter");
   
+    document.getElementById('filterForm').style.visibility = 'hidden';
 
     //Set the button visibility to 'hidden' 
     printButton.style.visibility = 'hidden';
@@ -39,36 +43,30 @@ function printpage() {
 
     //Restore button visibility
     printButton.style.visibility = 'visible';
-     filter.style.visibility = 'visible';
+    document.getElementById('filterForm').style.visibility = 'visible';
 }
 
 </script>
-<script src="../js/jquery-ui.js"></script>  
-<link rel="stylesheet" href="../css/jquery-ui.css">
-     <h1>Barangay Monitoring List Report</h1>
-  <form class="form-inline">
-  <label>FROM</label>
-     <input type="date" name="from_date" id="from_date" class="form-control" placeholder="From Date" />
-  <label>TO</label>
-   <input type="date" name="to_date" id="to_date" class="form-control" placeholder="To Date" />
-    <label class="form-check-label">
-        <input type="button" name="filter" id="filter" value="Filter" class="btn btn-success" />  
-    </label>
-   <div class="col-md-1 float-end">  
-     <a class="btn prnt" id="printpagebutton" onclick="printpage()">Print this page</a>
-  </div> 
-</form>
-   
-                <div id="brgy_table">  
-               
-                     <table class="table table-bordered">  
+
+    <div class="card shadow-sm border-0">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Report Results</h5>
+        </div>
+        <div class="card-body" id="brgy_table">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="table-light">
                           <tr>  
                                <th>ID</th>  
                                <th>Fullname</th>
                                <th>Barangay Location</th>  
                                <th>Date</th>  
-                          </tr>  
+                          </tr>
+                    </thead>
+                    <tbody>
                      <?php  
+                     $query = "SELECT * FROM mainuser_acc WHERE type IN ('brgy_official','executive','dilg') ORDER BY user_id ASC";
+                     $result = mysqli_query($connection, $query);
                      while($row = mysqli_fetch_array($result))  
                      {  
                      ?>  
@@ -80,13 +78,13 @@ function printpage() {
                           </tr>  
                      <?php  
                      }  
-                     ?>  
-                     </table>  
-                </div>  
-           </div>  
-      </body>  
- </html>  
- <script>  
+                     ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+ <script>
       $(document).ready(function(){  
            $.datepicker.setDefaults({  
                 dateFormat: 'yy-mm-dd'   
@@ -116,22 +114,6 @@ function printpage() {
                 }  
            });  
       });  
- </script>
- <!-- Core Scripts - Include with every page -->
-    <script src="assets/plugins/jquery-1.10.2.js"></script>
-    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="assets/plugins/pace/pace.js"></script>
-    <script src="assets/scripts/siminta.js"></script>
-    <!-- Page-Level Plugin Scripts-->
-    <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#dataTables-example').dataTable();
-        });
-    </script>
-
-</body>
-
-</html>
+ </script> 
+</div>
+<?php include __DIR__ . '/footer.php'; ?>

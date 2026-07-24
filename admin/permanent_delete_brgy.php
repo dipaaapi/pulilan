@@ -1,24 +1,24 @@
 <?php
 session_start();
 
+require_once __DIR__ . '/../pulilan_db_connect.php';
+
 if (!isset($_SESSION['username'])) {
-    header("location: ../../login.php");
+    header("location: ../login.php");
     exit();
 }
 
-require_once __DIR__ . '/../../pulilan_db_connect.php';
-
 if (isset($_GET['brgydetails_id'])) {
-    $brgydetails_id = mysqli_real_escape_string($connection, $_GET['brgydetails_id']);
+    $brgydetails_id = $_GET['brgydetails_id'];
 
     // Permanently delete the record
-    $query = "DELETE FROM brgydetails_tbl WHERE brgydetails_id = '{$brgydetails_id}'";
-    $result = mysqli_query($connection, $query);
+    $stmt = mysqli_prepare($connection, "DELETE FROM brgydetails_tbl WHERE brgydetails_id = ?");
+    mysqli_stmt_bind_param($stmt, 'i', $brgydetails_id);
 
-    if ($result) {
+    if (mysqli_stmt_execute($stmt)) {
         $_SESSION['update_success'] = "Account permanently deleted successfully.";
     } else {
-        $_SESSION['update_error'] = "Failed to permanently delete account: " . mysqli_error($con);
+        $_SESSION['update_error'] = "Failed to permanently delete account: " . mysqli_error($connection);
     }
 }
 header("location: ../deleted_history_brgy.php");

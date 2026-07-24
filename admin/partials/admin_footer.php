@@ -10,11 +10,9 @@
     <i class="fa fa-chevron-up"></i>
 </button>
 
-<!-- Real Bootstrap JS bundle now handles dropdowns, modals, tabs, and collapse via data-bs-* attributes -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
 (function () {
-    // Custom submenu accordion in the sidebar (not a Bootstrap component, kept as-is)
     document.querySelectorAll('[data-submenu]').forEach(function (trigger) {
         trigger.addEventListener('click', function (event) {
             event.preventDefault();

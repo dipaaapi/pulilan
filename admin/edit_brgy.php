@@ -1,15 +1,15 @@
 <?php
 session_start();
 
+include('navbar.php');
+
 if (!isset($_SESSION['username'])) {
     header("location: login.php");
     exit();
 }
 
-// Handle form submission for updates
 if (isset($_POST['update_brgy'])) {
-    // The database connection is included in navbar.php, so we need to include it here first.
-    require_once __DIR__ . '/../pulilan_db_connect.php';
+    // Form processing logic
 
     if (isset($connection)) { // Use $connection from the included file
         $brgydetails_id_post = $_POST['brgydetails_id'];
@@ -55,8 +55,6 @@ if (isset($_POST['update_brgy'])) {
     }
 }
 
-include('navbar.php');
-
 $brgydetails_id = $_GET['brgydetails_id'] ?? null;
 
 if (!$brgydetails_id) {
@@ -67,7 +65,7 @@ if (!$brgydetails_id) {
 }
 
 // Fetch existing data
-$stmt = mysqli_prepare($con, "SELECT * FROM brgydetails_tbl WHERE brgydetails_id = ?");
+$stmt = mysqli_prepare($connection, "SELECT * FROM brgydetails_tbl WHERE brgydetails_id = ?");
 mysqli_stmt_bind_param($stmt, 'i', $brgydetails_id);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
