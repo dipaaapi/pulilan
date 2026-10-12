@@ -4,3 +4,6 @@
 *.JPG binary
 *.jpeg binary
 *.zip binary
+
+# PHP and Hack share the .php extension; these sources are native PHP.
+*.php linguist-language=PHP
