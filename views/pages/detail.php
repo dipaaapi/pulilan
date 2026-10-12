@@ -1,0 +1,16 @@
+<div class="page-heading"><div><span class="eyebrow"><?= e($config['title']) ?></span><h1><?= e($row['project_name'] ?? $row['brgy_name'] ?? $row['name'] ?? $row['fullname'] ?? $row['subject'] ?? 'Record details') ?></h1></div><div class="actions"><?= button('Back',['href'=>url('records',['resource'=>$resourceName]),'variant'=>'secondary']) ?><?php if (can_write($resourceName)): ?><?= button('Edit record',['href'=>url('edit',['resource'=>$resourceName,'id'=>$id])]) ?><?php endif; ?></div></div>
+<section class="card"><dl class="detail-grid">
+<?php foreach ($row as $key=>$value): if (in_array($key,['password','picture'],true)) continue; ?><div><dt><?= e(label($key)) ?></dt><dd><?= e($key==='app_enabled' ? ($value ? 'Enabled' : 'Disabled') : ($value !== null && $value !== '' ? $value : '—')) ?></dd></div><?php endforeach; ?>
+</dl>
+<?php if (!empty($config['attachment'])):
+    $files = query('SELECT * FROM app_files WHERE resource = ? AND record_id = ?',[$resourceName,$id])->fetchAll(); ?>
+    <div class="attachment-list"><h2>Attachments</h2><?php foreach ($files as $file): ?><?= button($file['original_name'],['href'=>url('download',['id'=>$file['id']]),'variant'=>'secondary']) ?><?php endforeach; ?><?php if (!$files): ?><p class="muted"><?= !empty($row['picture']) ? 'The original attachment was not found in the project files. You can add a replacement through Edit record.' : 'No attachments added.' ?></p><?php endif; ?></div>
+<?php endif; ?>
+<?php if ($resourceName==='messages' && $user['type']==='admin'): ?>
+<div class="review-card"><h2>Reply to the sender</h2><?php if ((int)$row['user_id']===0): ?><p class="muted">This public inquiry has no sign-in account. Use the provided email address through your municipal communication process.</p><?php else: ?><form method="post" action="<?= e(url('action')) ?>" class="stack" data-submit><?= csrf() ?><input type="hidden" name="action" value="reply"><input type="hidden" name="resource" value="messages"><input type="hidden" name="id" value="<?= e($id) ?>"><?= field('message','Your reply','',['type'=>'textarea','maxlength'=>10000,'required'=>true]) ?><?= button('Send reply') ?></form><?php endif; ?></div>
+<?php endif; ?>
+<?php if (in_array($resourceName,['memos','messages'],true)): ?><div class="form-actions"><?= action_form('seen',$resourceName,$id,'Mark as read','secondary') ?></div><?php endif; ?>
+</section>
+<?php if ($resourceName==='memos' && in_array($user['type'],['admin','dilg'],true)): ?>
+<section class="card review-card"><h2>Review this memo</h2><p class="muted">Provide remarks when requesting a modification. Editing a memo returns it to pending review.</p><form method="post" action="<?= e(url('action')) ?>" class="stack" data-submit><?= csrf() ?><input type="hidden" name="action" value="review"><input type="hidden" name="resource" value="memos"><input type="hidden" name="id" value="<?= e($id) ?>"><?= field('memo_status','Decision',$row['memo_status'],['type'=>'select','options'=>['APPROVED'=>'Approve','DECLINED'=>'Decline','MODIFICATION REQUEST'=>'Request modification']]) ?><?= field('remarks','Review remarks',$row['remarks'] ?? '',['type'=>'textarea','maxlength'=>10000]) ?><?= button('Save review') ?></form></section>
+<?php endif; ?>

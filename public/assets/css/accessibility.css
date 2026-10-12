@@ -1,0 +1,47 @@
+/* Global preferences; loaded after page styles to cover every workspace. */
+html { scroll-behavior: auto; }
+html.a11y-smooth { scroll-behavior: smooth; }
+html[data-text-size="125"] { font-size: 125%; }
+html[data-text-size="150"] { font-size: 150%; }
+html[data-text-size="200"] { font-size: 200%; }
+.accessibility-panel { padding-top: 1.25rem; }
+.accessibility-panel h2 { font-size: 1.15rem; }
+.accessibility-panel fieldset { min-width: 0; margin: 0; padding: .8rem; border: 1px solid var(--color-border); border-radius: var(--radius-control); }
+.accessibility-panel legend { padding-inline: .3rem; font-weight: 700; }
+.accessibility-panel .check { align-items: flex-start; }
+.a11y-readable { --font-body: Arial, Helvetica, sans-serif; }
+.a11y-spacing body { line-height: 1.9; letter-spacing: .08em; word-spacing: .15em; }
+.a11y-spacing :is(p,li,label,input,textarea,select) { line-height: 1.9; }
+.a11y-links a { text-decoration: underline !important; text-decoration-thickness: .15em !important; font-weight: 700; }
+.a11y-hideImages :is(.hero-carousel>img,img[alt=""],img[role="presentation"]) { visibility: hidden; }
+.a11y-grayscale :is(.site-header,.site-main,.site-footer,.workspace,.sidebar) { filter: grayscale(1); }
+.a11y-reduceMotion,.a11y-reduceMotion * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+html[data-theme="dark"] { color-scheme: dark; --color-canvas: #101820; --color-surface: #1b2833; --color-ink: #f2f5f7; --color-muted: #c0cdd7; --color-brand: #91d7ef; --color-brand-hover: #c6efff; --color-border: #8496a3; --color-focus: #ffd86a; }
+html[data-theme="contrast"] { color-scheme: dark; --color-canvas: #000; --color-surface: #000; --color-ink: #fff; --color-muted: #fff; --color-brand: #ffeb3b; --color-brand-hover: #fff; --color-border: #fff; --color-focus: #00ffff; }
+html:is([data-theme="dark"],[data-theme="contrast"]) :is(.card,dialog,.dropdown-panel,.sidebar,.workspace,.control,th,.badge,.alert,.dropdown summary,.button--secondary,.button--quiet) { background: var(--color-surface); color: var(--color-ink); border-color: var(--color-border); }
+html:is([data-theme="dark"],[data-theme="contrast"]) :is(.button--primary,.button--danger) { background: #125c71; color: #fff; border-color: var(--color-border); }
+html:is([data-theme="dark"],[data-theme="contrast"]) :is(tbody tr:hover,.dropdown-panel a:hover,.button:hover,summary:hover) { background: #33434f; color: #fff; }
+@media (max-width: 650px) { html[data-text-size="200"] .landing-hero,html[data-text-size="200"] .contact-section { grid-template-columns: 1fr; } .help-modal { padding: 1rem; } .help-header { align-items: flex-start; } }
+@media (prefers-reduced-motion: reduce) { html.a11y-smooth { scroll-behavior: auto; } }
+
+/* Shared help dialog and FAQ; native dialog supplies focus containment and Escape. */
+.help-modal { width: min(760px,calc(100vw - 2rem)); max-width: min(760px,calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); overflow-y: auto; overscroll-behavior: contain; }
+.help-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.help-header h2 { font-size: 1.5rem; }
+.help-modal p { margin: .4rem 0; }
+.help-navigation { display: flex; flex-wrap: wrap; gap: 1rem; padding-block: 1rem; border-bottom: 1px solid var(--color-border); }
+.help-navigation [role="tab"] { min-height: 44px; padding: .6rem .8rem; border: 1px solid var(--color-border); border-radius: var(--radius-control); background: var(--color-surface); color: var(--color-ink); }
+.help-navigation [role="tab"]:hover { border-color: var(--color-brand); }
+.help-navigation [aria-selected="true"] { background: var(--color-brand-active); color: #fff; border-color: var(--color-brand-active); }
+#help-faq #help-guide { padding-bottom: 1rem; border-bottom: 1px solid var(--color-border); }
+.help-navigation a { min-height: 44px; display: inline-flex; align-items: center; }
+.help-modal section { scroll-margin-top: 1rem; }
+.help-modal section + section { border-top: 1px solid var(--color-border); padding-top: 1.5rem; }
+.help-guide { margin: 0; padding-left: 1.5rem; }
+.help-guide li { margin-bottom: .7rem; }
+.help-faq { border: 1px solid var(--color-border); border-radius: var(--radius-control); padding: .75rem 1rem; }
+.help-faq summary { min-height: 44px; font-weight: 650; }
+.help-faq summary:hover { color: var(--color-brand); }
+.help-faq[open] { border-color: var(--color-brand); }
+.help-faq p { padding-top: .6rem; color: var(--color-muted); }
+@media print { .help-modal { display: none !important; } }

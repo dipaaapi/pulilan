@@ -1,0 +1,8 @@
+/storage/backups/*
+/storage/uploads/*
+/storage/logs/*
+/storage/preview-uploads/*
+!/storage/**/.gitkeep
+.env
+/legacy/
+__pycache__/

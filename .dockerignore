@@ -1,0 +1,9 @@
+.git
+.vscode
+node_modules
+legacy
+storage/backups
+storage/uploads
+storage/preview-uploads
+.env
+tests

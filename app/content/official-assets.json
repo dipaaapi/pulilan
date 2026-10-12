@@ -1,0 +1,79 @@
+[
+  {
+    "title": "Planning and Development Citizen Charter",
+    "source_url": "https://pulilan.gov.ph/wp-content/uploads/2023/01/CC-2026-MPDO.pdf",
+    "source_page": "https://pulilan.gov.ph/citizens-charter/",
+    "local_path": "documents/official/planning-charter-2026.pdf",
+    "kind": "charter",
+    "retrieved": "2026-10-13",
+    "bytes": 7007860,
+    "sha256": "0c1c092a6a3213367018d99d8b02ac6eeec43134f5e50b4c38da7503bce5ee89",
+    "content_type": "application/pdf"
+  },
+  {
+    "title": "Social Welfare Citizen Charter",
+    "source_url": "https://pulilan.gov.ph/wp-content/uploads/2023/01/CC-2026-MSWDO.pdf",
+    "source_page": "https://pulilan.gov.ph/citizens-charter/",
+    "local_path": "documents/official/social-welfare-charter-2026.pdf",
+    "kind": "charter",
+    "retrieved": "2026-10-13",
+    "bytes": 5789999,
+    "sha256": "36db169786b34ff3bf0b010603db6c7b72a9d1dedf74c00b53ec3058a8338ddc",
+    "content_type": "application/pdf"
+  },
+  {
+    "title": "Population Office Citizen Charter",
+    "source_url": "https://pulilan.gov.ph/wp-content/uploads/2023/01/CC-2026-POPULATION.pdf",
+    "source_page": "https://pulilan.gov.ph/citizens-charter/",
+    "local_path": "documents/official/population-charter-2026.pdf",
+    "kind": "charter",
+    "retrieved": "2026-10-13",
+    "bytes": 1661714,
+    "sha256": "2043ca4d0f32bd8d5ff65df8c582c8471ebd1514b8ae7f6676a8ea682ff2a8b3",
+    "content_type": "application/pdf"
+  },
+  {
+    "title": "Unified Building Permit Application",
+    "source_url": "https://pulilan.gov.ph/wp-content/uploads/2023/09/UNIFIED-FORM-FOR-BLDG-PERMIT.pdf",
+    "source_page": "https://pulilan.gov.ph/downloadable-forms/",
+    "local_path": "documents/official/building-permit.pdf",
+    "kind": "form",
+    "retrieved": "2026-10-13",
+    "bytes": 317146,
+    "sha256": "a0902e1bbef4dc3bc3821abd03e984527da6d507f19814d021f5dfd7cfbd65c3",
+    "content_type": "application/pdf"
+  },
+  {
+    "title": "Certificate of Occupancy Application",
+    "source_url": "https://pulilan.gov.ph/wp-content/uploads/2023/09/Unified-Application-Form-for-Certificate-of-Occupancy.pdf",
+    "source_page": "https://pulilan.gov.ph/downloadable-forms/",
+    "local_path": "documents/official/occupancy-application.pdf",
+    "kind": "form",
+    "retrieved": "2026-10-13",
+    "bytes": 101373,
+    "sha256": "f79efcaf31b3eb0d21953fcf20c569cb3ebcbcb5ff779f99eebe186e201a7d90",
+    "content_type": "application/pdf"
+  },
+  {
+    "title": "Pulilan municipal logo",
+    "source_url": "https://pulilan.gov.ph/wp-content/themes/brp21/assets/images/logo-pulilan.png",
+    "source_page": "https://pulilan.gov.ph/",
+    "local_path": "assets/images/official/pulilan-logo.png",
+    "kind": "logo",
+    "retrieved": "2026-10-13",
+    "bytes": 108936,
+    "sha256": "ce5413c8a75569eb8751eb647a38fc1c4500694dbad509174eb50d9ad7460bcc",
+    "content_type": "image/png"
+  },
+  {
+    "title": "Pulilan site icon",
+    "source_url": "https://pulilan.gov.ph/wp-content/themes/brp21/assets/images/favicon.png",
+    "source_page": "https://pulilan.gov.ph/",
+    "local_path": "assets/images/official/pulilan-icon.png",
+    "kind": "icon",
+    "retrieved": "2026-10-13",
+    "bytes": 117116,
+    "sha256": "b8bce860bd346fbc0d09b58fca33d6f8e2c22b0ad68d1619a525fc01167122ef",
+    "content_type": "image/png"
+  }
+]

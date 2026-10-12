@@ -1,0 +1,26 @@
+[
+  {
+    "image": "images/community/municipal-hall.jpg",
+    "alt": "Pulilan Municipal Hall",
+    "source_url": "https://pulilan.gov.ph/wp-content/uploads/2021/07/PulilanHallBulacanjf9617_07-scaled.jpg",
+    "source_page": "https://pulilan.gov.ph/about-pulilan/demographic-profile/",
+    "retrieved": "2026-10-13",
+    "sha256": "2c66891b226044759ed5eea1c71aec28988384462b81cc61d460ea90e0347420"
+  },
+  {
+    "image": "images/community/parish-church.jpg",
+    "alt": "San Isidro Labrador Parish Church in Pulilan",
+    "source_url": "https://pulilan.gov.ph/wp-content/uploads/2021/07/pulilan_church-scaled.jpg",
+    "source_page": "https://pulilan.gov.ph/about-pulilan/demographic-profile/",
+    "retrieved": "2026-10-13",
+    "sha256": "3e1b517ea0aa1177f3d701cec01f756f217350a4c817924f2d995d91b4069156"
+  },
+  {
+    "image": "images/community/carabao-festival.jpg",
+    "alt": "Street dancers at Pulilan Carabao Festival",
+    "source_url": "https://pulilan.gov.ph/wp-content/uploads/slider/cache/d91c3401bbe63def00af27a7a91442d8/pulilan-bulacan-commence-kneeling-carabao-festival-2019-3.jpg",
+    "source_page": "https://pulilan.gov.ph/about-pulilan/demographic-profile/",
+    "retrieved": "2026-10-13",
+    "sha256": "64b80a50a9997111f6bdad0ceb63ec6778c65e4029cd0f0aaa78dd1618107eae"
+  }
+]
